@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_if_admin, only: :new
+  before_action :check_if_admin, only: [:new, :create]
 
   def new
     @user = User.new
@@ -29,11 +29,15 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
 
-  # Skickar tillbaka ickeadmins till deras profiler
+  # Skickar tillbaka ickeadmins till deras profiler eller loginsidan
   # Bra att köra innan redirects till adminsidor
   def check_if_admin
-    unless current_user.admin?
-      redirect_to current_user
+    unless logged_in?
+      redirect_to login_path
+    else
+      unless current_user.admin?
+        redirect_to current_user
+      end
     end
   end
 end

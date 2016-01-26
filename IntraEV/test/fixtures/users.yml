@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  password_digest: MyString
-  admin: false
+  id: 1
+  name: TestAdmin
+  password_digest: supersecretpassword
+  admin: true
 
 two:
-  name: MyString
-  password_digest: MyString
+  id: 2
+  name: TestUser
+  password_digest: supersecretpassword
   admin: false
