@@ -1,0 +1,22 @@
+<h1>Registrera ny användare</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div>
+    <%= f.label :name, "Användarnamn" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :password, "Lösenord" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, "Konfirmera lösenord" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <hr />
+  <%= f.submit "Skapa användare" %>
+<% end %>

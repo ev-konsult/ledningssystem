@@ -1,0 +1,15 @@
+<h1>Inloggning</h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Användarnamn" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, "Lösenord" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit "Logga in" %>
+<% end %>

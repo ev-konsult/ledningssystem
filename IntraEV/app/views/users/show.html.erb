@@ -1,0 +1,6 @@
+<h2>Du är inloggad, woho</h2>
+
+<!-- Om användaren är admin, länka till formuläret för nya användare -->
+<% if @user.admin? %>
+  <%= link_to "Skapa ny användare", new_user_path %>
+<% end %>

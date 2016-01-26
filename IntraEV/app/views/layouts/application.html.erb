@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- Flashmeddelanden visas här. Flash[:notice], Flash[:success] osv -->
+  <% flash.each do |message_type, message| %>
+    <!-- CSS-klassen blir tex "flash-success" eller "flash-notice" -->
+    <div class="flash-<%= message_type %>">
+      <%= message %>
+    </div>
+  <% end %>
 
-<%= yield %>
+  <!-- Utloggningsknapp bara för inloggade användare -->
+  <% if logged_in? %>
+    <li><%= link_to "Logga ut", logout_path, method: "delete" %></li>
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>
