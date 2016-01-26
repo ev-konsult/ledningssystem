@@ -1,13 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Password digest är bcrypt hash av "hello"
 
 one:
   id: 1
   name: TestAdmin
-  password_digest: supersecretpassword
+  password_digest: $2a$04$pFlBQ/KPICTs9MnHuWfy5uBjixBHqleR2r4O8NPjFkAU9wNj9y1om
   admin: true
 
 two:
   id: 2
   name: TestUser
-  password_digest: supersecretpassword
+  password_digest: $2a$04$pFlBQ/KPICTs9MnHuWfy5uBjixBHqleR2r4O8NPjFkAU9wNj9y1om
   admin: false
