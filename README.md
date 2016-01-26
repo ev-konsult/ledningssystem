@@ -22,4 +22,4 @@ http://intraev.herokuapp.com/
   
 ## Tester
 
-Skriv "rake test" för att köra alla tester. Lägg på ett ord för att köra specifika tester, tex "rake test:models".
+Skriv "rake test" för att köra alla tester. Lägg på ett ord för att köra specifika testgrupper, tex "rake test:models".
