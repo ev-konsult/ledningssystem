@@ -35,4 +35,13 @@ class UserTest < ActiveSupport::TestCase
     @user.password_confirmation = "kek"
     assert_not @user.valid?
   end
+
+  # Testar att lösenordet verkligen hashas med bcrypt när användaren sparas
+  test "should hash password with bcrypt" do
+    @user.save
+
+    #BCrypt har $2a som identifierare
+    algorithm_identifier = @user.password_digest[0, 3]
+    assert algorithm_identifier == "$2a"
+  end
 end
