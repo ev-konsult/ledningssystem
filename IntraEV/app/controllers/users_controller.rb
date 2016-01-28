@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   # Skickar tillbaka ickeadmins till deras profiler eller loginsidan
-  # Bra att köra innan redirects till adminsidor
+  # Bra att köra innan saker som bara admin ska få göra
   def check_if_admin
     unless logged_in?
       redirect_to login_path
