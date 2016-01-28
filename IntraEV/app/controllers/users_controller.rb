@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    # Sidindelade användare, 5 användare per sida
+    @users = User.paginate(:page => params[:page], :per_page => 5)
   end
 
   def destroy
