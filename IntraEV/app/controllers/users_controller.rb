@@ -1,15 +1,26 @@
 class UsersController < ApplicationController
-  before_action :check_if_admin, only: [:new, :create]
+  before_action :check_if_admin, only: [:new, :create, :destroy, :index]
 
   def new
     @user = User.new
+  end
+
+  def index
+    @users = User.all
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "Du gav personen sparken, bra jobbat!"
+    redirect_to users_path
   end
 
   def create
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = "Du har registrerat en ny användare!"
+      flash[:success] = "Du har registrerat en ny anställd!"
 
       # Redirect till current user istället för den nya användaren,
       # eftersom det bara är admin som kan skapa profiler
