@@ -11,7 +11,7 @@ http://intraev.herokuapp.com/
 ## Installation
 
 1. Navigera in i mappen IntraEV med railskonsollen 
-2. Skriv "bundle install" för att installera alla gems
+2. Skriv "bundle install --without production" för att installera alla gems
 3. Skriv "rake db:setup" för att skapa databasen och populera den med testdata. Dessa konton skapas:
  
 | Användarnamn | Lösenord |
