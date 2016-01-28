@@ -7,7 +7,11 @@ class UsersController < ApplicationController
 
   def index
     # Sidindelade användare, 5 användare per sida
-    @users = User.paginate(:page => params[:page], :per_page => 5)
+    if params[:search]
+      @users = User.paginate(:page => params[:page], :per_page => 5).search(params[:search])
+    else
+      @users = User.paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   def destroy

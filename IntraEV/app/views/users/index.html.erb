@@ -1,5 +1,19 @@
-<h2>Användare</h2>
+<h2>Anställda</h2>
 <%= will_paginate @users %>
+
+<!-- Sökformulär, sätter params[:search] -->
+<div>
+  <%= form_tag(users_path, :method => "get") do %>
+    <!-- Plockar bort params[:search] om queryn är tom.
+         Ser fult ut med tomma querys i URL'n.. -->
+    <% if params[:search] == "" %>
+      <% params.delete :search %>
+    <% end %>
+
+    <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100 %>
+    <button type="submit">Sök</button>
+  <% end %>
+</div>
 
 <ul>
   <% @users.each do |user| %>
@@ -8,3 +22,5 @@
     <li><%= user.name %><%= link_to "Ge sparken", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"} %></li>
   <% end %>
 </ul>
+
+<%= link_to "Tillbaka", current_user %>
