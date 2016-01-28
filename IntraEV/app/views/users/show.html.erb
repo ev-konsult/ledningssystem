@@ -1,6 +1,6 @@
 <h2>Du är inloggad, woho</h2>
 
-<!-- Om användaren är admin, länka till formuläret för nya användare -->
+<!-- Om användaren är admin renderas views/users/_admin_dashboard.html.erb -->
 <% if @user.admin? %>
-  <%= link_to "Skapa ny användare", new_user_path %>
+  <%= render 'admin_dashboard' %>
 <% end %>

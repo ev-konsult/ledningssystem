@@ -1,15 +1,31 @@
 class UsersController < ApplicationController
-  before_action :check_if_admin, only: [:new, :create]
+  before_action :check_if_admin, only: [:new, :create, :destroy, :index]
 
   def new
     @user = User.new
+  end
+
+  def index
+    # Sidindelade användare, 5 användare per sida
+    if params[:search]
+      @users = User.paginate(:page => params[:page], :per_page => 5).search(params[:search])
+    else
+      @users = User.paginate(:page => params[:page], :per_page => 5)
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "Du gav personen sparken, bra jobbat!"
+    redirect_to users_path
   end
 
   def create
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = "Du har registrerat en ny användare!"
+      flash[:success] = "Du har registrerat en ny anställd!"
 
       # Redirect till current user istället för den nya användaren,
       # eftersom det bara är admin som kan skapa profiler
@@ -30,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   # Skickar tillbaka ickeadmins till deras profiler eller loginsidan
-  # Bra att köra innan redirects till adminsidor
+  # Bra att köra innan saker som bara admin ska få göra
   def check_if_admin
     unless logged_in?
       redirect_to login_path
