@@ -11,3 +11,9 @@ two:
   name: TestUser
   password_digest: $2a$04$pFlBQ/KPICTs9MnHuWfy5uBjixBHqleR2r4O8NPjFkAU9wNj9y1om
   admin: false
+
+three:
+  id: 3
+  name: SearchUser
+  password_digest: $2a$04$pFlBQ/KPICTs9MnHuWfy5uBjixBHqleR2r4O8NPjFkAU9wNj9y1om
+  admin: false
