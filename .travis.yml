@@ -2,5 +2,11 @@ language: ruby
 rvm:
  - "2.1.5"
  - rbx
+
+env:
+ - DB=sqlite
+script:
+ - RAILS_ENV=test bundle exec rake db:migrate test
+
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
