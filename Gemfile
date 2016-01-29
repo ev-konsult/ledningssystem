@@ -35,7 +35,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+
 end
 
 # group :production do
@@ -48,6 +48,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'byebug'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
