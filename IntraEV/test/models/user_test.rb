@@ -44,4 +44,15 @@ class UserTest < ActiveSupport::TestCase
     algorithm_identifier = @user.password_digest[0, 3]
     assert algorithm_identifier == "$2a"
   end
+
+  # Testar sökningen via scope
+  test "search should filter result" do
+    # Det finns två användare i testfixturen (users.yml) som har "test" i namnet
+    user_search_result = User.search("Test")
+    assert user_search_result.count == 2
+
+    # Det finns inga användare med "Nope" i namnet. Ska returnera tom AR-relation
+    user_search_result = User.search("Nope")
+    assert user_search_result.empty?
+  end
 end
