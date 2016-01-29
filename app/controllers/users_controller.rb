@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     else
       @users = User.paginate(:page => params[:page], :per_page => 5)
     end
+
+    respond_to do |format|
+      format.js # index.js.erb
+      format.html # intex.html.erb
+    end
   end
 
   def destroy

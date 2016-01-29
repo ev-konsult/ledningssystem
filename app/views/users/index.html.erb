@@ -1,9 +1,8 @@
 <h2>Anställda</h2>
-<%= will_paginate @users %>
 
 <!-- Sökformulär, sätter params[:search] -->
 <div>
-  <%= form_tag(users_path, :method => "get") do %>
+  <%= form_tag(users_path, :method => "get", remote: true) do %>
     <!-- Plockar bort params[:search] om queryn är tom.
          Ser fult ut med tomma querys i URL'n.. -->
     <% if params[:search] == "" %>
@@ -15,12 +14,8 @@
   <% end %>
 </div>
 
-<ul>
-  <% @users.each do |user| %>
-    <!-- Visar inte admin..så att admin inte ger admin sparken -->
-    <% next if user.admin %>
-    <li><%= user.name %><%= link_to "Ge sparken", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"} %></li>
-  <% end %>
-</ul>
+<div id="user_display">
+  <%= render 'user_display' %>
+</div>
 
 <%= link_to "Tillbaka", current_user %>
