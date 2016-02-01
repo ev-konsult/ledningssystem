@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-no-turbolink="true">
   <!-- Flashmeddelanden visas här. Flash[:notice], Flash[:success] osv -->
   <% flash.each do |message_type, message| %>
     <!-- CSS-klassen blir tex "flash-success" eller "flash-notice" -->
