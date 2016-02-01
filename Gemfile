@@ -27,6 +27,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Pagination!
 gem 'will_paginate', '~> 3.0.6'
 
+# Text editor
+gem 'tinymce-rails'
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
