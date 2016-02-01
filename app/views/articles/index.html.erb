@@ -1,0 +1,11 @@
+<% content_for :title, "Ny artikel" %>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article) %>
+      <p><%= truncate(strip_tags(article.body)) %></p>
+      <p><%= article.created_at.to_formatted_s(:db) %></p>
+    </li>
+  <% end %>
+</ul>

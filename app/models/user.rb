@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :articles
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
   scope :search, -> (query) { where "lower(name) like ?", "%#{query.downcase}%" }
 

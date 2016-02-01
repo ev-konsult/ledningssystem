@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'articles/show'
+
+  get 'articles/new'
+
   resources :users
-  resources :news
+  resources :articles
 
   root to: 'sessions#new'
 
