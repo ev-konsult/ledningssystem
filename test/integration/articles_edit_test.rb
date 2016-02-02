@@ -3,6 +3,7 @@ require 'test_helper'
 class ArticlesEditTest < ActionDispatch::IntegrationTest
   def setup
     @article = articles(:one)
+    session[:user_id] = users(:one).id
   end
 
   test "successful edit" do
