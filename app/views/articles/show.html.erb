@@ -2,3 +2,5 @@
 <p><%= @article.body.html_safe %></p>
 <%= link_to "Ta bort", article_path(@article), method: :delete,
                                                data: { confirm: "Vill du verkligen ta bort artikeln?"}  %>
+<%= link_to "Ändra", edit_article_path(@article) %>
+<%= link_to "Tillbaka", articles_path %>
