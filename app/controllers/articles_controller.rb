@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "Artikel sparades!"
       redirect_to current_user
     else
+      flash.now[:danger] = "Artikel kunde inte sparas!"
       render 'new'
     end
   end
