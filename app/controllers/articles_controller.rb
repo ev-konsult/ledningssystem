@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :fetch_article, only: [:show, :destroy, :edit, :update]
+  before_action :check_if_logged_in, only: [:create, :destroy, :update, :edit, :new]
 
   def show
 
@@ -52,5 +53,11 @@ class ArticlesController < ApplicationController
 
     def fetch_article
       @article = Article.find(params[:id])
+    end
+
+    def check_if_logged_in
+      unless logged_in?
+        redirect_to root_path
+      end
     end
 end
