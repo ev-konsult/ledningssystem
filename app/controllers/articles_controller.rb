@@ -28,11 +28,16 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    if @article.update_attributes(article_params)
+      flash[:success] = "Artikeln uppdaterades!"
+      redirect_to @article
+    else
+      flash.now[:danger] = "Artikeln kunde inte uppdateras!"
+      render 'edit'
+    end
   end
 
   def index

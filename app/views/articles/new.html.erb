@@ -1,13 +1,4 @@
 <% content_for :title, "Ny artikel" %>
-<%= tinymce %>
 
-<%= form_for @article do |f| %>
-    <%= f.label :title, "Titel" %>
-    <%= f.text_field :title %>
-
-    <%= f.label :body, "Innehåll" %>
-    <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120 %>
-
-    <%= f.submit %>
-<% end %>
+<%= render 'article_form' %>
 
