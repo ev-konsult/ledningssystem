@@ -18,6 +18,32 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_redirected_to @user
   end
 
+  test "successful edit" do
+    title = "Helt ny title här! Titta"
+    body = "Hel ny body bara för detta testet. Lorem ipsum thjena"
+
+    patch :update, id: @article, article: { title: title, body: body }
+    assert_equal "Artikeln uppdaterades!", flash[:success]
+    assert_redirected_to @article
+
+    @article.reload
+    assert_equal title, @article.title
+    assert_equal body, @article.body
+  end
+
+  test "unsuccessful edit" do
+    title = "kort"
+    body = "så kort"
+
+    patch :update, id: @article, article: { title: title, body: body }
+    assert_equal "Artikeln kunde inte uppdateras!", flash.now[:danger]
+    assert_template 'edit'
+
+    @article.reload
+    assert_not_equal title, @article.title
+    assert_not_equal body, @article.body
+  end
+
   test "make sure invalid article is not saved" do
     assert_no_difference("Article.count") do
       post :create, article: { title: "",
