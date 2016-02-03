@@ -13,5 +13,12 @@
     <%= f.password_field :password %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :remember_me do %>
+      Kom ihåg mig!
+      <%= f.check_box :remember_me %>
+    <% end %>
+  </div>
+
   <%= f.submit "Logga in" %>
 <% end %>
