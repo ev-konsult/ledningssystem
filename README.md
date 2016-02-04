@@ -7,7 +7,8 @@
 http://intraev.herokuapp.com/
 
 ## Arbetsflöde
-[Följ detta dokument](https://docs.google.com/document/d/1HEOjPrNU2Y5KXCUPT_Sb9oeAtMeMfUrbswxkRRi-7f8/edit?pref=2&pli=1)
+[Följ detta dokument](https://docs.google.com/document/d/1HEOjPrNU2Y5KXCUPT_Sb9oeAtMeMfUrbswxkRRi-7f8/edit?pref=2&pli=1)  
+Tack till Rasmus Eneman som delade detta dokument.
 
 ## Installation
 
