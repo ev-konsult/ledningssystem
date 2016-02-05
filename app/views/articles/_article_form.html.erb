@@ -1,11 +1,14 @@
 <%= tinymce %>
 
 <%= form_for @article do |f| %>
-    <%= f.label :title, "Titel" %>
-    <%= f.text_field :title %>
+    <div class="form-group">
+      <%= f.label :title, "Titel" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
 
     <%= f.label :body, "Innehåll" %>
     <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120 %>
 
-    <%= f.submit %>
+    <%= f.submit "Skapa", class: "btn btn-primary" %>
+    <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
 <% end %>

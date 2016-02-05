@@ -1,9 +1,10 @@
 <%= js_will_paginate @users %>
 
-<ul>
+<hr />
+<ul class="list-group">
   <% @users.each do |user| %>
     <!-- Visar inte admin..så att admin inte ger admin sparken -->
     <% next if user.admin %>
-    <li><%= user.name %><%= link_to "Ge sparken", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"} %></li>
+    <li class="list-group-item"><%= user.name %><%= link_to "Ge sparken", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></li>
   <% end %>
 </ul>
