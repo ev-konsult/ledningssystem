@@ -5,12 +5,12 @@
 <%= form_for(:session, url: login_path) do |f| %>
   <div class="form-group">
     <%= f.label :name, "Användarnamn" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :password, "Lösenord" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -19,6 +19,5 @@
       <%= f.check_box :remember_me %>
     <% end %>
   </div>
-
-  <%= f.submit "Logga in" %>
+  <%= f.submit "Logga in", class: 'btn btn-primary' %>
 <% end %>

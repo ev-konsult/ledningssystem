@@ -1,11 +1,19 @@
-<% content_for :title, "Ny artikel" %>
+<% content_for :title, "Artiklar" %>
+
+<hr />
 
 <ul>
   <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article) %>
-      <p><%= truncate(strip_tags(article.body)) %></p>
-      <p><%= article.created_at.to_formatted_s(:db) %></p>
+    <li class="panel panel-primary">
+      <div class="panel-heading">
+        <%= link_to article.title, article_path(article), class: "panel-title" %>
+      </div>
+      <div class="panel-body">
+        <p><%= truncate(strip_tags(article.body)) %></p>
+        <p><%= article.created_at.to_formatted_s(:db) %></p>
+      </div>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>

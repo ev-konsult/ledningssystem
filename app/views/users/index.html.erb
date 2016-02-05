@@ -9,8 +9,8 @@
       <% params.delete :search %>
     <% end %>
 
-    <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100 %>
-    <button type="submit">Sök</button>
+    <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control" %>
+    <button type="submit" class="btn btn-primary">Sök</button>
   <% end %>
 </div>
 
@@ -18,4 +18,4 @@
   <%= render 'user_display' %>
 </div>
 
-<%= link_to "Tillbaka", current_user %>
+<%= link_to "Tillbaka", current_user, class: "btn btn-primary" %>

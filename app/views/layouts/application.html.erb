@@ -7,21 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-no-turbolink="true">
-  <!-- Flashmeddelanden visas här. Flash[:notice], Flash[:success] osv -->
-  <% flash.each do |message_type, message| %>
-    <!-- CSS-klassen blir tex "flash-success" eller "flash-notice" -->
-    <div class="flash-<%= message_type %>">
-      <%= message %>
+  <div class="container">
+    <div class="jumbotron" >
+      <!-- Flashmeddelanden visas här. Flash[:notice], Flash[:success] osv -->
+      <% flash.each do |message_type, message| %>
+        <!-- CSS-klassen blir tex "flash-success" eller "flash-notice" -->
+        <div class="flash-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
+
+      <!-- Utloggningsknapp bara för inloggade användare -->
+      <% if logged_in? %>
+        <%= link_to "Logga ut", logout_path, method: "delete", class: "btn btn-primary" %>
+      <% end %>
+      <%= yield %>
+
+      <!-- Debuginformation om params tex, syns bara i developer -->
+      <%= debug(params) if Rails.env.development? %>
     </div>
-  <% end %>
-
-  <!-- Utloggningsknapp bara för inloggade användare -->
-  <% if logged_in? %>
-    <li><%= link_to "Logga ut", logout_path, method: "delete" %></li>
-  <% end %>
-  <%= yield %>
-
-  <!-- Debuginformation om params tex, syns bara i developer -->
-  <%= debug(params) if Rails.env.development? %>
+  </div>
 </body>
 </html>
