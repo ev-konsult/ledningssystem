@@ -33,7 +33,7 @@ Applikationen hittas nu på localhost:3000
 
 ## Deployment
   
-Vi använder [Heroku](https://id.heroku.com/login) för att publicera applikationen.
+Vi använder [Heroku](https://id.heroku.com/login) för att publicera applikationen. Man behöver ett konto på Heroku för att publicera.
   
 Om man vill publicera applikationen själv behöver man installera [Heroku Toolbar](https://toolbelt.heroku.com/) på sin dator, detta finns för alla operativsystem. När det är installerat, öppna exempelvis Git Bash eller någon annan command shell och skriv:
 
