@@ -10,21 +10,38 @@ http://intraev.herokuapp.com/
 [Git workflow](https://github.com/ev-konsult/ledningssystem/wiki/Git-Workflow)
 [Git message convention](https://github.com/ev-konsult/ledningssystem/wiki/Git-commit-message-convention)
 
-## Installation
 
-1. Navigera in i mappen IntraEV med railskonsollen 
-2. Skriv "bundle install --without production" för att installera alla gems
-3. Skriv "rake db:setup" för att skapa databasen och populera den med testdata. Dessa konton skapas:
- 
+
+## Ruby version
+* Ruby 2.1.5
+* Rails 4.2.5
+
+## Installation
+```bash
+    git clone https://github.com/ev-konsult/ledningssystem.git 
+    bundle install --without production
+    rake db:setup
+    rails s 
+```  
+Applikationen hittas nu på localhost:3000
+
 | Användarnamn | Lösenord |
 |----:|:-------|
 | Admin | adminpassword |
 | First User | firstpassword |
 | Second User | secondpassword |
 
-4. Skriv "rails s" för att starta servern
-5. Nu hittar du applikationen på localhost:3000
+## Deployment
+// TODO
   
 ## Tester
+För att köra skriv
+```bash
+    rake test
+```
 
-Skriv "rake test" för att köra alla tester. Lägg på ett ord för att köra specifika testgrupper, tex "rake test:models".
+För att köra tester specifika till en del av applikationen, skriv ex:
+```bash
+    rake test:models
+    rake test:controllers
+```
