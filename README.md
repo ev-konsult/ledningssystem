@@ -32,7 +32,42 @@ Applikationen hittas nu på localhost:3000
 | Second User | secondpassword |
 
 ## Deployment
-// TODO
+  
+Vi använder [Heroku](https://id.heroku.com/login) för att publicera applikationen.
+  
+Om man vill publicera applikationen själv behöver man installera [Heroku Toolbar](https://toolbelt.heroku.com/) på sin dator, detta finns för alla operativsystem. När det är installerat, öppna exempelvis Git Bash eller någon annan command shell och skriv:
+
+```bash
+    heroku login
+``` 
+  
+Om du inte redan har ett git-repositorie i mappen, skriv 
+
+```bash
+    git init
+    git add .
+    git commit -am "Hello Heroku world! :sob: :sob:"
+``` 
+
+Sedan för att skapa applikationen och publicera den:
+
+```bash
+    heroku create --stack cedar
+    git push heroku master
+``` 
+
+För att skapa databasens tabeller och populera dem med data:
+
+```bash
+    heroku run rake db:migrate
+    heroku run rake db:seed
+``` 
+
+Om du vill byta ut herokus flummiga namn mot ett eget namn på applikationen:
+
+```bash
+    heroku apps:rename namnetduvillha
+``` 
   
 ## Tester
 För att köra skriv
