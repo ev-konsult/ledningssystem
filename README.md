@@ -63,7 +63,7 @@ För att skapa databasens tabeller och populera dem med data:
     heroku run rake db:seed
 ``` 
 
-Om du vill byta ut herokus flummiga namn mot ett eget namn på applikationen:
+Om du vill byta ut herokus slumpade applikationsnamn mot ett eget namn på applikationen:
 
 ```bash
     heroku apps:rename namnetduvillha
