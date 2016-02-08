@@ -27,3 +27,13 @@
 ul {
   list-style-type: none;
 }
+
+.jumbotron p {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+/* Hide the add education form until show button is clicked */
+#education-form {
+  display: none;
+}

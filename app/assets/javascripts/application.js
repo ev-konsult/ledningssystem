@@ -17,3 +17,24 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+$(document).ready(function() {
+  /**
+  * Displays the education form when the show button is clicked
+  */
+  $('#show-education-form').click(function(event) {
+    event.preventDefault();
+    $(this).hide();
+    $('#education-form').slideDown();
+    $('#hide-education-form').show();
+  });
+
+  /**
+  * Hides education form and shows the show button again
+  */
+  $('#hide-education-form').click(function() {
+    $('#hide-education-form').hide();
+    $('#education-form').slideUp(function() {
+      $('#show-education-form').fadeIn();
+    });
+  });
+});
