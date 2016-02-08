@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'articles/new'
 
   resources :users do
-    resources :educations, only: [:index, :show]
+    resources :educations, only: [:create]
   end
   resources :articles
 
