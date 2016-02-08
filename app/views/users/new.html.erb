@@ -10,6 +10,22 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :ssn, "Personnummer" %>
+    <%= f.text_field :ssn, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone_number, "Telefonnummer" %>
+    <%= f.text_field :phone_number, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
     <%= f.label :password, "Lösenord" %>
     <%= f.password_field :password, class: "form-control" %>
   </div>

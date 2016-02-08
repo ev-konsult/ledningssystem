@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get 'articles/new'
 
-  resources :users
+  resources :users do
+    resources :educations, only: [:create]
+  end
   resources :articles
 
   root to: 'sessions#new'

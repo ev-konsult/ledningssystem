@@ -1,6 +1,23 @@
-<h2>Du är inloggad, woho</h2>
+<h2><%= @user.name %></h2>
 
 <!-- Om användaren är admin renderas views/users/_admin_dashboard.html.erb -->
-<% if @user.admin? %>
-  <%= render 'admin_dashboard' %>
+<!-- Formulären ska vara gömda, när admin klickar på t.ex ny utbildning ska en flashig jquery animation komma typ-->
+<% if current_user.admin? %>
+  <%= form_for [@user, @user.educations.build] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br /> <!-- remove br and style it !-->
+
+    <%= f.label :school %>
+    <%= f.text_field :school %><br /><!-- remove br and style it !-->
+
+    <%= f.label :graduation %>
+    <%= f.date_field :graduation %><br /><!-- remove br and style it !-->
+
+    <%= f.submit "Lägg till utbildning", class: "btn btn-primary" %>
+
+    <% end %>
+
+  <% if @user.admin? %>
+    <%= render 'admin_dashboard' %>
+  <% end %>
 <% end %>
