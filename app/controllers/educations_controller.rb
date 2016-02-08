@@ -3,11 +3,13 @@ class EducationsController < ApplicationController
   def create
     @education = @user.educations.build(education_params)
     if @education.save
-      flash[:success] = "Utbildning tillagd"
+      respond_to do |format|
+        format.html { redirect_to @user }
+        format.js
+      end
     else
       flash[:danger] = "Någon gick fel, försök igen!" # visa felmeddelanden
     end
-    redirect_to @user
   end
 
   def destroy
