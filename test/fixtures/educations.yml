@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  school: MyString
+  graduation: 2016-02-08 15:45:22
+
+two:
+  name: MyString
+  school: MyString
+  graduation: 2016-02-08 15:45:22
