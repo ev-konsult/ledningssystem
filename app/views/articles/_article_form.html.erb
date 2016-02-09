@@ -1,6 +1,7 @@
 <%= tinymce %>
 
 <%= form_for @article do |f| %>
+    <%= render 'shared/error_messages', obj: f.object %>
     <div class="form-group">
       <%= f.label :title, "Titel" %>
       <%= f.text_field :title, class: "form-control" %>

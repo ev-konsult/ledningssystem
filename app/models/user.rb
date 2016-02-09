@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_SSN_REGEX = /\A[0-9]{6}-[0-9]{4}/i
   attr_accessor :remember_token
   has_many :articles
   has_many :educations
+  before_save { self.email = email.downcase }
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
   scope :search, -> (query) { where "lower(name) like ?", "%#{query.downcase}%" }
 
@@ -11,6 +14,14 @@ class User < ActiveRecord::Base
 
   validates :password, presence: true,
                        length: { in: 6..100 }
+
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
+  validates :ssn, presence: true, format: { with: VALID_SSN_REGEX }, uniqueness: true;
+
+  validates :phone_number, presence: true, length: { in: 7..15 }
+
 
   has_secure_password
 

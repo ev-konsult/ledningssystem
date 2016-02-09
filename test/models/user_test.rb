@@ -22,6 +22,24 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  # Test av email requirement
+  test "emailrequired" do
+    @user.email = ""
+    assert_not @user.valid?
+  end
+
+  # Test av email fel format
+  test "email wrong format" do
+    @user.email = "nah.com"
+    assert_not @user.valid?
+  end
+
+  # Test av email rätt format
+  test "email wrong format" do
+    @user.email = "valid@gmail.com"
+    assert_not @user.valid?
+  end
+
   # Testar att namn måste vara unika
   test "duplicatedename" do
     lookALike = @user.dup
