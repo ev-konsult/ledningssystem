@@ -19,6 +19,9 @@
 
 @CHARSET "UTF-8";
 
+$dark-purple: #41245E;
+$purple: #AA7CB5;
+$light-purple: #EEDEF0;
 
 * {
 	-webkit-box-sizing: border-box;
@@ -28,19 +31,25 @@
 }
 
 body {
-    background: #e1f0f6 !important;
+    /*background: $purple !important;*/
+    background-image: linear-gradient($purple, $dark-purple);
+}
+
+hr {
+	background-color: #E1E1E1;
+	height: 1px;
 }
 
 .login-form {
-	margin: 100px auto;
+	margin: 10% auto;
 	max-width: 400px;
 }
 
 form[role=login] {
-	/*font: 16px/1.8em Lato, serif;*/
-	background: #283a44;
+	font: 14px/1.8em Lato, serif;
+	background: #EFEFEF;	
 	padding: 30px 26px;
-	color: #fff;
+	color: $dark-purple;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -52,13 +61,22 @@ form[role=login] {
 	form[role=login] .form-control,
 	form[role=login] button {
 		font-size: 18px;
-		margin: 16px 0;
+		margin: 7px 0;
 	}
-		
+	form[role=login] .btn {	
+		background: $dark-purple !important;
+		border: $purple !important;
+		letter-spacing: 1px;
+	}
+	form[role=login] .login-remember {	
+		display: inline;
+		margin-left: 0.2em;
+	}
+
 .form-links {
 	text-align: center;
 	margin-top: 2em;
-	margin-bottom: 50px;
+	margin-bottom: 0.5em;
 }
 
 /*

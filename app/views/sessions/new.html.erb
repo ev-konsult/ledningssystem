@@ -2,19 +2,12 @@
 
 
 <section class="login-form">
+
 <%= form_for(:session, url: login_path, html: {role: "login"}) do |f| %>
-
-
-
-          <!--<img src="app/assets/images/logo.png" class="img-responsive" alt="" />-->
-
-          <%= image_tag("logo-white.png") %>
-          <!-- # => <img alt="Logo" src="/assets/logo" /> -->
           
-          <!--
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" />
-          <input type="password" name="password" placeholder="Password" required class="form-control input-lg" />
-          -->
+          <%= image_tag("logo.png", :class => "login-logo") %>
+          
+          <hr>
 
           <div class="form-group">
             <%= f.label :name, "Användarnamn" %>
@@ -29,7 +22,7 @@
           <div class="form-group">
             <%= f.label :remember_me do %>
               <%= f.check_box :remember_me %>
-              Kom ihåg mig
+              <p class="login-remember">Kom ihåg mig</p>
             <% end %>
           </div>
           
