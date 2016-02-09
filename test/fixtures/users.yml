@@ -3,17 +3,26 @@
 one:
   id: 1
   name: TestAdmin
-  password_digest: $2a$04$pFlBQ/KPICTs9MnHuWfy5uBjixBHqleR2r4O8NPjFkAU9wNj9y1om
+  password_digest: $2a$10$aPNr8WZDLw2RpCL8oayzKeMBXx1.hfMt9fJKO0zewwWewPSQiWOU.
   admin: true
+  email: foobar123123@gmail.com
+  ssn: 123456-1234
+  phone_number: 0701234561
 
 two:
   id: 2
   name: TestUser
-  password_digest: $2a$04$pFlBQ/KPICTs9MnHuWfy5uBjixBHqleR2r4O8NPjFkAU9wNj9y1om
+  password_digest: $2a$10$aPNr8WZDLw2RpCL8oayzKeMBXx1.hfMt9fJKO0zewwWewPSQiWOU.
   admin: false
+  email: foobar1@gmail.com
+  ssn: 123456-1337
+  phone_number: 0701234565
 
 three:
   id: 3
   name: SearchUser
-  password_digest: $2a$04$pFlBQ/KPICTs9MnHuWfy5uBjixBHqleR2r4O8NPjFkAU9wNj9y1om
+  password_digest: $2a$10$aPNr8WZDLw2RpCL8oayzKeMBXx1.hfMt9fJKO0zewwWewPSQiWOU.
   admin: false
+  email: foobar2@gmail.com
+  ssn: 098765-1234
+  phone_number: 0701234564

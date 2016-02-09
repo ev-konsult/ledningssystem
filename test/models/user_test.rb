@@ -5,7 +5,9 @@ class UserTest < ActiveSupport::TestCase
 
   # Testfixtur
   def setup
-    @user = User.new(name: 'Exempel', password: "foobar", password_confirmation: 'foobar')
+    #@user = users(:two)
+    @user = User.new(name: "TestUserHey", email:"testuser@example.com", password:"foobar123", password_confirmation: "foobar123",
+                     ssn: "123456-1233", phone_number: "0701234123")
   end
 
   # Test av namn requirement
@@ -35,8 +37,44 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # Test av email rätt format
-  test "email wrong format" do
-    @user.email = "valid@gmail.com"
+  test "email right format" do
+    @user.email = "validasdasdasdasd@gmail.com"
+    assert @user.valid?
+  end
+
+  # Test av ssn requirement
+  test "ssnrequired" do
+    @user.ssn = ""
+    assert_not @user.valid?
+  end
+
+  # Test av ssn fel format
+  test "ssn wrong format" do
+    @user.ssn = "nah"
+    assert_not @user.valid?
+  end
+
+  # Test av ssn rätt format
+  test "ssn right format" do
+    @user.ssn = "910506-5974"
+    assert @user.valid?
+  end
+
+  # Test av tomt telefonnummer
+  test "phonerequired" do
+    @user.phone_number = ""
+    assert_not @user.valid?
+  end
+
+  # Test av rätt formaterat telefonnummer
+  test "phone right format" do
+    @user.phone_number = "0769426341"
+    assert @user.valid?
+  end
+
+  # Test av fel formaterat telefonnummer
+  test "phone wrong format" do
+    @user.phone_number = "1891"
     assert_not @user.valid?
   end
 
