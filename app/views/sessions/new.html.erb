@@ -1,6 +1,6 @@
 <% content_for :title, "Logga in" %>
 
-<h1>Inloggning</h1>
+<h3>Inloggning</h3>
 
 <%= form_for(:session, url: login_path) do |f| %>
   <div class="form-group">
@@ -10,7 +10,7 @@
 
   <div class="form-group">
     <%= f.label :password, "Lösenord" %>
-    <%= f.password_field :password, class: "form-control" %>
+    <%= f.password_field :password, class: "form-control" %> 
   </div>
 
   <div class="form-group">
