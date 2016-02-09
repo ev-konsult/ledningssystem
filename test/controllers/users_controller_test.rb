@@ -18,7 +18,10 @@ class UsersControllerTest < ActionController::TestCase
     assert_difference('User.count') do
       post :create, user: { name: 'foobar',
                             password: "foobar",
-                            password_confirmation: "foobar" }
+                            password_confirmation: "foobar",
+                            phone_number: "1891189118",
+                            ssn: "910506-1891",
+                            email: Faker::Internet.email }
     end
 
     # Testar redirect
