@@ -16,9 +16,56 @@
     @import "bootstrap";
     @import "bootstrap-sprockets";
 
+
+@CHARSET "UTF-8";
+
+
+* {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+
+body {
+    background: #e1f0f6 !important;
+}
+
+.login-form {
+	margin: 100px auto;
+	max-width: 400px;
+}
+
+form[role=login] {
+	/*font: 16px/1.8em Lato, serif;*/
+	background: #283a44;
+	padding: 30px 26px;
+	color: #fff;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+	form[role=login] > img {
+		display: block;
+		margin-bottom: 2em;
+	}
+	form[role=login] .form-control,
+	form[role=login] button {
+		font-size: 18px;
+		margin: 16px 0;
+	}
+		
+.form-links {
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 50px;
+}
+
+/*
 .form-control, .list-group-item {
   max-width: 25%;
 }
+*/
 
 .fire-link {
   float: right;
@@ -27,6 +74,7 @@
 ul {
   list-style-type: none;
 }
+<<<<<<< HEAD
 
 .jumbotron p {
   font-weight: normal;
@@ -37,3 +85,5 @@ ul {
 #education-form {
   display: none;
 }
+=======
+>>>>>>> c3bc3c0e817efa327275a1e2ca77ef02275b9680
