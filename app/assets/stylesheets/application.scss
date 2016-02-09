@@ -30,8 +30,11 @@ $light-purple: #EEDEF0;
 	outline: none;
 }
 
+html, body {
+	height: 100% !important;
+}
+
 body {
-    /*background: $purple !important;*/
     background-image: linear-gradient($purple, $dark-purple);
 }
 
@@ -56,12 +59,12 @@ form[role=login] {
 }
 	form[role=login] > img {
 		display: block;
-		margin-bottom: 2em;
+		margin-bottom: 1em;
 	}
 	form[role=login] .form-control,
 	form[role=login] button {
 		font-size: 18px;
-		margin: 7px 0;
+		margin: 2px 0;
 	}
 	form[role=login] .btn {	
 		background: $dark-purple !important;
@@ -75,15 +78,9 @@ form[role=login] {
 
 .form-links {
 	text-align: center;
-	margin-top: 2em;
-	margin-bottom: 0.5em;
+	margin-top: 1.5em;
+	margin-bottom: 0em;
 }
-
-/*
-.form-control, .list-group-item {
-  max-width: 25%;
-}
-*/
 
 .fire-link {
   float: right;
