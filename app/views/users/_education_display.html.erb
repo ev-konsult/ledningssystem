@@ -1,0 +1,7 @@
+<% @user.educations.each do |education| %>
+  <div>
+    <p><strong><%= education.name %></strong></p>
+    <p>Skola: <%= education.school %></p>
+    <p>Tog examen: <%= education.graduation.strftime("%F") %></p>
+  </div>
+<% end %>

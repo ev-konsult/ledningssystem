@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation)
+    params.require(:user).permit(:name, :password, :password_confirmation, :phone_number, :ssn, :email)
   end
 
   # Skickar tillbaka ickeadmins till deras profiler eller loginsidan

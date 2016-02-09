@@ -5,6 +5,8 @@
   <% @users.each do |user| %>
     <!-- Visar inte admin..så att admin inte ger admin sparken -->
     <% next if user.admin %>
-    <li class="list-group-item"><%= user.name %><%= link_to "Ge sparken", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></li>
+    <li class="list-group-item">
+      <%= link_to user.name, user %><%= link_to "Ge sparken", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %>
+    </li>
   <% end %>
 </ul>

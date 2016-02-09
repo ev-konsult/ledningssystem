@@ -16,9 +16,74 @@
     @import "bootstrap";
     @import "bootstrap-sprockets";
 
+
+@CHARSET "UTF-8";
+
+$dark-purple: #41245E;
+$purple: #AA7CB5;
+$light-purple: #EEDEF0;
+
+* {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+
+body {
+    /*background: $purple !important;*/
+    background-image: linear-gradient($purple, $dark-purple);
+}
+
+hr {
+	background-color: #E1E1E1;
+	height: 1px;
+}
+
+.login-form {
+	margin: 10% auto;
+	max-width: 400px;
+}
+
+form[role=login] {
+	font: 14px/1.8em Lato, serif;
+	background: #EFEFEF;	
+	padding: 30px 26px;
+	color: $dark-purple;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+	form[role=login] > img {
+		display: block;
+		margin-bottom: 2em;
+	}
+	form[role=login] .form-control,
+	form[role=login] button {
+		font-size: 18px;
+		margin: 7px 0;
+	}
+	form[role=login] .btn {	
+		background: $dark-purple !important;
+		border: $purple !important;
+		letter-spacing: 1px;
+	}
+	form[role=login] .login-remember {	
+		display: inline;
+		margin-left: 0.2em;
+	}
+
+.form-links {
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 0.5em;
+}
+
+/*
 .form-control, .list-group-item {
   max-width: 25%;
 }
+*/
 
 .fire-link {
   float: right;
@@ -26,4 +91,14 @@
 
 ul {
   list-style-type: none;
+}
+
+.jumbotron p {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+/* Hide the add education form until show button is clicked */
+#education-form {
+  display: none;
 }

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
   <title>IntraEV <%= yield :title %></title>
+  <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body data-no-turbolink="true">
+
   <div class="container">
-    <div class="jumbotron" >
+
       <!-- Flashmeddelanden visas här. Flash[:notice], Flash[:success] osv -->
       <% flash.each do |message_type, message| %>
         <!-- CSS-klassen blir tex "flash-success" eller "flash-notice" -->
@@ -22,10 +26,9 @@
         <%= link_to "Logga ut", logout_path, method: "delete", class: "btn btn-primary" %>
       <% end %>
       <%= yield %>
-
+      
       <!-- Debuginformation om params tex, syns bara i developer -->
-      <%= debug(params) if Rails.env.development? %>
-    </div>
+      <%= debug(params) if Rails.env.development? %> 
   </div>
 </body>
 </html>
