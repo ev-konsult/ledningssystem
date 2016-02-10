@@ -3,7 +3,7 @@
 User.create(name: "Admin", password: "adminpassword", password_confirmation: "adminpassword", admin: true,
             email: "admin@admin.com", ssn: "123456-1234", phone_number: "0701234123", contact_person: @admin_contact)
 
-# Skapar användare med Faker
+# Skapar användare med Faker, varje användare har en kontaktperson
 99.times do |n|
   name = Faker::Name.name
   email = Faker::Internet.email
