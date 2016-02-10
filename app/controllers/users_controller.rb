@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_contact_person
   end
 
   def index
@@ -47,7 +48,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :phone_number, :ssn, :email)
+    params.require(:user).permit(:name, :password, :password_confirmation, :phone_number, :ssn, :email,
+                                 contact_person_attributes: [:id, :full_name, :email, :phone_number])
+                                 # ^ Nästlade attribut för contact_person
   end
 
   # Skickar tillbaka ickeadmins till deras profiler eller loginsidan

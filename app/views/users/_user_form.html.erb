@@ -31,6 +31,27 @@
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
 
+    <!-- Kontaktperson -->
+    <hr />
+    <h3>Närmaste kontaktperson<h3>
+
+    <%=  f.fields_for :contact_person do |ff| %>
+      <div class="form-group">
+        <%= ff.label :full_name, "Namn" %>
+        <%= ff.text_field :full_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :phone_number, "Telefonnummer" %>
+        <%= ff.text_field :phone_number, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :email, "Email" %>
+        <%= ff.text_field :email, class: "form-control" %>
+      </div>
+    <% end %>
+
     <hr />
     <%= f.submit "Skapa användare", class: "btn btn-primary" %>
     <%= link_to "Tillbaka", users_path, class: "btn btn-primary" %>

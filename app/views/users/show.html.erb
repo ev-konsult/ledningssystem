@@ -14,6 +14,11 @@
     <p>Personnummer: <%= @user.ssn %></p>
     <p>Email: <%= @user.email %></p>
     <p>Telefonnummer: <%= @user.phone_number %></p>
+    <hr />
+    <h4>Närmaste kontaktperson</h4>
+    <p>Namn: <%= @user.contact_person.full_name %></p>
+    <p>Telefonnummer: <%= @user.contact_person.phone_number %></p>
+    <p>Namn: <%= @user.contact_person.email %></p>
   </div>
 
   <div role="tabpanel" class="tab-pane" id="education">
