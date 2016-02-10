@@ -8,6 +8,8 @@ class UserTest < ActiveSupport::TestCase
     #@user = users(:two)
     @user = User.new(name: "TestUserHey", email:"testuser@example.com", password:"foobar123", password_confirmation: "foobar123",
                      ssn: "123456-1233", phone_number: "0701234123")
+
+    @user.create_contact_person(full_name: "MyName", email: "email@gmail.com", phone_number: "0721111111")                 
   end
 
   # Test av namn requirement

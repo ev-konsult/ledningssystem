@@ -21,7 +21,9 @@ class UsersControllerTest < ActionController::TestCase
                             password_confirmation: "foobar",
                             phone_number: "1891189118",
                             ssn: "910506-1891",
-                            email: Faker::Internet.email }
+                            email: Faker::Internet.email,
+                            contact_person_attributes: { full_name: 'foobar', email: "foobar@gmail.com",
+                                                         phone_number: "0721111111"}}
     end
 
     # Testar redirect
