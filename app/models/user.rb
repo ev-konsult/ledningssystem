@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :educations
   has_one :contact_person
+  
   accepts_nested_attributes_for :contact_person
+  validates_associated :contact_person
+  validates_presence_of :contact_person
 
   before_save { self.email = email.downcase }
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
