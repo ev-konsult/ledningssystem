@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token
   has_many :articles
   has_many :educations
+  has_one :contact_person
+  accepts_nested_attributes_for :contact_person
+
   before_save { self.email = email.downcase }
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
   scope :search, -> (query) { where "lower(name) like ?", "%#{query.downcase}%" }
