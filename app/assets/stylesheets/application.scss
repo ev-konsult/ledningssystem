@@ -15,24 +15,14 @@
  */
     @import "bootstrap";
     @import "bootstrap-sprockets";
+    @import "partials/_base";
+    @import "partials/_layout";
+    @import "partials/_variables";
 
 
-@CHARSET "UTF-8";
 
-$dark-purple: #41245E;
-$purple: #AA7CB5;
-$light-purple: #EEDEF0;
 
-* {
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-	outline: none;
-}
 
-html, body {
-	height: 100% !important;
-}
 
 body {
     background-image: linear-gradient($purple, $dark-purple);
