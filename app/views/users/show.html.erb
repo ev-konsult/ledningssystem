@@ -40,9 +40,11 @@
   </div>
 
   <div role="tabpanel" class="tab-pane" id="contacts">
-    <p>Namn: <%= @user.contact_person.full_name %></p>
-    <p>Telefonnummer: <%= @user.contact_person.phone_number %></p>
-    <p>Namn: <%= @user.contact_person.email %></p>
+    <% if @user.contact_person.present? %>
+      <p>Namn: <%= @user.contact_person.full_name %></p>
+      <p>Telefonnummer: <%= @user.contact_person.phone_number %></p>
+      <p>Namn: <%= @user.contact_person.email %></p>
+    <% end %>
   </div>
 </div>
 
