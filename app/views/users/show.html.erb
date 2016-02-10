@@ -6,7 +6,7 @@
 <ul class="nav nav-tabs" role="tablist">
   <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Personuppgifter</a></li>
   <li role="presentation"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Utbildning</a></li>
-  <li role="presentation"><a href="#contacts" aria-controls="contacts" role="tab" data-toggle="tab">Kontaktuppgift</a></li>
+  <li role="presentation"><a href="#contacts" aria-controls="contacts" role="tab" data-toggle="tab">Kontaktperson</a></li>
 </ul>
 
 <div class="tab-content">
@@ -14,11 +14,6 @@
     <p>Personnummer: <%= @user.ssn %></p>
     <p>Email: <%= @user.email %></p>
     <p>Telefonnummer: <%= @user.phone_number %></p>
-    <hr />
-    <h4>Närmaste kontaktperson</h4>
-    <p>Namn: <%= @user.contact_person.full_name %></p>
-    <p>Telefonnummer: <%= @user.contact_person.phone_number %></p>
-    <p>Namn: <%= @user.contact_person.email %></p>
   </div>
 
   <div role="tabpanel" class="tab-pane" id="education">
@@ -44,7 +39,11 @@
     <% end %>
   </div>
 
-  <div role="tabpanel" class="tab-pane" id="contacts">Kontaktuppgifter goes here</div>
+  <div role="tabpanel" class="tab-pane" id="contacts">
+    <p>Namn: <%= @user.contact_person.full_name %></p>
+    <p>Telefonnummer: <%= @user.contact_person.phone_number %></p>
+    <p>Namn: <%= @user.contact_person.email %></p>
+  </div>
 </div>
 
 <% if current_user.admin? %>
