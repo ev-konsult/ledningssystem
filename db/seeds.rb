@@ -14,8 +14,8 @@ User.create(name: "Admin", password: "adminpassword", password_confirmation: "ad
 end
 
 # Skapar artiklar
-User.find(1).articles << Article.create(title: "Hejsan hoppsan", body: "Jag gillar katter dom är mycket söta. Hejdå")
-User.find(2).articles << Article.create(title: "Lorem Ipsum", body: "Hej hej hejsan hejsan hej hej hejsan hejsan")
+User.first.articles << Article.create(title: "Hejsan hoppsan", body: "Jag gillar katter dom är mycket söta. Hejdå")
+User.last.articles << Article.create(title: "Lorem Ipsum", body: "Hej hej hejsan hejsan hej hej hejsan hejsan")
 
 # Skapar en kontaktperson för varje användare (med Faker)
 User.all.each do |user|
