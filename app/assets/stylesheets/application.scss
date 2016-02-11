@@ -19,53 +19,12 @@
     @import "partials/_layout";
     @import "partials/_variables";
 
-body {
-    background-image: linear-gradient($purple, $dark-purple);
+#loggedin {
+    background-color: #FFF !important;
+    background-image: none;
 }
 
-hr {
-	background-color: #E1E1E1;
-	height: 1px;
-}
 
-.login-form {
-	margin: 10% auto;
-	max-width: 400px;
-}
-
-form[role=login] {
-	font: 14px/1.8em Lato, serif;
-	background: #EFEFEF;	
-	padding: 30px 26px;
-	color: $dark-purple;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-}
-	form[role=login] > img {
-		display: block;
-		margin-bottom: 1em;
-	}
-	form[role=login] .form-control,
-	form[role=login] button {
-		font-size: 18px;
-		margin: 2px 0;
-	}
-	form[role=login] .btn {	
-		background: $dark-purple !important;
-		border: $purple !important;
-		letter-spacing: 1px;
-	}
-	form[role=login] .login-remember {	
-		display: inline;
-		margin-left: 0.2em;
-	}
-
-.form-links {
-	text-align: center;
-	margin-top: 1.5em;
-	margin-bottom: 0em;
-}
 
 .fire-link {
   float: right;
