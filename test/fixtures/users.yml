@@ -1,4 +1,4 @@
-# Password digest är bcrypt hash av "hello"
+# Password digest är bcrypt hash av "password"
 
 one:
   id: 1
