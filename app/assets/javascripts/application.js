@@ -37,4 +37,9 @@ $(document).ready(function() {
       $('#show-education-form').fadeIn();
     });
   });
+
+$('#username').focus();
+
 });
+
+
