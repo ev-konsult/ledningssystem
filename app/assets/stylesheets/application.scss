@@ -19,11 +19,6 @@
     @import "partials/_layout";
     @import "partials/_variables";
 
-
-
-
-
-
 body {
     background-image: linear-gradient($purple, $dark-purple);
 }
@@ -74,10 +69,6 @@ form[role=login] {
 
 .fire-link {
   float: right;
-}
-
-ul {
-  list-style-type: none;
 }
 
 .jumbotron p {
