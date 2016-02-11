@@ -8,5 +8,4 @@ class Education < ActiveRecord::Base
             length: { in: 4..100 }
 
   validates :graduation,     presence: true
-
 end

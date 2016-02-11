@@ -1,14 +1,11 @@
 class EducationsController < ApplicationController
   before_action :fetch_user, only: [:create, :destroy]
   def create
-    @education = @user.educations.build(education_params)
-    if @education.save
-      respond_to do |format|
-        format.html { redirect_to @user }
-        format.js
-      end
-    else
-      flash[:danger] = "Något gick fel, försök igen!" # visa felmeddelanden
+    @education = @user.educations.create(education_params)
+
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
     end
   end
 
