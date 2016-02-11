@@ -1,11 +1,11 @@
-<div class="row"> 
-  <div class="col-lg-12"> 
+<div class="row">
+  <div class="col-lg-12">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Hantera anställda</h3>
       </div>
       <div class="panel-body">
-        
+
         <h2><%= @user.name %></h2>
 
         <!-- Om användaren är admin renderas views/users/_admin_dashboard.html.erb -->
@@ -30,6 +30,7 @@
             <% if current_user.admin? %>
               <button id="show-education-form" class="btn btn-default">Lägg till utbildning</button>
               <div id="education-form">
+                <div id="education-errors"></div>
                 <%= form_for [@user, @user.educations.build], remote: true do |f| %>
                   <%= f.label :name %>
                   <%= f.text_field :name %> <br /> <!-- remove br and style it !-->
