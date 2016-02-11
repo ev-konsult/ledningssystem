@@ -10,7 +10,6 @@ http://intraev.herokuapp.com/
 [Git workflow](https://github.com/ev-konsult/ledningssystem/wiki/Git-Workflow)
 [Git message convention](https://github.com/ev-konsult/ledningssystem/wiki/Git-commit-message-convention)
 
-Testar/martin
 
 ## Ruby version
 * Ruby 2.1.5
