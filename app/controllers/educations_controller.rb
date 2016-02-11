@@ -8,7 +8,7 @@ class EducationsController < ApplicationController
         format.js
       end
     else
-      flash[:danger] = "Någon gick fel, försök igen!" # visa felmeddelanden
+      flash[:danger] = "Något gick fel, försök igen!" # visa felmeddelanden
     end
   end
 
