@@ -1,4 +1,4 @@
-# Ledningssystem
+﻿# Ledningssystem
 [Wikin](https://github.com/ev-konsult/ledningssystem/wiki)  
 [![Build Status](https://travis-ci.org/ev-konsult/ledningssystem.svg?branch=master)](https://travis-ci.org/ev-konsult/ledningssystem)
 
@@ -10,7 +10,7 @@ http://intraev.herokuapp.com/
 [Git workflow](https://github.com/ev-konsult/ledningssystem/wiki/Git-Workflow)
 [Git message convention](https://github.com/ev-konsult/ledningssystem/wiki/Git-commit-message-convention)
 
-
+Testar/martin
 
 ## Ruby version
 * Ruby 2.1.5
