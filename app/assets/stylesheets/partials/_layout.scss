@@ -25,14 +25,22 @@ nav {
   display: block;
 }
 
+.navbar{
+   border-bottom-width: 5px;
+   border-color: #41245E;
+   background-color: #EBDFF2;
+}
+
 /*
 .navbar {
+  
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
-*/
+
+/*
 
 /* Edit Below to Customize Widths > 768px */
 @media (min-width:768px) {
