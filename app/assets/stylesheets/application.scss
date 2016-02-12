@@ -18,24 +18,10 @@
     @import "partials/_base";
     @import "partials/_layout";
     @import "partials/_variables";
+    @import "partials/_lumino_template";
 
+/* Changes style of the body when logged in */
 #loggedin {
-    background-color: #FFF !important;
+    background-color: $cream-white !important;
     background-image: none;
-}
-
-
-
-.fire-link {
-  float: right;
-}
-
-.jumbotron p {
-  font-weight: normal;
-  font-size: 14px;
-}
-
-/* Hide the add education form until show button is clicked */
-#education-form {
-  display: none;
 }
