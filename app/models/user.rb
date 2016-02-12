@@ -9,22 +9,29 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :contact_person
 
   before_save { self.email = email.downcase }
+  before_save { self.full_name = "#{self.first_name} #{self.last_name}" }
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
-  scope :search, -> (query) { where "lower(name) like ?", "%#{query.downcase}%" }
+  scope :search, -> (query) { where "lower(user_name) like ?", "%#{query.downcase}%" }
 
-  validates :name,     presence: true,
-                       length: { in: 4..100 },
-                       uniqueness: true
+  validates :user_name,      presence: true,
+                             length: { in: 4..100 },
+                             uniqueness: true
 
-  validates :password, presence: true,
-                       length: { in: 6..100 }
+  validates :first_name,     presence: true,
+                             length: { in: 4..100 }
 
-  validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :last_name,      presence: true,
+                             length: { in: 4..100 }
 
-  validates :ssn, presence: true, format: { with: VALID_SSN_REGEX }, uniqueness: true;
+  validates :password,       presence: true,
+                             length: { in: 6..100 }
 
-  validates :phone_number, presence: true, length: { in: 7..15 }
+  validates :email,          presence: true, length: { maximum: 255 },
+                             format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
+  validates :ssn,            presence: true, format: { with: VALID_SSN_REGEX }, uniqueness: true;
+
+  validates :phone_number,   presence: true, length: { in: 7..15 }
 
 
   has_secure_password

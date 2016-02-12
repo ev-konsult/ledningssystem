@@ -2,7 +2,9 @@
 
 one:
   id: 1
-  name: TestAdmin
+  user_name: TestAdmin
+  first_name: TestAdmin
+  last_name: TestAdmin
   password_digest: $2a$10$aPNr8WZDLw2RpCL8oayzKeMBXx1.hfMt9fJKO0zewwWewPSQiWOU.
   admin: true
   email: foobar123123@gmail.com
@@ -11,7 +13,9 @@ one:
 
 two:
   id: 2
-  name: TestUser
+  user_name: TestUser
+  first_name: TestUser
+  last_name: TestUser
   password_digest: $2a$10$aPNr8WZDLw2RpCL8oayzKeMBXx1.hfMt9fJKO0zewwWewPSQiWOU.
   admin: false
   email: foobar1@gmail.com
@@ -20,7 +24,9 @@ two:
 
 three:
   id: 3
-  name: SearchUser
+  user_name: SearchUser
+  first_name: SearchUser
+  last_name: SearchUser
   password_digest: $2a$10$aPNr8WZDLw2RpCL8oayzKeMBXx1.hfMt9fJKO0zewwWewPSQiWOU.
   admin: false
   email: foobar2@gmail.com

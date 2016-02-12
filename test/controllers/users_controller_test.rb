@@ -16,7 +16,9 @@ class UsersControllerTest < ActionController::TestCase
   test "create user" do
     # Testar att användare läggs till
     assert_difference('User.count') do
-      post :create, user: { name: 'foobar',
+      post :create, user: { user_name: "foobar",
+                            first_name: "foobar",
+                            last_name: "foobar",
                             password: "foobar",
                             password_confirmation: "foobar",
                             phone_number: "1891189118",
