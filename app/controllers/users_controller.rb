@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :phone_number, :ssn, :email,
+    params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email,
                                  contact_person_attributes: [:id, :full_name, :email, :phone_number])
                                  # ^ Nästlade attribut för contact_person
   end

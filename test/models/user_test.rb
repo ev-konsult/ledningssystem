@@ -6,21 +6,46 @@ class UserTest < ActiveSupport::TestCase
   # Testfixtur
   def setup
     #@user = users(:two)
-    @user = User.new(name: "TestUserHey", email:"testuser@example.com", password:"foobar123", password_confirmation: "foobar123",
+    @user = User.new(user_name: "TestUserHey", first_name: "TestUser", last_name: "UserTester",
+                     email:"testuser@example.com", password:"foobar123", password_confirmation: "foobar123",
                      ssn: "123456-1233", phone_number: "0701234123")
 
-    @user.create_contact_person(full_name: "MyName", email: "email@gmail.com", phone_number: "0721111111")                 
+    @user.create_contact_person(full_name: "MyName", email: "email@gmail.com", phone_number: "0721111111")
   end
 
   # Test av namn requirement
-  test "namerequired" do
-    @user.name = ""
+  test "usernamerequired" do
+    @user.user_name = ""
+    assert_not @user.valid?
+  end
+
+  test "firstnamerequired" do
+    @user.first_name = ""
+    assert_not @user.valid?
+  end
+
+  test "lastnamerequired" do
+    @user.last_name = ""
     assert_not @user.valid?
   end
 
   # Test av namnlängd
-  test "namelength" do
-    @user.name = "detta borde vara mer än hundra tecken,
+  test "usernamelength" do
+    @user.user_name = "detta borde vara mer än hundra tecken,
+                  vilket alldeles för långt namn för den här applikationen!
+                  wow, alldeles för många tecken. Går inte att registrera sig"
+    assert_not @user.valid?
+  end
+
+  test "firstnamelength" do
+    @user.first_name = "detta borde vara mer än hundra tecken,
+                  vilket alldeles för långt namn för den här applikationen!
+                  wow, alldeles för många tecken. Går inte att registrera sig"
+    assert_not @user.valid?
+  end
+
+  test "lastnamelength" do
+    @user.last_name = "detta borde vara mer än hundra tecken,
                   vilket alldeles för långt namn för den här applikationen!
                   wow, alldeles för många tecken. Går inte att registrera sig"
     assert_not @user.valid?

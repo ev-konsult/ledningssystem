@@ -4,35 +4,35 @@
 <section class="login-form">
 
 <%= form_for(:session, url: login_path, html: {role: "login"}) do |f| %>
-          
+
           <%= image_tag("logo.png", :class => "login-logo") %>
-          
+
           <hr>
 
           <div class="form-group">
-            <%= f.label :name, "Användarnamn" %>
-            <%= f.text_field :name, class: "form-control", id: "username" %>
+            <%= f.label :user_name, "Användarnamn" %>
+            <%= f.text_field :user_name, class: "form-control", id: "username" %>
           </div>
 
           <div class="form-group">
             <%= f.label :password, "Lösenord" %>
             <%= f.password_field :password, class: "form-control" %>
           </div>
-          
+
           <div class="form-group">
             <%= f.label :remember_me do %>
               <%= f.check_box :remember_me %>
               <p class="login-remember">Kom ihåg mig</p>
             <% end %>
           </div>
-          
+
           <%= f.submit "Logga in", class: "btn btn-lg btn-block btn-primary" %>
-          
-   
+
+
         <div class="form-links">
           <a href="#" class="text-primary">Har du glömt ditt lösenord?</a>
         </div>
 
-         
+
       </section>
 <% end %>
