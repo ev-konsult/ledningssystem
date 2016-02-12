@@ -7,8 +7,11 @@
   <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
   <%= csrf_meta_tags %>
 
+  <!--Icons-->
+  <script src="javascripts/lumino.glyphs.js"></script>
 
 </head>
 
@@ -27,10 +30,17 @@
       <!-- Utloggningsknapp bara för inloggade användare -->
       <% if logged_in? %>
       <body data-no-turbolink="true" id="loggedin">
-        <div id="wrapper">
+        <!-- <div id="wrapper"> -->
           <%= render 'layouts/navigation' %>
     
-          <div id="page-wrapper">
+          <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">     
+            <div class="row">
+              <ol class="breadcrumb">
+                <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li class="active">Dashboard</li>
+              </ol>
+            </div><!--/.row-->
+            
             <!-- 
               HELPER
               * row - Skapar en rad
@@ -72,7 +82,7 @@
             <%= debug(params) if Rails.env.development? %>
 
           </div>
-        </div>
+      
       </body>
       <% end %>
       

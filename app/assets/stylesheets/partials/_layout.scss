@@ -8,228 +8,26 @@
 */
 /* Dark Admin Bootstrap Theme by PrepBootstrap - http://www.prepbootstrap.com */
 
-body {
-  margin-top: 70px;
-}
-
-#wrapper {
-  padding-left: 0;
-}
-
-#page-wrapper {
-  width: 100%;
-  padding: 5px 15px;
-}
-
-nav {
-  display: block;
-}
-
-.navbar{
-   border-bottom-width: 5px;
-   border-color: #41245E;
-   background-color: #EBDFF2;
-}
-
-#logo{
-  color: #41245E;
-  font-style: italic;
-  font-weight: bold;
-}
-
+  @import "partials/_variables";
 /*
+Lumino Admin Bootstrap Template
+Version 1.0
+*/
+
+
 .navbar {
-  
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
+  -webkit-box-shadow: 
+    0px 1px 2px #888888, 
+    inset 0px -5px 0px -0px $purple;
+  -moz-box-shadow: 
+    0px 1px 2px #888888, 
+    inset 0px -5px 0px -0px $purple;
+  -o-box-shadow: 
+    0px 1px 2px #888888, 
+    inset 0px -5px 0px -0px $purple;
+  box-shadow: 
+    0px 1px 2px #888888, 
+    inset 0px -5px 0px -0px $purple;
+  background-color: $white;
+  border: 0px !important;
 }
-
-/*
-
-/* Edit Below to Customize Widths > 768px */
-@media (min-width:768px) {
-
-  /* Wrappers */
-
-  #wrapper {
-	padding-left: 225px;
-  }
-
-  #page-wrapper {
-	padding: 15px 25px;
-  }
-
-  /* Side Nav */
-
-  .side-nav {
-	margin-left: -225px;
-	left: 225px;
-	width: 225px;
-	position: fixed;
-	top: 50px;
-	height: 100%;
-	border-radius: 0;
-	border: none;
-	background-color: #222222;
-	overflow-y: auto;
-  }
-
-  /*menu overrides*/
-  .side-nav>li.dropdown>ul.dropdown-menu {
-	position: relative;
-	min-width: 225px;
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-radius: 0;
-	background-color: transparent;
-	box-shadow: none;
-	-webkit-box-shadow: none;
-  }
-
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a {
-	color: #999999;
-	padding: 15px 15px 15px 25px;
-  }
-
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
-	color: #fff;
-	background-color: #080808;
-  }
-
-  .side-nav>li>a {
-	width: 225px;
-  }
-
-  .navbar-inverse .navbar-nav>li>a:hover,
-  .navbar-inverse .navbar-nav>li>a:focus {
-	background-color: #080808;
-  }
-
-  /* Nav Messages */
-
-  .messages-dropdown .dropdown-menu {
-	min-width: 300px;
-  }
-
-  .messages-dropdown .dropdown-menu li a {
-	white-space: normal;
-  }
-
-  .navbar-collapse {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-  }
-
-  
-  .navbar-right .dropdown-menu {
-    left: auto;
-    right: 0;
-  }
-  .navbar-right .dropdown-menu-left {
-    left: 0;
-    right: auto;
-  }
-
-  .navbar-header {
-    float: left;
-  }
-
-  .navbar-collapse {
-    width: auto;
-    border-top: 0;
-    box-shadow: none;
-  }
-  .navbar-collapse.collapse {
-    display: block !important;
-    height: auto !important;
-    padding-bottom: 0;
-    overflow: visible !important;
-  }
-  .navbar-collapse.in {
-    overflow-y: visible;
-  }
-  .navbar-fixed-top .navbar-collapse,
-  .navbar-static-top .navbar-collapse,
-  .navbar-fixed-bottom .navbar-collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-.nav {
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-.nav > li {
-  position: relative;
-  display: block;
-}
-.nav > li > a {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-}
-.nav > li > a:hover,
-.nav > li > a:focus {
-  text-decoration: none;
-  background-color: #222222;
-}
-.nav > li.disabled > a {
-  color: #BDBDBD;
-}
-.nav > li.disabled > a:hover,
-.nav > li.disabled > a:focus {
-  color: #BDBDBD;
-  text-decoration: none;
-  background-color: transparent;
-  cursor: not-allowed;
-}
-.nav .open > a,
-.nav .open > a:hover,
-.nav .open > a:focus {
-  background-color: #222222;
-  border-color: #2a9fd6;
-}
-.nav .nav-divider {
-  height: 1px;
-  margin: 9px 0;
-  overflow: hidden;
-  background-color: #e5e5e5;
-}
-.nav > li > a > img {
-  max-width: none;
-}
-
-.divider-vertical {
-    border-right: 1px solid #000000;
-    height: 50px;
-    margin: 0 9px;
-    overflow: hidden;
-    width: 1px;
-}
-.navbar-search
-{
-    padding-right: 27px;
-    padding-top: 7px;
-}
-
-.navbar-collapse {
-  max-height: 340px;
-  overflow-x: visible;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  -webkit-overflow-scrolling: touch;
-}
-.navbar-collapse.in {
-  overflow-y: auto;
-}
-
-
