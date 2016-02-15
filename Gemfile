@@ -35,6 +35,9 @@ gem 'will_paginate', '~> 3.0.6'
 # Text editor
 gem 'tinymce-rails'
 
+# Calendar
+gem 'simple_calendar', "~> 2.0"
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
