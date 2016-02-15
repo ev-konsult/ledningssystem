@@ -1,7 +1,8 @@
+﻿# Ledningssystem  
 [![Stories in Ready](https://badge.waffle.io/ev-konsult/ledningssystem.png?label=ready&title=Ready)](https://waffle.io/ev-konsult/ledningssystem)
-﻿# Ledningssystem
-[Wikin](https://github.com/ev-konsult/ledningssystem/wiki)  
-[![Build Status](https://travis-ci.org/ev-konsult/ledningssystem.svg?branch=master)](https://travis-ci.org/ev-konsult/ledningssystem)
+[![Build Status](https://travis-ci.org/ev-konsult/ledningssystem.svg?branch=master)](https://travis-ci.org/ev-konsult/ledningssystem)  
+[![Throughput Graph](https://graphs.waffle.io/ev-konsult/ledningssystem/throughput.svg)](https://waffle.io/ev-konsult/ledningssystem/metrics)  
+[Wikin](https://github.com/ev-konsult/ledningssystem/wiki) 
 
 ## Publicerad applikation
 
