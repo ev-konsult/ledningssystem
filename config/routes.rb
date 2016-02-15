@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :educations, only: [:create]
   end
+
   resources :articles
+  resources :tasks
 
   root to: 'sessions#new'
 
   # Custom routes
-  get    'signup'  => 'developers#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

@@ -28,9 +28,11 @@ class User < ActiveRecord::Base
                              length: { in: 6..100 }
 
   validates :email,          presence: true, length: { maximum: 255 },
-                             format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+                             format: { with: VALID_EMAIL_REGEX },
+                             uniqueness: { case_sensitive: false }
 
-  validates :ssn,            presence: true, format: { with: VALID_SSN_REGEX }, uniqueness: true;
+  validates :ssn,            presence: true, format: { with: VALID_SSN_REGEX },
+                             uniqueness: true;
 
   validates :phone_number,   presence: true, length: { in: 7..15 }
 
