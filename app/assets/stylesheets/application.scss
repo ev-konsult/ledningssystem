@@ -25,3 +25,29 @@
     background-color: $cream-white !important;
     background-image: none;
 }
+
+.user-menu {
+	margin-top: 7px !important;
+}
+
+.navbar-brand {
+	margin-top: -2px !important;
+}
+
+.profile-circle {
+	float: left;
+	border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    background: $dark-purple;
+    color: #FFF;
+    text-align: center;
+}
+
+.profile-header-name {
+	padding-left: 7px;
+	line-height: 32px;
+	float: right;
+}
