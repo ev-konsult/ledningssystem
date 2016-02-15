@@ -18,11 +18,13 @@ class Task < ActiveRecord::Base
   enum status:   { not_started: 0, in_progress: 1, done: 2, cancelled: 3 }
   enum priority: { low: 0, medium: 1, high: 2, critical: 3 }
 
+  # Maps the keys of the priority-enum hash to its swedish counterpart
+  # check config/locales/en.yml
+  # TODO: Maybe own file for swedish translation?
   def self.priority_attributes_for_select
     priorities.map do |priority, _|
       [I18n.t("active_record.attributes.#{model_name.i18n_key}.priorities.#{priority}"), priority]
     end
-
   end
 
   private
