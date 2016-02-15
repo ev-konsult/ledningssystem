@@ -4,6 +4,10 @@ User.create(user_name: "Admin", first_name: "Admin", last_name: "Adminsson",
             password: "adminpassword", password_confirmation: "adminpassword", admin: true,
             email: "admin@admin.com", ssn: "123456-1234", phone_number: "0701234123", contact_person: @admin_contact)
 
+User.create(user_name: "TestUser", first_name: "Test", last_name: "User",
+            password: "testuserpassword", password_confirmation: "testuserpassword",
+            admin: false, email: "test@user.com", ssn: "123456-1337", phone_number: "0701234999", contact_person: @admin_contact)
+
 # Skapar användare med Faker, varje användare har en kontaktperson
 99.times do |n|
   first_name = Faker::Name.first_name
