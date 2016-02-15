@@ -18,7 +18,7 @@ sv:
           low: Låg
           high: Hög
           medium: Medium
-          critic: Kritisk
+          critical: Kritisk
         title: Titel
         description: Beskrivning
         start: Startdatum

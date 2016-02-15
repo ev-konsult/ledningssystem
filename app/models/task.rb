@@ -16,7 +16,7 @@ class Task < ActiveRecord::Base
 
   # Enums
   enum status:   { not_started: 0, in_progress: 1, done: 2, cancelled: 3 }
-  enum priority: { low: 0, medium: 1, high: 2, critic: 3 }
+  enum priority: { low: 0, medium: 1, high: 2, critical: 3 }
 
   # Maps the keys of the priority-enum hash to its swedish counterpart
   # check config/locales/en.yml
