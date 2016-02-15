@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ev-konsult/ledningssystem.png?label=ready&title=Ready)](https://waffle.io/ev-konsult/ledningssystem)
 ﻿# Ledningssystem
 [Wikin](https://github.com/ev-konsult/ledningssystem/wiki)  
 [![Build Status](https://travis-ci.org/ev-konsult/ledningssystem.svg?branch=master)](https://travis-ci.org/ev-konsult/ledningssystem)
