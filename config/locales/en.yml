@@ -21,14 +21,3 @@
 
 en:
   hello: "Hello world"
-  active_record:
-    attributes:
-      task:
-        priorities:
-          high: "Hög"
-          low: "Låg"
-          medium: "Medium"
-          critical: "Kritisk"
-
-
-

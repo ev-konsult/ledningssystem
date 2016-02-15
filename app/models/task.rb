@@ -23,19 +23,18 @@ class Task < ActiveRecord::Base
   # TODO: Maybe own file for swedish translation?
   def self.priority_attributes_for_select
     priorities.map do |priority, _|
-      [I18n.t("active_record.attributes.#{model_name.i18n_key}.priorities.#{priority}"), priority]
+      [I18n.t("activerecord.attributes.#{model_name.i18n_key}.priorities.#{priority}"), priority]
     end
   end
 
   private
     def start_date_cannot_be_in_the_past
-      errors.add(:start, "can't be in the past") if
+      errors.add(:start, " måste vara ett framtida datum") if
         !self.start.blank? and self.start.past?
     end
 
     def end_date_cannot_be_before_start_date
-      errors.add(:end, "can't be before start") if
+      errors.add(:end, " får inte vara innan startdatumet") if
         !self.end.blank? and self.end < self.start
     end
 end
-

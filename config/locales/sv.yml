@@ -1,24 +1,34 @@
 sv:
-  active_record:
+  activerecord:
+    attributes:
+      user:
+        user_name: Användarnamn
+        password: Lösenord
+        first_name: Förnamn
+        last_name: Efternamn
+        full_name: Namn
+        ssn: Personnummer
+        phone_number: Telefonnummer
+      contact_person:
+        full_name: Namn
+        phone_number: Telefonnummer
+        email: Emailadress
+      task:
+        priorities:
+          low: Låg
+          high: Hög
+          medium: Medium
+          critical: Kritisk
+        title: Titel
+        description: Beskrivning
+        start: Startdatum
+        end: Deadline
     errors:
       messages:
         record_invalid: 'Ett fel uppstod: %{errors}'
         restrict_dependent_destroy:
           has_one: Kan inte ta bort post då beroende %{record} finns
           has_many: Kan inte ta bort poster då beroende %{record} finns
-    attributes:
-      task:
-        title: Titel
-        description: Beskrivning
-        start: Startdatum
-        end: Deadline
-        priorities:
-          high: "Hög"
-          low: "Låg"
-          medium: "Medium"
-          critical: "Kritisk"
-
-
   date:
     abbr_day_names:
     - sön
