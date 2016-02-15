@@ -23,13 +23,8 @@
 
     <div class="form-group">
       <%= f.select :priority, options_for_select(Task.priority_attributes_for_select)%>
-
     </div>
 
     <%= f.submit "Skapa", class: "btn btn-primary" %>
     <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
-
-    <%= p = Task.new(start: 3.days.from_now, end: 5.days.from_now, title: "hey ho lets go", description: "HEY HO, LETS GO, THE DDUDUDUDUDUDUDUUDU NANANANANANANANANANANAAAA",
-    priority: 2) %>
-    <%= I18n.t(p.priority, scope: [:active_record, :attributes, :task, :priority]) %>
 <% end %>
