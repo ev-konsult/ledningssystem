@@ -42,9 +42,14 @@ $('#username').focus();
 
 });
 
+/**
+* Shows the menu when resizing the window from small to wide width
+*/
 $(window).on('resize', function () {
   if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
 });
 $(window).on('resize', function () {
   if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 });
+
+
