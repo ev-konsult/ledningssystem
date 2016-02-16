@@ -4,7 +4,7 @@
 <%= form_for @task do |f| %>
     <%= render 'shared/error_messages', obj: f.object %>
 
-    <div class="form-fields hidden">
+    <div class="form-fields">
     <%= render 'task_fields', f: f %> <!-- rendame f maybe !-->
     <%= render 'user_fields', f: f %>
     </div>
