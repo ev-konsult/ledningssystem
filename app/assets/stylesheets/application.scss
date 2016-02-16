@@ -15,10 +15,11 @@
  */
     @import "bootstrap";
     @import "bootstrap-sprockets";
+    @import "partials/_lumino_template";
     @import "partials/_base";
     @import "partials/_layout";
     @import "partials/_variables";
-    @import "partials/_lumino_template";
+    
 
 /* Changes style of the body when logged in */
 #loggedin {
