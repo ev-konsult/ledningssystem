@@ -628,6 +628,12 @@ a.bg-danger:hover {
   font-size: 12px;
 }
 
+@media (max-width: 768px) {
+  .sidebar {
+    padding-bottom: 80px;
+  }
+}
+
 /*Breadcrumbs*/
 
 .breadcrumb {
