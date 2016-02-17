@@ -38,8 +38,52 @@ $(document).ready(function() {
     });
   });
 
-$('#username').focus();
+  /**
+  * Search for users in view tasks/new
+  */
+  $('#user-assign-search').click(function(e) {
+    e.preventDefault();
 
+    // Makes sure marked users stay visible
+    $('#user-checkboxes input[type=checkbox]').each(function() {
+      if ($(this).is(':checked')) {
+        $(this).parent().addClass('chosen-user');
+      } else {
+        $(this).parent().removeClass('chosen-user');
+      }
+    });
+
+    // Clear search result in case search has already been made
+    $('#user-checkboxes label').each(function() {
+      if ($(this).hasClass('chosen-user') === false) {
+        $(this).hide();
+      }
+    });
+
+    var searchQuery = $('#user-assign-value').val().toLowerCase();
+
+    if (searchQuery !== "") {
+      $('#user-checkboxes label').each(function() {
+        // There's a checkbox nested in the label..hence regex
+        var actualLabelText = $(this).html().replace(/(<([^>]+)>)/ig,"").toLowerCase();
+
+        if (actualLabelText.indexOf(searchQuery) >= 0) {
+          $(this).fadeIn();
+          $(this).css('display', 'block');
+
+          // Need to show the checkbox related to the label too
+          $(this).children(":first").fadeIn();
+        }
+      });
+    } else {
+      $('#user-assign-value').attr("placeholder", "Skriv en sökning först!");
+    }
+  });
+
+  /**
+  * Focus the username text field when loading login form
+  */
+  $('#username').focus();
 });
 
 /**
@@ -51,5 +95,3 @@ $(window).on('resize', function () {
 $(window).on('resize', function () {
   if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 });
-
-

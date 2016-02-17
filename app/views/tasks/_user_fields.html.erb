@@ -1,1 +1,9 @@
-<%= collection_check_boxes(:users, :user_id, User.all, :id, :full_name) %>
+<p>Sök användare att tilldela uppgiften:</p>
+<input type="text" id="user-assign-value" placeholder="Sökning.."/>
+<input type="submit" value="Sök" id="user-assign-search" class="btn btn-primary"/>
+<div id="user-checkboxes">
+  <%= collection_check_boxes(:users, :user_id, User.all, :id, :full_name) do |thingy|
+    thingy.label( class: 'user_thingy' ) { thingy.check_box + thingy.text }
+  end %>
+</div>
+<hr />
