@@ -19,7 +19,11 @@
     @import "partials/_base";
     @import "partials/_layout";
     @import "partials/_variables";
-    
+
+/* Hides checkboxes and labels in tasks/new */
+label[class=user_thingy] {
+  display: none;
+}
 
 /* Changes style of the body when logged in */
 #loggedin {
