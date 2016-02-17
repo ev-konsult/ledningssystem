@@ -66,6 +66,11 @@ label[class=user_thingy] {
 .nav-tabs {
     height: 36px;
     background: #95A5A6;
+    width: 380px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
 }
 
 .panel-heading {
