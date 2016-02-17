@@ -9,6 +9,8 @@
 
           <hr>
 
+          <%= render 'shared/flash_messages' %>
+
           <div class="form-group">
             <%= f.label :user_name, "Användarnamn" %>
             <%= f.text_field :user_name, class: "form-control", id: "username" %>
