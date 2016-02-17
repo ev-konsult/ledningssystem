@@ -23,10 +23,9 @@ class TasksController < ApplicationController
         next if id.blank?
         @task.users << User.find(id)
       end
-      flash[:success] = "Blabalbal"
+      flash[:success] = "Uppgiften skapades!"
       redirect_to @task
     else
-      flash.now[:danger] = "Bla bla!"
       render 'new'
     end
   end
