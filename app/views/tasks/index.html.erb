@@ -1,0 +1,11 @@
+<% @tasks.each do |task| %>
+  <h2><%= link_to task.title, task %></h2>
+  <p>Start: <%= task.start.strftime("%D") %></p>
+  <p>Deadline: <%= task.end.strftime("%D") %></p>
+
+  <!-- TODO - do something fancy with these, now the enum value is just printed -->
+  <p>Status: <%= task.status %></p>
+  <p>Prioritet: <%= task.priority %></p>
+<% end %>
+
+<%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>

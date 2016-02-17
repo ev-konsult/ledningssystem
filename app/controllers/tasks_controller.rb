@@ -3,6 +3,14 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  def index
+    @tasks = Task.all
+  end
+
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def create
     @task = Task.new(task_params)
     @user_ids = params[:users][:user_id]

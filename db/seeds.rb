@@ -27,3 +27,7 @@ end
 # Skapar artiklar för första och sista användaren
 User.first.articles << Article.create(title: "Hejsan hoppsan", body: "Jag gillar katter dom är mycket söta. Hejdå")
 User.last.articles << Article.create(title: "Lorem Ipsum", body: "Hej hej hejsan hejsan hej hej hejsan hejsan")
+
+Task.create(title: "Städa köket", description: "Efter kontorsfesten är köket väldigt smutsigt. Praktikanterna måste städa bort alla ölburkar och skrubba väggarna.", start: DateTime.new(2017, 2, 3), end: DateTime.new(2017, 3, 4))
+
+Task.create(title: "Fixa bokföringen", description: "Det är för mycket siffror i bokföringen. Ersätt några med emojis.", start: DateTime.new(2017, 4, 5), end: DateTime.new(2017, 5, 6))
