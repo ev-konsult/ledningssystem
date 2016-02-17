@@ -42,6 +42,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # Redirects to login or current user depending on if you're logged in
+  def user_root
+    if logged_in?
+      redirect_to current_user
+    else
+      redirect_to login_path
+    end
+  end
+
   def show
     @user = User.find(params[:id])
   end
