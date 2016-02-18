@@ -90,3 +90,8 @@ label[class=user_thingy] {
 .panel-body{
     background: #23283E;
 }
+
+.panel-primary > .panel-heading{
+    padding-bottom: 35px;
+    padding-top: 0px;
+}
