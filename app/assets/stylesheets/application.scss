@@ -16,6 +16,7 @@
     @import "bootstrap";
     @import "bootstrap-sprockets";
     @import "partials/_lumino_template";
+    @import "partials/_user";
     @import "partials/_base";
     @import "partials/_layout";
     @import "partials/_variables";
@@ -59,7 +60,7 @@ label[class=user_thingy] {
     font-size: 12px;
     color: #888;
     border-bottom: 1px solid #F111;
-    border-top: 1px solid #111;
+    border-top: 1px solid #F111;
     background-color: #333;
 }
 
