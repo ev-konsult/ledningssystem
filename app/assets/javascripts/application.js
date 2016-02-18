@@ -19,6 +19,51 @@
 
 $(document).ready(function() {
   /**
+  *   Possible bugfix for menu dissapearing on touch
+  */
+  // see whether device supports touch events (a bit simplistic, but...)
+  var hasTouch = ("ontouchstart" in window);
+  var iOS5 = /iPad|iPod|iPhone/.test(navigator.platform) && "matchMedia" in window;
+   
+  // hook touch events for drop-down menus
+  // NB: if has touch events, then has standards event handling too
+  // but we don't want to run this code on iOS5+
+  if (hasTouch && document.querySelectorAll && !iOS5) {
+      var i, len, element,
+          dropdowns = document.querySelectorAll("#sidebar-collapse li.children > a");
+   
+      function menuTouch(event) {
+          // toggle flag for preventing click for this link
+          var i, len, noclick = !(this.dataNoclick);
+   
+          // reset flag on all links
+          for (i = 0, len = dropdowns.length; i < len; ++i) {
+              dropdowns[i].dataNoclick = false;
+          }
+   
+          // set new flag value and focus on dropdown menu
+          this.dataNoclick = noclick;
+          this.focus();
+      }
+   
+      function menuClick(event) {
+          // if click isn't wanted, prevent it
+          if (this.dataNoclick) {
+              event.preventDefault();
+          }
+      }
+   
+      for (i = 0, len = dropdowns.length; i < len; ++i) {
+          element = dropdowns[i];
+          element.dataNoclick = false;
+          element.addEventListener("touchstart", menuTouch, false);
+          element.addEventListener("click", menuClick, false);
+      }
+  }
+  /* END bugg fix */
+
+
+  /**
   * Displays the education form when the show button is clicked
   */
   $('#show-education-form').click(function(event) {
