@@ -24,7 +24,9 @@ http://intraev.herokuapp.com/
     rake db:setup
     rails s 
 ```  
-Applikationen hittas nu på localhost:3000
+Applikationen hittas nu på localhost:3000. 
+
+Dessa konton kan användas för att logga in på den publicerade applikationen:
 
 | Användarnamn | Lösenord |
 |----:|:-------|
