@@ -33,7 +33,9 @@ Dessa konton kan användas för att logga in på den publicerade applikationen:
 | Användarnamn | Lösenord |
 |----:|:-------|
 | Admin | adminpassword |
-| David_1337 | password |
+| Demo | password |
+  
+Adminkontot har rättigheter till att göra allt i applikationen
 
 ## Deployment
   
