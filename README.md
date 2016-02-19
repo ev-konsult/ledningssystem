@@ -29,8 +29,7 @@ Applikationen hittas nu på localhost:3000
 | Användarnamn | Lösenord |
 |----:|:-------|
 | Admin | adminpassword |
-| First User | firstpassword |
-| Second User | secondpassword |
+| David_1337 | password |
 
 ## Deployment
   
