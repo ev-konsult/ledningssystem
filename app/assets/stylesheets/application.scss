@@ -75,7 +75,12 @@ label[class=user_thingy] {
 }
 
 .panel-heading {
-    height: 30px;
+    line-height: 40px !important;
+    height: 40px !important;
+}
+
+.panel-title {
+    text-align: middle;
 }
 
 #sidebar-collapse{
@@ -87,11 +92,8 @@ label[class=user_thingy] {
     color: black;
 }
 
-.panel-body{
-    background: #23283E;
+.panel-body {
+    background: $white;
+    border: 1px solid $light-gray;
 }
 
-.panel-primary > .panel-heading{
-    padding-bottom: 35px;
-    padding-top: 0px;
-}

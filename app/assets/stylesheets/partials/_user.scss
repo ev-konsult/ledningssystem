@@ -9,7 +9,7 @@
 
 	a {
 		font-size: 12px;
-		color: $gray;
+		color: $light-gray;
 		border-bottom: 1px solid $dark-gray-border;
 		background-color: $dark-gray;
 
@@ -24,7 +24,7 @@
 	}
 	.active a {
 		color: $cream-white;
-		background-color: $light-gray !important;
+		background-color: $gray !important;
 		border-left: 6px solid $purple;
 	}
 	.sidebar-profile a {
@@ -68,13 +68,13 @@
 	}
 
 	.username {
-		color: $lighter-gray;
+		color: $cream-white;
 		font-size: 14px;
 	}
 
 	ul.nav ul.children li a {
 		font-size: 12px;
-			color: $gray !important;
+			color: $light-gray !important;
 			border-bottom: 1px solid $dark-gray-border !important;
 			background-color: $dark-gray !important;
 
@@ -83,7 +83,7 @@
 				background-color: $dark-gray !important;
 			}
 			&:focus {
-				color: $gray !important;
+				color: $light-gray !important;
 				background-color: $dark-gray !important;
 			}
 	}
