@@ -16,7 +16,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @user_ids = params[:users][:user_id]
+    @user_ids = params[:user_ids]
 
     if @task.save
       # Add the users to the task if the task can be saved.
@@ -34,6 +34,23 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task = Task.find(params[:id])
+    @user_ids = params[:user_ids]
+
+    if @task.update_attributes(task_params)
+      @user_ids.each do |id|
+        next if id.blank?
+        user = User.find(id)
+
+        # No duplication of users
+        @task.users << user unless @task.users.include?(user)
+      end
+
+      flash[:success] = "Uppgiften uppdaterades!"
+      redirect_to @task
+    else
+      render 'edit'
+    end
   end
 
   def edit

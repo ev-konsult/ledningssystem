@@ -84,40 +84,33 @@ $(document).ready(function() {
   });
 
   /**
-  * Search for users in view tasks/new
+  * Hides checkboxes that aren't checked in tasks/new and tasks/edit views
+  */
+  function hideCheckboxes() {
+    $('.user-checkbox-area').each(function() {
+      if ($(this).children()[1].checked === false) {
+        $(this).hide();
+      }
+    });
+  }
+
+  hideCheckboxes();
+
+  /**
+  * Search for users in view tasks/new and tasks/edit
   */
   $('#user-assign-search').click(function(e) {
     e.preventDefault();
 
-    // Makes sure marked users stay visible
-    $('#user-checkboxes input[type=checkbox]').each(function() {
-      if ($(this).is(':checked')) {
-        $(this).parent().addClass('chosen-user');
-      } else {
-        $(this).parent().removeClass('chosen-user');
-      }
-    });
-
-    // Clear search result in case search has already been made
-    $('#user-checkboxes label').each(function() {
-      if ($(this).hasClass('chosen-user') === false) {
-        $(this).hide();
-      }
-    });
+    // Hide previous search results unless the checkboxes are checked
+    hideCheckboxes();
 
     var searchQuery = $('#user-assign-value').val().toLowerCase();
 
     if (searchQuery !== "") {
-      $('#user-checkboxes label').each(function() {
-        // There's a checkbox nested in the label..hence regex
-        var actualLabelText = $(this).html().replace(/(<([^>]+)>)/ig,"").toLowerCase();
-
-        if (actualLabelText.indexOf(searchQuery) >= 0) {
-          $(this).fadeIn();
-          $(this).css('display', 'block');
-
-          // Need to show the checkbox related to the label too
-          $(this).children(":first").fadeIn();
+      $('.user-info').each(function() {
+        if ($(this).html().toLowerCase().indexOf(searchQuery) >= 0) {
+          $(this).parent().fadeIn();
         }
       });
     } else {
