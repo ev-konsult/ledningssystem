@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class TasksControllerTest < ActionController::TestCase
+
+  def setup
+    # Sätter current user till admin
+    session[:user_id] = User.where(admin: true).take.id
+  end
+
   test "index" do
     get :index
     assert_response :success
