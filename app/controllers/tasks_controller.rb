@@ -24,7 +24,9 @@ class TasksController < ApplicationController
       # TODO: Try to figure out why it behaves this way
       @user_ids.each do |id|
         next if id.blank?
-        @task.users << User.find(id)
+        user = User.find(id)
+        
+        @task.users << User.find(id) unless @task.users.include?(user)
       end
       flash[:success] = "Uppgiften skapades!"
       redirect_to @task
