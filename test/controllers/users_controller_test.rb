@@ -79,7 +79,7 @@ class UsersControllerTest < ActionController::TestCase
   # Testar att användare listas på adminsidan (users/index),
   # när admin är inloggad
   test "admin page should list users" do
-    @user.authenticate("hello")
+    @user.authorize_user("hello")
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
