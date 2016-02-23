@@ -21,8 +21,15 @@
     @import "partials/_layout";
     @import "partials/_variables";
 
+@media (max-width: 768px) {
+    * {
+        overflow-y: hidden !important;
+    }
+}
+
 /* Changes style of the body when logged in */
 #loggedin {
+    
     background-color: $cream-white !important;
     background-image: none;
 }
