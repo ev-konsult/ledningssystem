@@ -21,15 +21,42 @@
     @import "partials/_layout";
     @import "partials/_variables";
 
-@media (max-width: 768px) {
-    * {
-        overflow-y: hidden !important;
+/* Toggle menu button */
+.navbar-toggle {
+    margin-left: 5px;
+    float: left;
+    color: $dark-purple;
+    font-size: 14px;
+    font-weight: normal !important;
+    line-height: 14px;
+    border: 0px;
+    background-color: none !important;
+    div {
+        float: left;
+    }
+    .icon-bar {
+        width: 20px;
+        height: 2px;
+        background-color: $dark-purple !important;
+    }
+    .navbar-toggle-text {
+        margin-left: 3px;
+        float: right;
+    }
+    &:hover {
+        color: $dark-purple !important;
+        font-weight: normal !important;
+        background-color: transparent !important;
+    }
+    &:focus {
+        color: $dark-purple !important;
+        font-weight: normal !important;
+        background-color: transparent !important;
     }
 }
 
 /* Changes style of the body when logged in */
 #loggedin {
-    
     background-color: $cream-white !important;
     background-image: none;
 }
