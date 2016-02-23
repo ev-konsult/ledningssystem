@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_if_admin, only: [:new, :create, :destroy, :index]
-  before_action :authorize_login, only: [:show, :index, :create, :destroy]
+  before_action :check_if_logged_in, only: [:show, :index, :create, :destroy, :new]
 
   def new
     @user = User.new
@@ -63,15 +63,5 @@ class UsersController < ApplicationController
                                  # ^ Nästlade attribut för contact_person
   end
 
-  # Skickar tillbaka ickeadmins till deras profiler eller loginsidan
-  # Bra att köra innan saker som bara admin ska få göra
-  def check_if_admin
-    unless logged_in?
-      redirect_to login_path
-    else
-      unless current_user.admin?
-        redirect_to current_user
-      end
-    end
-  end
+
 end

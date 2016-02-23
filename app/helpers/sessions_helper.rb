@@ -45,4 +45,21 @@ module SessionsHelper
   def admin?
     current_user.admin?
   end
+
+  # Skickar tillbaka ickeadmins till deras profiler eller loginsidan
+  # Bra att köra innan saker som bara admin ska få göra
+  def check_if_admin
+    unless logged_in?
+      redirect_to login_path
+    else
+      unless current_user.admin?
+        redirect_to current_user
+      end
+    end
+  end
+
+  def check_if_logged_in
+    redirect_to root_path unless logged_in?
+  end
+
 end
