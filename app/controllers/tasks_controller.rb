@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :check_if_logged_in
   def new
     @task = Task.new
   end
