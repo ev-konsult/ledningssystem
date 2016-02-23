@@ -25,7 +25,7 @@ class TasksControllerTest < ActionController::TestCase
                             end: DateTime.new(2017, 5, 6),
                             title: "Städa köket",
                             description: "Efter kontorsfesten är köket väldigt smutsigt. Praktikanterna måste städa bort alla ölburkar och skrubba väggarna." },
-                    users: { user_id: [users(:one).id, users(:two)] }
+                    user_ids: [users(:one).id, users(:two)]
     end
 
     assert_redirected_to task_path(assigns(:task))
