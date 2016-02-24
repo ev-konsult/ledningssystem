@@ -18,6 +18,27 @@
 //= require_tree .
 
 $(document).ready(function() {
+  /**
+  * Change the greeting message dependent on time
+  */
+  var day = new Date().getHours();
+  var greeting = "test";
+
+  if (day >= 5 && day < 9) {
+    greeting = "God morgon";
+  } else if (day >= 9 && day < 12) {
+      greeting = "God förmiddag";
+  } else if (day >= 12 && day < 15) {
+      greeting = "God dag";
+  } else if (day >= 15 && day < 19) {
+      greeting = "God eftermiddag";
+  } else if (day >= 19 && day < 22) {
+      greeting = "God kväll";
+  } else {
+      greeting = "God natt";
+  }
+
+  $('.profile-sidebar .greeting').html(greeting);
 
   /**
   * Displays the education form when the show button is clicked
