@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-    @import "bootstrap";
     @import "bootstrap-sprockets";
+    @import "bootstrap";
     @import "partials/_lumino_template";
     @import "partials/_user";
     @import "partials/_base";
