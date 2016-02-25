@@ -20,6 +20,10 @@
     line-height: 32px;
     float: right;
 }
+#caret {
+    margin-left: 5px;
+    font-size: 10px;
+}
 
 /* Toggle menu button */
 .navbar-toggle {
@@ -113,15 +117,42 @@
 /**
 * Makes initials spin :D
 */
-.profile-circle:hover {
-  -webkit-animation: rotate 1s;
+.user-menu:hover {
+    .profile-circle {
+      -webkit-animation: rotate 1s;
+    }
+        @-webkit-keyframes rotate {
+        0% {
+            -webkit-transform:rotate(0deg);
+        }
+      100% {
+        -webkit-transform:rotate(360deg);
+      }
+    }  
 }
 
-@-webkit-keyframes rotate {
-    0% {
-        -webkit-transform:rotate(0deg);
+@media (max-width: 768px) {
+    .user-menu {
+        .dropdown-menu {
+            position: fixed;    
+            top: 49px;
+            margin: 0px !important;
+            padding: 0px !important;
+            border-radius: 0px !important;
+            width: 100%;
+            font-size: 16px;
+            span {
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+            a {
+                padding: 12px;
+            }
+            li {
+                border-bottom: 1px solid $lighter-gray;
+            }
+        }
     }
-  100% {
-    -webkit-transform:rotate(360deg);
-  }
 }
+
+
