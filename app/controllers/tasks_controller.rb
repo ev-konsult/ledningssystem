@@ -39,6 +39,11 @@ class TasksController < ApplicationController
     @user_ids = params[:user_ids]
 
     if @task.update_attributes(task_params)
+      # Remove already assigned users
+      @task.users.each do |user|
+        @task.users.delete(user)
+      end
+
       unless @user_ids.nil?
         @user_ids.each do |id|
           next if id.blank?
