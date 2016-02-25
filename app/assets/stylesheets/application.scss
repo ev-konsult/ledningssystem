@@ -23,37 +23,79 @@
 
 /* Toggle menu button */
 .navbar-toggle {
-    margin-left: 5px;
     float: left;
-    color: $dark-purple;
+    color: $purple;
     font-size: 14px;
     font-weight: normal !important;
     line-height: 14px;
     border: 0px;
-    background-color: none !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    height: 50px;
+    padding: 0px 15px 0px 15px !important;
+    margin: 0px !important;
+        -webkit-box-shadow: 
+            inset 0px -5px 0px -0px $purple;
+        -moz-box-shadow: 
+            inset 0px -5px 0px -0px $purple;
+        -o-box-shadow: 
+            inset 0px -5px 0px -0px $purple;
+        box-shadow: 
+            inset 0px -5px 0px -0px $purple;
     div {
         float: left;
-    }
-    .icon-bar {
-        width: 20px;
-        height: 2px;
-        background-color: $dark-purple !important;
+        .icon-bar {
+            width: 20px;
+            height: 2px;
+            background-color: $purple !important;
+        }
     }
     .navbar-toggle-text {
-        margin-left: 3px;
+        margin-left: 5px;
         float: right;
     }
+
     &:hover {
-        color: $dark-purple !important;
+        color: lighten($purple, 15) !important;
         font-weight: normal !important;
         background-color: transparent !important;
-    }
-    &:focus {
-        color: $dark-purple !important;
-        font-weight: normal !important;
-        background-color: transparent !important;
+            -webkit-box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+            -moz-box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+            -o-box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+            box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+        .icon-bar {
+            background-color: lighten($purple, 15) !important;
+        }
     }
 }
+
+.navbar-toggle[aria-expanded="false"] {
+    .icon-bar {
+        background-color: $dark-purple !important;
+    }
+    
+    &:hover {
+        color: $purple !important;
+        font-weight: normal !important;
+        background-color: transparent !important;
+        .icon-bar {
+            background-color: $purple !important;
+        }
+    }
+}
+
+.navbar-toggle[aria-expanded="true"] {
+    color: $cream-white !important;
+    background-color: $dark-purple !important;
+
+    .icon-bar {
+        background-color: $cream-white !important;
+    }
+} /* End: Toggle menu button */
 
 /* Changes style of the body when logged in */
 #loggedin {
