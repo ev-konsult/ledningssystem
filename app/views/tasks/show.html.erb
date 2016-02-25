@@ -5,9 +5,8 @@
 <p>Start: <%= @task.start.strftime("%D") %></p>
 <p>Deadline: <%= @task.end.strftime("%D") %></p>
 
-<!-- TODO - do something fancy with these, now the enum value is just printed -->
-<div data-toggle="tooltip" title="Status!" class='status-box <%= @task.status %>'></div>
-<div data-toggle="tooltip" title="Priority!" class='priority-box <%= @task.priority %>'></div>
+<p><%= I18n.t :"task.status.#{@task.status}" %></p>
+Status: <div data-toggle="tooltip" title="Priority!" class='priority-box <%= @task.priority %>'></div>
 
 <h4>Ansvariga för uppgiften</h4>
 

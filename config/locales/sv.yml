@@ -1,4 +1,10 @@
 sv:
+  task:
+    status:
+      not_started:   Inte påbörjad
+      in_progress:  Påbörjad
+      done: Färdig
+      cancelled: Avbruten
   activerecord:
     attributes:
       user:
