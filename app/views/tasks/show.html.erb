@@ -16,5 +16,7 @@ Prioritet: <div data-toggle="tooltip" title="Priority!" class='priority-box <%= 
   <% end %>
 </ul>
 
-<%= link_to "Ändra uppgift", edit_task_path(@task) %>
+<% if current_user.admin? %>
+  <%= link_to "Ändra uppgift", edit_task_path(@task) %>
+<% end %>
 <%= link_to "Tillbaka", tasks_path, class: "btn btn-primary" %>
