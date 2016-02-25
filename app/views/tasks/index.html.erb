@@ -1,10 +1,12 @@
 <% @tasks.each do |task| %>
-  <h2><%= link_to task.title, task %></h2>
-  <p>Start: <%= task.start.strftime("%D") %></p>
-  <p>Deadline: <%= task.end.strftime("%D") %></p>
+  <% if current_user.admin? || task.users.include?(current_user) %>
+    <h2><%= link_to task.title, task %></h2>
+    <p>Start: <%= task.start.strftime("%D") %></p>
+    <p>Deadline: <%= task.end.strftime("%D") %></p>
 
-  Status: <p><%= I18n.t :"task.status.#{task.status}" %></p>
-  Prioritet: <div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div>
+    Status: <p><%= I18n.t :"task.status.#{task.status}" %></p>
+    Prioritet: <div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div>
+  <% end %>
 <% end %>
 
 <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
