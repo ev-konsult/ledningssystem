@@ -19,14 +19,13 @@ class TasksController < ApplicationController
     @user_ids = params[:user_ids]
 
     if @task.save
-      # Add the users to the task if the task can be saved.
-      # Else it somehow trys to validate a user and cannot save the task...
-      # TODO: Try to figure out why it behaves this way
-      @user_ids.each do |id|
-        next if id.blank?
-        user = User.find(id)
-        
-        @task.users << User.find(id) unless @task.users.include?(user)
+      unless @user_ids.nil?
+        @user_ids.each do |id|
+          next if id.blank?
+          user = User.find(id)
+
+          @task.users << User.find(id) unless @task.users.include?(user)
+        end
       end
       flash[:success] = "Uppgiften skapades!"
       redirect_to @task
@@ -40,12 +39,14 @@ class TasksController < ApplicationController
     @user_ids = params[:user_ids]
 
     if @task.update_attributes(task_params)
-      @user_ids.each do |id|
-        next if id.blank?
-        user = User.find(id)
+      unless @user_ids.nil?
+        @user_ids.each do |id|
+          next if id.blank?
+          user = User.find(id)
 
-        # No duplication of users
-        @task.users << user unless @task.users.include?(user)
+          # No duplication of users
+          @task.users << user unless @task.users.include?(user)
+        end
       end
 
       flash[:success] = "Uppgiften uppdaterades!"
