@@ -25,6 +25,11 @@ sv:
           high: Hög
           medium: Medium
           critical: Kritisk
+        status:
+          not_started: Inte påbörjad
+          in_progress: Påbörjad
+          done: Färdig
+          cancelled: Avbruten  
         title: Titel
         description: Beskrivning
         start: Startdatum
