@@ -112,6 +112,9 @@ $(document).ready(function() {
   * Focus the username text field when loading login form
   */
   $('#username').focus();
+
+  //Enable tooltip
+   $('[data-toggle="tooltip"]').tooltip();
 });
 
 /**

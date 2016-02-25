@@ -65,3 +65,49 @@
     background: $white;
     border: 1px solid $light-gray;
 }
+
+
+/**
+* Makes initials spin :D
+*/
+.profile-circle:hover {
+  -webkit-animation: rotate 1s;
+}
+
+@-webkit-keyframes rotate {
+	0% {
+		-webkit-transform:rotate(0deg);
+	}
+  100% {
+    -webkit-transform:rotate(360deg);
+  }
+}
+
+.status-box{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black; 
+
+}
+
+.priority-box{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black; 
+}
+
+.low{
+    background-color: green;
+}
+
+.medium{
+    background-color: yellow;
+}
+
+.high{
+    background-color: orange;
+}
+
+.critical{
+    background-color: red;
+}
