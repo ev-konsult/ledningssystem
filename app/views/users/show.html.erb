@@ -12,13 +12,13 @@
         <!-- Om användaren är admin renderas views/users/_admin_dashboard.html.erb -->
         <!-- Formulären ska vara gömda, när admin klickar på t.ex ny utbildning ska en flashig jquery animation komma typ-->
 
-        
+
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#info" aria-controls="info" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Personuppgifter</a></li>
           <li role="presentation"><a href="#education" aria-controls="education" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Utbildning</a></li>
           <li role="presentation"><a href="#contacts" aria-controls="contacts" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Kontaktperson</a></li>
         </ul>
-       
+
 
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="info">
@@ -30,7 +30,7 @@
           <div role="tabpanel" class="tab-pane" id="education">
             <div id="education-display"><%= render "education_display" %></div>
 
-            <% if current_user.admin? %>
+            <% if current_user.admin? || current_user == @user %>
               <button id="show-education-form" class="btn btn-default">Lägg till utbildning</button>
               <div id="education-form">
                 <div id="education-errors"></div>

@@ -42,6 +42,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    
+    if @user.update_attributes(user_params)
+      flash[:success] = "Ditt konto uppdaterades!"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   # Redirects to login or current user depending on if you're logged in
   def user_root
     if logged_in?

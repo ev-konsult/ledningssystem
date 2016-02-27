@@ -17,9 +17,18 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <div class="profile-circle"><%= current_user.first_name[0] %><%= current_user.last_name[0] %></div> <div class="profile-header-name"><%= current_user.first_name %><span id="caret" class="glyphicon glyphicon-chevron-down"></span></div> </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#"><span class = "glyphicon glyphicon-user"></span> Profil</a></li>
-                        <li><a href="#"><span class = "glyphicon glyphicon-cog"></span> Settings</a></li>
-                        <li><%= link_to logout_path, method: "delete" do %>
+                        <li>
+                          <%= link_to current_user do %>
+                            <span class = "glyphicon glyphicon-user"> Profil
+                          <% end %>
+                        </li>
+                        <li>
+                          <%= link_to edit_user_path(current_user) do %>
+                            <span class = "glyphicon glyphicon-cog"> Profilinställningar
+                          <% end %>
+                        </li>
+                        <li>
+                            <%= link_to logout_path, method: "delete" do %>
                               <span class = "glyphicon glyphicon-log-out"></span> Logga ut
                             <% end %>
                         </li>

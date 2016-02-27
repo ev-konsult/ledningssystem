@@ -18,23 +18,24 @@ class User < ActiveRecord::Base
                              length: { in: 4..100 },
                              uniqueness: true
 
-  validates :first_name,     presence: true,
-                             length: { in: 4..100 }
+  validates :first_name,     length: { in: 4..100 }, allow_blank: true
 
-  validates :last_name,      presence: true,
-                             length: { in: 4..100 }
+  validates :last_name,      length: { in: 4..100 }, allow_blank: true
 
   validates :password,       presence: true,
                              length: { in: 6..100 }
 
-  validates :email,          presence: true, length: { maximum: 255 },
+  validates :email,          length: { maximum: 255 },
                              format: { with: VALID_EMAIL_REGEX },
-                             uniqueness: { case_sensitive: false }
+                             uniqueness: { case_sensitive: false },
+                             allow_blank: true
 
-  validates :ssn,            presence: true, format: { with: VALID_SSN_REGEX },
-                             uniqueness: true;
+  validates :ssn,            format: { with: VALID_SSN_REGEX },
+                             uniqueness: true,
+                             allow_blank: true
 
-  validates :phone_number,   presence: true, length: { in: 7..15 }
+  validates :phone_number,   length: { in: 7..15 },
+                             allow_blank: true
 
 
   has_secure_password
