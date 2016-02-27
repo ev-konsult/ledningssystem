@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', obj: f.object %>
     <div class="form-group">
-      <%= f.label :user_name, "Användarnamn" %>
+      <%= f.label :user_name, "* Användarnamn" %>
       <%= f.text_field :user_name, class: "form-control" %>
     </div>
 
@@ -32,12 +32,12 @@
 
 
     <div class="form-group">
-      <%= f.label :password, "Lösenord" %>
+      <%= f.label :password, "* Lösenord" %>
       <%= f.password_field :password, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation, "Konfirmera lösenord" %>
+      <%= f.label :password_confirmation, "* Konfirmera lösenord" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
 
@@ -63,6 +63,6 @@
     <% end %>
 
     <hr />
-    <%= f.submit "Skapa användare", class: "btn btn-primary" %>
+    <%= f.submit "Spara användare", class: "btn btn-primary" %>
     <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
 <% end %>

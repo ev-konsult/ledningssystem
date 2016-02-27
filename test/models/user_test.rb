@@ -19,14 +19,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "firstnamerequired" do
+  test "firstnamenotrequired" do
     @user.first_name = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
-  test "lastnamerequired" do
+  test "lastnamenotrequired" do
     @user.last_name = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   # Test av namnlängd
@@ -52,9 +52,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # Test av email requirement
-  test "emailrequired" do
+  test "emailnotrequired" do
     @user.email = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   # Test av email fel format
@@ -70,9 +70,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # Test av ssn requirement
-  test "ssnrequired" do
+  test "ssnnotrequired" do
     @user.ssn = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   # Test av ssn fel format
@@ -88,9 +88,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # Test av tomt telefonnummer
-  test "phonerequired" do
+  test "phonenotrequired" do
     @user.phone_number = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   # Test av rätt formaterat telefonnummer
