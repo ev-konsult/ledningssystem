@@ -39,6 +39,9 @@ gem 'tinymce-rails'
 # Calendar
 gem 'simple_calendar', "~> 2.0"
 
+# File upload
+gem "paperclip", "~> 4.3"
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
