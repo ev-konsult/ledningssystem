@@ -38,7 +38,7 @@ $(document).ready(function() {
       greeting = "God natt";
   }
 
-  $('.profile-sidebar .greeting').html(greeting);
+  $('.greeting').html(greeting);
 
   /**
   * Displays the education form when the show button is clicked

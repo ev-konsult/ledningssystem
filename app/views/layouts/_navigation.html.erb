@@ -19,17 +19,20 @@
                     <ul class="dropdown-menu" role="menu">
                         <li>
                           <%= link_to current_user do %>
-                            <span class = "glyphicon glyphicon-user"> Profil
+                            <span class = "glyphicon glyphicon-user"></span>
+                            Profil
                           <% end %>
                         </li>
                         <li>
                           <%= link_to edit_user_path(current_user) do %>
-                            <span class = "glyphicon glyphicon-cog"> Profilinställningar
+                            <span class = "glyphicon glyphicon-cog"></span>
+                            Profilinställningar
                           <% end %>
                         </li>
                         <li>
                             <%= link_to logout_path, method: "delete" do %>
-                              <span class = "glyphicon glyphicon-log-out"></span> Logga ut
+                              <span class = "glyphicon glyphicon-log-out"></span>
+                              Logga ut
                             <% end %>
                         </li>
                     </ul>
