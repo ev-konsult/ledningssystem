@@ -1,4 +1,8 @@
 sv:
+  will_paginate:
+    previous_label: '<'
+    next_label: '>'
+    page_gap: '...'
   task:
     status:
       not_started:   Inte påbörjad
@@ -29,7 +33,7 @@ sv:
           not_started: Inte påbörjad
           in_progress: Påbörjad
           done: Färdig
-          cancelled: Avbruten  
+          cancelled: Avbruten
         title: Titel
         description: Beskrivning
         start: Startdatum
