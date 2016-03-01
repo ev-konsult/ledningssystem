@@ -11,21 +11,20 @@
 
         <!-- Om användaren är admin renderas views/users/_admin_dashboard.html.erb -->
         <!-- Formulären ska vara gömda, när admin klickar på t.ex ny utbildning ska en flashig jquery animation komma typ-->
-
-
-        <ul class="nav nav-tabs" role="tablist">
+        
+        <ul class="nav nav-pills">
           <li role="presentation" class="active"><a href="#info" aria-controls="info" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Personuppgifter</a></li>
           <li role="presentation"><a href="#education" aria-controls="education" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Utbildning</a></li>
           <li role="presentation"><a href="#contacts" aria-controls="contacts" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Kontaktperson</a></li>
         </ul>
+      
 
-
-        <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="info">
             <p>Personnummer: <%= @user.ssn %></p>
             <p>Email: <%= @user.email %></p>
             <p>Telefonnummer: <%= @user.phone_number %></p>
           </div>
+        
 
           <div role="tabpanel" class="tab-pane" id="education">
             <div id="education-display"><%= render "education_display" %></div>
@@ -59,6 +58,7 @@
             <% end %>
           </div>
         </div>
+
 
         <% if current_user.admin? %>
           <hr />
