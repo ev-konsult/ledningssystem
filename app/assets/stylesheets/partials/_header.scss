@@ -132,6 +132,9 @@
 }
 
 @media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 14px;
+    }
     .user-menu {
         .dropdown-menu {
             position: fixed;    

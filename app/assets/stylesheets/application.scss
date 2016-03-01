@@ -41,6 +41,10 @@
     border-bottom-left-radius:3px;
 }
 
+.panel {
+    box-shadow: 0px 0px 1px $light-gray !important;
+}
+
 .panel-heading {
     line-height: 40px !important;
     height: 40px !important;
@@ -61,7 +65,7 @@
 
 .panel-body {
     background: $white;
-    border: 1px solid $light-gray;
+    border: 0px solid $light-gray;
 }
 
 

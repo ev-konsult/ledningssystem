@@ -18,6 +18,7 @@
 //= require_tree .
 
 $(document).ready(function() {
+
   /**
   * Change the greeting message dependent on time
   */

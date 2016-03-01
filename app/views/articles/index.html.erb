@@ -1,8 +1,7 @@
 <% content_for :title, "Artiklar" %>
 
 <hr />
-
-<ul>
+<ul class="article-list">
   <%= render 'shared/flash_messages' %>
   <% @articles.each do |article| %>
     <li class="panel panel-primary">
@@ -10,8 +9,17 @@
         <%= link_to article.title, article_path(article), class: "panel-title" %>
       </div>
       <div class="panel-body">
-        <p><%= truncate(strip_tags(article.body)) %></p>
-        <p><%= article.created_at.to_formatted_s(:db) %></p>
+      <div class="tinyimg">
+        
+          
+         
+
+
+      </div>
+        <h5><%= link_to article.title, article_path(article), class: "panel-title" %></h5>
+        <p class="article-date"><%= article.created_at.to_formatted_s(:db) %></p>
+        <p class="article-text"><%= truncate(strip_tags(article.body), length: 150) %></p>
+        
       </div>
     </li>
   <% end %>
