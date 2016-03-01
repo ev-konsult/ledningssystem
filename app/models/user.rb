@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :educations
   has_one :contact_person
+  belongs_to :role
 
   accepts_nested_attributes_for :contact_person
 
