@@ -1,7 +1,6 @@
-<h2>Anställda</h2>
-
 <!-- Sökformulär, sätter params[:search] -->
-<div>
+<div id="user-search">
+  <p>Sök anställda</p>
   <%= form_tag(users_path, :method => "get", remote: true) do %>
     <!-- Plockar bort params[:search] om queryn är tom.
          Ser fult ut med tomma querys i URL'n.. -->
@@ -26,5 +25,3 @@
 <% end %>
 
 <%= link_to "Tillbaka", current_user, class: "btn btn-primary" %>
-
-
