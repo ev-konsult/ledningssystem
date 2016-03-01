@@ -6,10 +6,16 @@ class UsersControllerTest < ActionController::TestCase
   # Testfixtur
   def setup
     # Sätter current user till admin
-    session[:user_id] = User.where(admin: true).take.id
+
 
     # Hämtar testanvändaren ur users.yml
     @user = users(:two)
+
+
+    @admin = users(:one)
+
+
+    session[:user_id] = @admin.id
   end
 
   # Funktionellt test för skapande av användare
@@ -38,7 +44,6 @@ class UsersControllerTest < ActionController::TestCase
   # Testar att icke-admins inte kan skapa användare
   test "non admins should not be able to create users" do
     # Sätter current user till en vanlig användare
-    @user = User.where(admin: false).take
     session[:user_id] = @user.id
 
     # Testar att användare _INTE_ läggs till
@@ -65,7 +70,6 @@ class UsersControllerTest < ActionController::TestCase
   # Testar att icke-admins inte kan ta bort användare
   test "non admins should not be able to destroy users" do
     # Sätter current user till en vanlig användare
-    @user = User.where(admin: false).take
     session[:user_id] = @user.id
 
     # Testar att användare _INTE_ tas bort

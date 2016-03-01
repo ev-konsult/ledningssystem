@@ -3,22 +3,23 @@
 @hr = Role.create(role_name: "Human resources representative", can_edit_staff: true, can_show_person_details_verbose: true)
 @manager = Role.create(role_name: "Project manager", can_edit_tasks: true)
 @editorz = Role.create(role_name: "Editor", can_edit_news: true)
+@admin_role = Role.create(role_name: "Admin", can_edit_news: true, can_edit_tasks: true, can_edit_staff: true, can_edit_documents: true, can_show_person_details_verbose: true)
 
 User.create(user_name: "Admin", first_name: "Admin", last_name: "Adminsson",
-            password: "adminpassword", password_confirmation: "adminpassword", admin: true,
-            email: "admin@admin.com", ssn: "123456-1234", phone_number: "0701234123", contact_person: @admin_contact)
+            password: "adminpassword", password_confirmation: "adminpassword",
+            email: "admin@admin.com", ssn: "123456-1234", phone_number: "0701234123", contact_person: @admin_contact, role: @admin_role)
 
 @editor = User.create(user_name: "TestUser", first_name: "Test", last_name: "User",
             password: "testuserpassword", password_confirmation: "testuserpassword",
-            admin: false, email: "test@user.com", ssn: "123456-1337", phone_number: "0701234999", contact_person: @admin_contact, role: @editorz)
+            email: "test@user.com", ssn: "123456-1337", phone_number: "0701234999", contact_person: @admin_contact, role: @editorz)
 
 @hr_guy = User.create(user_name: "HumanResources", first_name: "Toby", last_name: "Flenderson",
             password: "testuserpassword", password_confirmation: "testuserpassword",
-            admin: false, email: "hrtest@user.com", ssn: "113456-1337", phone_number: "0701234919", contact_person: @admin_contact, role: @hr)
+             email: "hrtest@user.com", ssn: "113456-1337", phone_number: "0701234919", contact_person: @admin_contact, role: @hr)
 
 @project_leader = User.create(user_name: "ProjectLeader", first_name: "Michael", last_name: "Scott",
             password: "testuserpassword", password_confirmation: "testuserpassword",
-            admin: false, email: "mc@user.com", ssn: "123426-1337", phone_number: "0701334999", contact_person: @admin_contact, role: @manager)
+             email: "mc@user.com", ssn: "123426-1337", phone_number: "0701334999", contact_person: @admin_contact, role: @manager)
 
 @role = Role.create(role_name: "User")
 

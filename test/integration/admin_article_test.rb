@@ -2,13 +2,18 @@ require 'test_helper'
 
 class AdminArticleTest < ActionDispatch::IntegrationTest
   # Testing a sequence of admin logging and and fiddling with an article
+
+  def setup
+    @user = users(:one)
+    @user.role = roles(:one)
+  end
   test "admin logs in adds article edits it and deletes it" do
     # Admin logs in
     https!
     get "/login"
     assert_response :success
 
-    post_via_redirect "/login", session: { user_name: users(:one).user_name,
+    post_via_redirect "/login", session: { user_name: @user.user_name,
                                            password: "password" }
 
     assert_equal "/users/#{users(:one).id}", path

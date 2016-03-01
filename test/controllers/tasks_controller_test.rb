@@ -4,10 +4,12 @@ class TasksControllerTest < ActionController::TestCase
 
   def setup
     # Sätter current user till admin
-    session[:user_id] = User.where(admin: true).take.id
+
 
     @task = tasks(:one)
-    @user = users(:one)
+    @user = users(:two)
+
+    session[:user_id] = users(:one)
   end
 
   test "index" do

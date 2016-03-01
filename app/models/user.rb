@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
     BCrypt::Password.create(string, cost: cost)
   end
 
+  def admin?
+    self.role.role_name == "Admin"
+  end
+
   # Kollar en authentication token mot hashen i databasen
   def authenticated?(remember_token)
     return false if remember_digest.nil?
