@@ -8,6 +8,7 @@ one:
   can_edit_documents: true
   can_show_person_details_verbose: true
 
+
 two:
   role_name: User
   can_edit_news: false
@@ -15,3 +16,4 @@ two:
   can_edit_tasks: false
   can_edit_documents: false
   can_show_person_details_verbose: false
+

@@ -33,6 +33,8 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "Du har registrerat en ny anställd!"
+      @user.role = Role.find(user_params[:role_id])
+
 
       # Redirect till current user istället för den nya användaren,
       # eftersom det bara är admin som kan skapa profiler
@@ -48,7 +50,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    
+
     if @user.update_attributes(user_params)
       flash[:success] = "Ditt konto uppdaterades!"
       redirect_to @user
@@ -73,7 +75,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email,
+    params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email, :role_id,
                                  contact_person_attributes: [:id, :full_name, :email, :phone_number])
                                  # ^ Nästlade attribut för contact_person
   end

@@ -65,7 +65,19 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.role.role_name == "Admin"
+    correct_role? "Admin"
+  end
+
+  def editor?
+    correct_role? "Editor"
+  end
+
+  def human_resources?
+    correct_role? "Human resources representative"
+  end
+
+  def project_manager?
+    correct_role? "Project manager"
   end
 
   # Kollar en authentication token mot hashen i databasen
@@ -73,4 +85,9 @@ class User < ActiveRecord::Base
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+
+  private
+    def correct_role?(role_name)
+      self.role.role_name == role_name
+    end
 end
