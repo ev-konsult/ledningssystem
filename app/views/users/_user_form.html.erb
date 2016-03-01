@@ -41,6 +41,13 @@
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
 
+    <h3>Användar-rättigheter</h3>
+    <div id="form-group">
+      <%= f.label :role, "Välj roll" %>
+      <%= f.collection_select :role_id, Role.all, :id, :role_name %>
+    </div>
+
+
     <!-- Kontaktperson -->
     <hr />
     <h3>Närmaste kontaktperson</h3>
@@ -63,6 +70,9 @@
     <% end %>
 
     <hr />
+
+
+
     <%= f.submit "Spara användare", class: "btn btn-primary" %>
     <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
 <% end %>

@@ -21,6 +21,10 @@
   <%= render 'user_display' %>
 </div>
 
+<% if current_user.human_resources? || current_user.admin? %>
+  <%= link_to "Skapa anställd", new_user_path, class: "btn btn-primary" %>
+<% end %>
+
 <%= link_to "Tillbaka", current_user, class: "btn btn-primary" %>
 
 
