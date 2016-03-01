@@ -8,11 +8,23 @@ class UsersController < ApplicationController
   end
 
   def index
-    # Sidindelade användare, 5 användare per sida
+    # Determine sort condition
+    condition = :full_name if params[:sort].nil?
+
+    case params[:sort]
+    when "Namn"
+      condition = :user_name
+    when "Senast anställd"
+      condition = :created_at
+    when "Email"
+      condition = :email
+    end
+
+    # Paginated users. Change ":per_page" value to get more/less users per page
     if params[:search]
-      @users = User.paginate(:page => params[:page], :per_page => 5).search(params[:search])
+      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 8).search(params[:search])
     else
-      @users = User.paginate(:page => params[:page], :per_page => 5)
+      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 8)
     end
 
     respond_to do |format|
@@ -35,9 +47,6 @@ class UsersController < ApplicationController
       flash[:success] = "Du har registrerat en ny anställd!"
       @user.role = Role.find(user_params[:role_id])
 
-
-      # Redirect till current user istället för den nya användaren,
-      # eftersom det bara är admin som kan skapa profiler
       redirect_to current_user
     else
       render 'new'
@@ -77,7 +86,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email, :role_id,
                                  contact_person_attributes: [:id, :full_name, :email, :phone_number])
-                                 # ^ Nästlade attribut för contact_person
+                                 # ^ Nested attributes for contact_person
   end
 
 

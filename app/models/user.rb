@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   before_save { self.full_name = "#{self.first_name} #{self.last_name}" }
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
   scope :search, -> (query) { where "lower(user_name) like ?", "%#{query.downcase}%" }
+  scope :sort, -> (condition) { order(condition) }
 
   validates :user_name,      presence: true,
                              length: { in: 4..100 },

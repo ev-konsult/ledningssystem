@@ -1,3 +1,12 @@
+<hr />
+<div id="user-sort">
+  <p>Välj sortering</p>
+  <%= form_tag(params, method: :get, remote: true) do %>
+    <%= select_tag(:sort, options_for_select(['Namn', 'Senast anställd', 'Email'], params[:sort])) %><br /><br />
+    <%= submit_tag "Sortera", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
 <%= js_will_paginate @users %>
 
 <hr />
