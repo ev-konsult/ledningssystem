@@ -1,3 +1,26 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "partials/_variables";
+
+.article-list {
+	padding-left: 0px !important;
+}
+
+.panel {
+	border-radius: 0px !important;
+	.panel-heading {
+		border-radius: 0px !important;
+	}
+	.panel-body {
+		h5 a {
+			font-size: 21px !important;
+			color: $purple;
+		}
+		.article-date {
+			font-size: 11px;
+		}
+	}
+} 
+
