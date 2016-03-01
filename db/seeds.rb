@@ -1,12 +1,26 @@
 # Skapar admin med kontaktperson
 @admin_contact = ContactPerson.create(full_name: "Admins Contact Guy", phone_number: "0722222222", email: "admin@gmail.com")
+@hr = Role.create(role_name: "Human resources representative", can_edit_staff: true, can_show_person_details_verbose: true)
+@manager = Role.create(role_name: "Project manager", can_edit_tasks: true)
+@editorz = Role.create(role_name: "Editor", can_edit_news: true)
+
 User.create(user_name: "Admin", first_name: "Admin", last_name: "Adminsson",
             password: "adminpassword", password_confirmation: "adminpassword", admin: true,
             email: "admin@admin.com", ssn: "123456-1234", phone_number: "0701234123", contact_person: @admin_contact)
 
-User.create(user_name: "TestUser", first_name: "Test", last_name: "User",
+@editor = User.create(user_name: "TestUser", first_name: "Test", last_name: "User",
             password: "testuserpassword", password_confirmation: "testuserpassword",
-            admin: false, email: "test@user.com", ssn: "123456-1337", phone_number: "0701234999", contact_person: @admin_contact)
+            admin: false, email: "test@user.com", ssn: "123456-1337", phone_number: "0701234999", contact_person: @admin_contact, role: @editorz)
+
+@hr_guy = User.create(user_name: "HumanResources", first_name: "Toby", last_name: "Flenderson",
+            password: "testuserpassword", password_confirmation: "testuserpassword",
+            admin: false, email: "hrtest@user.com", ssn: "113456-1337", phone_number: "0701234919", contact_person: @admin_contact, role: @hr)
+
+@project_leader = User.create(user_name: "ProjectLeader", first_name: "Michael", last_name: "Scott",
+            password: "testuserpassword", password_confirmation: "testuserpassword",
+            admin: false, email: "mc@user.com", ssn: "123426-1337", phone_number: "0701334999", contact_person: @admin_contact, role: @manager)
+
+@role = Role.create(role_name: "User")
 
 # Skapar användare med Faker, varje användare har en kontaktperson
 99.times do |n|
@@ -21,7 +35,7 @@ User.create(user_name: "TestUser", first_name: "Test", last_name: "User",
                                          email: Faker::Internet.email)
 
   User.create(user_name: Faker::Name.name, first_name: first_name, last_name: last_name,
-              email: email, phone_number: phone_number, ssn: ssn, password: password, contact_person: @contact_person)
+              email: email, phone_number: phone_number, ssn: ssn, password: password, contact_person: @contact_person, role: @role)
 end
 
 # Skapar artiklar för första och sista användaren

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229101926) do
+ActiveRecord::Schema.define(version: 20160301104518) do
 
   create_table "articles", force: :cascade do |t|
     t.text     "title"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20160229101926) do
 
   add_index "educations", ["user_id"], name: "index_educations_on_user_id"
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "role_name"
+    t.boolean  "can_edit_news",                   default: false
+    t.boolean  "can_edit_staff",                  default: false
+    t.boolean  "can_edit_tasks",                  default: false
+    t.boolean  "can_edit_documents",              default: false
+    t.boolean  "can_show_person_details_verbose", default: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
@@ -88,6 +99,9 @@ ActiveRecord::Schema.define(version: 20160229101926) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "full_name"
+    t.integer  "role_id"
   end
+
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
 end
