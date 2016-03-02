@@ -1,5 +1,21 @@
 <% content_for :title, "Artiklar" %>
 
+<h3>Nyheter</h3>
+
+<!-- Sökformulär, sätter params[:search] -->
+<div id="article-search">
+  <p>Sök nyhet</p>
+  <%= form_tag(articles_path, :method => "get") do %>
+    <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "article-search-field" %>
+    <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
+    <%= link_to "Rensa sökning", articles_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<% if params[:search] && params[:search].length > 0 %>
+ <p>Aktiv sökning: <%= params[:search] %></p>
+<% end %>
+
 <hr />
 <ul class="article-list">
   <%= render 'shared/flash_messages' %>
@@ -10,16 +26,16 @@
       </div>
       <div class="panel-body">
       <div class="tinyimg">
-        
-          
-         
+
+
+
 
 
       </div>
         <h5><%= link_to article.title, article_path(article), class: "panel-title" %></h5>
         <p class="article-date"><%= article.created_at.to_formatted_s(:db) %></p>
         <p class="article-text"><%= truncate(strip_tags(article.body), length: 150) %></p>
-        
+
       </div>
     </li>
   <% end %>
