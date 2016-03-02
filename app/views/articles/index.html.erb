@@ -17,6 +17,9 @@
 <% end %>
 
 <hr />
+
+<%= will_paginate @articles %>
+
 <ul class="article-list">
   <%= render 'shared/flash_messages' %>
   <% @articles.each do |article| %>
