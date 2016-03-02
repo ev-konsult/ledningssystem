@@ -44,9 +44,9 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:search]
-      @articles = Article.search(params[:search])
+      @articles = Article.paginate(:page => params[:page], :per_page => 3).search(params[:search])
     else
-      @articles = Article.all
+      @articles = Article.paginate(:page => params[:page], :per_page => 3)
     end
   end
 

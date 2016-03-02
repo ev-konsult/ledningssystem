@@ -1,3 +1,5 @@
+<%= will_paginate @tasks %>
+
 <% @tasks.each do |task| %>
   <% if current_user.admin? || task.users.include?(current_user) %>
     <h2><%= link_to task.title, task %></h2>
