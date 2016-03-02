@@ -42,9 +42,16 @@
     </div>
 
     <h3>Användar-rättigheter</h3>
-    <div id="form-group">
+    <div class="form-group userInfo">
       <%= f.label :role, "Välj roll" %>
-      <%= f.collection_select :role_id, Role.all, :id, :role_name %>
+      <%= f.collection_select :role_id, Role.all, :id, :role_name %> <div class='user-info-tooltip'>
+      <span class="tooltiptext">
+        Admin: Äger rättigheter till hela systemet. <br>
+        Personalansvarig: Äger rättigheter till användare.  <br>
+        Projektledare: Äger rättigheter till att hantera uppgifter. <br>
+        Redaktör: Äger rättigheter till nyheter. <br>
+        Användare: Äger inga rättigheter.
+      </span></div>
     </div>
 
 
