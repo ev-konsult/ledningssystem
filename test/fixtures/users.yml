@@ -9,7 +9,7 @@ one:
   email: foobar123123@gmail.com
   ssn: 123456-1234
   phone_number: 0701234561
-  role: one
+  role: admin
 
 
 two:
@@ -21,7 +21,7 @@ two:
   email: foobar1@gmail.com
   ssn: 123456-1337
   phone_number: 0701234565
-  role: two
+  role: user
 
 three:
   id: 3
@@ -32,4 +32,4 @@ three:
   email: foobar2@gmail.com
   ssn: 098765-1234
   phone_number: 0701234564
-  role: two
+  role: user

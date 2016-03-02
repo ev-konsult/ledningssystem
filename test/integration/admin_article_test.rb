@@ -5,7 +5,7 @@ class AdminArticleTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:one)
-    @user.role = roles(:one)
+    @user.role = roles(:user)
   end
   test "admin logs in adds article edits it and deletes it" do
     # Admin logs in
