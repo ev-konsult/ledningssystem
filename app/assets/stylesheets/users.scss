@@ -5,3 +5,36 @@
 .fire-link {
   float: right;
 }
+
+// Information about user rights
+.user-info-tooltip{
+  background-image: image-url('information.jpg');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+}
+.user-info-tooltip .tooltiptext {
+  visibility: hidden;
+  width: 360px;
+  background-color: rgba(47, 47,47,0.88);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  left: 25px;
+  z-index: 1;
+}
+.user-info-tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+.userInfo label, select{
+  float: left;
+}
