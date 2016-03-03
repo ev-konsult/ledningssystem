@@ -23,22 +23,19 @@
 <ul class="article-list">
   <%= render 'shared/flash_messages' %>
   <% @articles.each do |article| %>
-    <li class="panel panel-primary">
-      <div class="panel-heading">
-        <%= link_to article.title, article_path(article), class: "panel-title" %>
-      </div>
+    <li class="panel panel-primary panel-article">
       <div class="panel-body">
       <div class="tinyimg">
 
-
-
-
-
       </div>
         <h5><%= link_to article.title, article_path(article), class: "panel-title" %></h5>
-        <p class="article-date"><%= article.created_at.to_formatted_s(:db) %></p>
+        <p class="article-date">Publicerad: <%= article.created_at.to_formatted_s(:db) %></p>
         <p class="article-text"><%= truncate(strip_tags(article.body), length: 150) %></p>
 
+      </div>
+      <div class="panel-footer">
+        <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to "Förnamn Efternamn"%></span>
+        <!-- <%= link_to article.title, article_path(article), class: "panel-title" %> -->
       </div>
     </li>
   <% end %>
