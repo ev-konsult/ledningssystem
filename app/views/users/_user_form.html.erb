@@ -43,15 +43,14 @@
 
     <h3>Användar-rättigheter</h3>
     <div class="form-group userInfo">
-      <%= f.label :role, "Välj roll" %>
-      <%= f.collection_select :role_id, Role.all, :id, :role_name %> <div class='user-info-tooltip'>
-      <span class="tooltiptext">
-        Admin: Äger rättigheter till hela systemet. <br>
-        Personalansvarig: Äger rättigheter till användare.  <br>
-        Projektledare: Äger rättigheter till att hantera uppgifter. <br>
-        Redaktör: Äger rättigheter till nyheter. <br>
-        Användare: Äger inga rättigheter.
-      </span></div>
+      <%= f.label :role, "Välj roll" %><br />
+      <%= f.collection_radio_buttons :role_id, Role.all, :id, :role_name do |thing| %>
+        <div>
+         <%= thing.radio_button %>
+         <%= thing.label %>
+          <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="<%= thing.object.description %>"></span>
+        </div>
+      <% end %>
     </div>
 
 
