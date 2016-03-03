@@ -159,7 +159,17 @@
 }
 
 @media (max-width: 768px) {
-    .nav .nav-pills {
-       
+    
+    .panel-body {
+        .nav-pills {
+            background-color: yellow;
+            li {
+                display: inline-block;
+                width: 100%;
+                background-color: blue;
+            }
+        }
+        
     }
+    
 }
