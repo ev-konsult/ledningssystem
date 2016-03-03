@@ -8,10 +8,12 @@ class User < ActiveRecord::Base
   has_one :contact_person
   belongs_to :role
 
+
   accepts_nested_attributes_for :contact_person
 
   before_save { self.email = email.downcase }
   before_save { self.full_name = "#{self.first_name} #{self.last_name}" }
+  before_create :set_default_role_if_not_present
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
   scope :search, -> (query) { where "lower(user_name) like ?", "%#{query.downcase}%" }
   scope :sort, -> (condition) { order(condition) }
@@ -70,15 +72,15 @@ class User < ActiveRecord::Base
   end
 
   def editor?
-    correct_role? "Editor"
+    correct_role? "Redaktör"
   end
 
   def human_resources?
-    correct_role? "Human resources representative"
+    correct_role? "Personalansvarig"
   end
 
   def project_manager?
-    correct_role? "Project manager"
+    correct_role? "Projektledare"
   end
 
   # Kollar en authentication token mot hashen i databasen
@@ -90,5 +92,9 @@ class User < ActiveRecord::Base
   private
     def correct_role?(role_name)
       self.role.role_name == role_name
+    end
+
+    def set_default_role_if_not_present
+        self.role = Role.find_by_role_name("Användare") if self.role.nil?
     end
 end
