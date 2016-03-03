@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :fetch_article, only: [:show, :destroy, :edit, :update]
   before_action :check_if_logged_in, only: [:create, :destroy, :update, :edit, :new]
-  before_action :check_if_admin, only: [:new, :create, :destroy]
+  before_action :check_privilege, only: [:new, :create, :destroy]
 
   def show
 
@@ -61,4 +61,8 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
 
+    def check_privilege
+      redirect_to current_user unless current_user.admin? ||
+                                      current_user.editor?
+    end
 end
