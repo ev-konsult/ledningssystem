@@ -22,7 +22,7 @@ class AdminArticleTest < ActionDispatch::IntegrationTest
     get "/articles/new"
     assert_response :success
 
-    post_via_redirect "/articles", article: { id: 2, title: "Artikel skapad av admin", body: "Nån sorts artikel idk hej hej tjoho" }
+    post_via_redirect "/articles", article: { id: 2, title: "Artikel skapad av admin", body: "Nån sorts artikel idk hej hej tjoho", user: @user }
     assert_equal "/users/#{users(:one).id}", path
     assert_equal 'Artikel sparades!', flash[:success]
 

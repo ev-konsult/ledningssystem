@@ -1,8 +1,8 @@
 # Skapar admin med kontaktperson
 @admin_contact = ContactPerson.create(full_name: "Admins Contact Guy", phone_number: "0722222222", email: "admin@gmail.com")
-@hr = Role.create(description: "Äger rättigheter till personal", role_name: "Human resources representative", can_edit_staff: true, can_show_person_details_verbose: true)
-@manager = Role.create(description: "Äger rättigheter till att hantera uppgifter.", role_name: "Project manager", can_edit_tasks: true)
-@editorz = Role.create(description: "Äger rättigheter till nyheter.", role_name: "Editor", can_edit_news: true)
+@hr = Role.create(description: "Äger rättigheter till personal", role_name: "Personalansvarig", can_edit_staff: true, can_show_person_details_verbose: true)
+@manager = Role.create(description: "Äger rättigheter till att hantera uppgifter.", role_name: "Projektledare", can_edit_tasks: true)
+@editorz = Role.create(description: "Äger rättigheter till nyheter.", role_name: "Redaktör", can_edit_news: true)
 @admin_role = Role.create(description: "Äger rättigheter till hela systemet", role_name: "Admin", can_edit_news: true, can_edit_tasks: true, can_edit_staff: true, can_edit_documents: true, can_show_person_details_verbose: true)
 
 User.create(user_name: "Admin", first_name: "Admin", last_name: "Adminsson",
@@ -21,7 +21,7 @@ User.create(user_name: "Admin", first_name: "Admin", last_name: "Adminsson",
             password: "testuserpassword", password_confirmation: "testuserpassword",
              email: "mc@user.com", ssn: "123426-1337", phone_number: "0701334999", contact_person: @admin_contact, role: @manager)
 
-@role = Role.create(description: "Äger inga rättigheter", role_name: "User")
+@role = Role.create(description: "Äger inga rättigheter", role_name: "Användare")
 
 # Skapar användare med Faker, varje användare har en kontaktperson
 99.times do |n|
