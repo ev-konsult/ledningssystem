@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301115349) do
+ActiveRecord::Schema.define(version: 20160303143219) do
 
   create_table "articles", force: :cascade do |t|
     t.text     "title"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160301115349) do
     t.boolean  "can_show_person_details_verbose", default: false
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "description"
   end
 
   create_table "tasks", force: :cascade do |t|

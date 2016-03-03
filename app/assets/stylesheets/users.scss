@@ -7,7 +7,7 @@
 }
 
 // Information about user rights
-.user-info-tooltip{
+/*.user-info-tooltip{
   background-image: image-url('information.jpg');
   background-size: 20px 20px;
   background-repeat: no-repeat;
@@ -25,7 +25,6 @@
   padding: 5px 0;
   border-radius: 6px;
 
-  /* Position the tooltip text - see examples below! */
   position: absolute;
   left: 25px;
   z-index: 1;
@@ -33,6 +32,7 @@
 .user-info-tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
 
 
 .userInfo label, select{
@@ -50,4 +50,4 @@
             }
         }
     }
-}
+}*/
