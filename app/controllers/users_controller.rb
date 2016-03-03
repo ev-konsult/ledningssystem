@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_if_admin, only: [:new, :create, :destroy, :index]
+  before_action :check_privilege, only: [:new, :create, :destroy, :index]
   before_action :check_if_logged_in, only: [:show, :index, :create, :destroy, :new]
 
   def new
@@ -87,6 +87,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email, :role_id,
                                  contact_person_attributes: [:id, :full_name, :email, :phone_number])
                                  # ^ Nested attributes for contact_person
+  end
+
+  def check_privilege
+    redirect_to current_user unless current_user.admin? ||
+                                    current_user.human_resources?
   end
 
 
