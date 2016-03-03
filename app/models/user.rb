@@ -70,15 +70,15 @@ class User < ActiveRecord::Base
   end
 
   def editor?
-    correct_role? "Editor"
+    correct_role? "Redaktör"
   end
 
   def human_resources?
-    correct_role? "Human resources representative"
+    correct_role? "Personalansvarig"
   end
 
   def project_manager?
-    correct_role? "Project manager"
+    correct_role? "Projektledare"
   end
 
   # Kollar en authentication token mot hashen i databasen
