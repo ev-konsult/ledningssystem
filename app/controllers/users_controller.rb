@@ -45,7 +45,12 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "Du har registrerat en ny anställd!"
-      @user.role = Role.find(user_params[:role_id])
+
+
+      if user_params[:role_id].present?
+        @user.role = Role.find(user_params[:role_id])
+      end
+
 
       redirect_to current_user
     else
