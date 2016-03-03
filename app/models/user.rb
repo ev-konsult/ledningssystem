@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   before_save { self.full_name = "#{self.first_name} #{self.last_name}" }
   # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
   scope :search, -> (query) { where "lower(user_name) like ?", "%#{query.downcase}%" }
-  scope :sort, -> (condition) { order(condition) }
+  scope :sort, -> (condition) { order("#{condition} desc") }
 
   validates :user_name,      presence: true,
                              length: { in: 4..100 },
@@ -70,15 +70,15 @@ class User < ActiveRecord::Base
   end
 
   def editor?
-    correct_role? "Editor"
+    correct_role? "Redaktör"
   end
 
   def human_resources?
-    correct_role? "Human resources representative"
+    correct_role? "Personalansvarig"
   end
 
   def project_manager?
-    correct_role? "Project manager"
+    correct_role? "Projektledare"
   end
 
   # Kollar en authentication token mot hashen i databasen

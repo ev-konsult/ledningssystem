@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      current_user.articles << @article
       flash[:success] = "Artikel sparades!"
       redirect_to current_user
     else
