@@ -44,14 +44,14 @@
     <h3>Användar-rättigheter</h3>
     <div class="form-group userInfo">
       <%= f.label :role, "Välj roll" %><br />
-      <%= f.collection_radio_buttons :role_id, Role.all, :id, :role_name_id, checked: Role.find_by_role_name_id(4).id do |thing| %>
+      <%= f.collection_radio_buttons :role_id, Role.all, :id, :role_name_id, checked: Role.find_by_role_name_id(4).id do |form_builder| %>
         <div>
-         <%= thing.radio_button %>
-         <!--<%= thing.label %> -->
-         <!-- Cant get the translation to work for thing.label, so we take the
+         <%= form_builder.radio_button %>
+         <!--<%= form_builder.label %> -->
+         <!-- Cant get the translation to work for form_builder.label, so we take the
               text, translate it to its counterpart and throw it inside a label-tag -->
-         <label><%= I18n.t thing.text, scope: [:activerecord, :attributes, :role, :role_name_ids]  %></label>
-          <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="<%= thing.object.description %>"></span>
+         <label><%= I18n.t form_builder.text, scope: [:activerecord, :attributes, :role, :role_name_ids]  %></label>
+          <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="<%= form_builder.object.description %>"></span>
         </div>
       <% end %>
     </div>
