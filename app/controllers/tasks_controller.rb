@@ -24,7 +24,7 @@ class TasksController < ApplicationController
           next if id.blank?
           user = User.find(id)
 
-          @task.users << User.find(id) unless @task.users.include?(user)
+          @task.users << User.find(id)
         end
       end
       flash[:success] = "Uppgiften skapades!"
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
           user = User.find(id)
 
           # No duplication of users
-          @task.users << user unless @task.users.include?(user)
+          @task.users << user
         end
       end
 
@@ -68,7 +68,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:start, :end, :priority, :title, :description)
+      params.require(:task).permit(:start, :end, :priority, :status, :title, :description)
     end
 
     def check_privilege
