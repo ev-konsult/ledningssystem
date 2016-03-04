@@ -11,6 +11,13 @@ sv:
       cancelled: Avbruten
   activerecord:
     attributes:
+      role:
+        role_name_ids:
+          human_resources: Personal-ansvarig
+          project_manager: Projektledare
+          editor: Redaktör
+          admin: Administratör
+          user: Vanlig användare
       user:
         user_name: Användarnamn
         password: Lösenord
