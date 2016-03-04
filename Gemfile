@@ -42,6 +42,9 @@ gem 'simple_calendar', "~> 2.0"
 # File upload
 gem "paperclip", "~> 4.3"
 
+# Piecharts etc
+gem 'chartkick'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

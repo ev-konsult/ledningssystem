@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :tasks
+  resources :statistics, only: [:index, :show]
   # resources :documents TODO fix file-stuf
 
   root to: "users#user_root"
