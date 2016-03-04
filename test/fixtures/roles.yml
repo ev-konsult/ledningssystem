@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 admin:
-  role_name: Admin
+  role_name: 3
   can_edit_news: true
   can_edit_staff: true
   can_edit_tasks: true
@@ -10,7 +10,7 @@ admin:
 
 
 user:
-  role_name: User
+  role_name: 4
   can_edit_news: false
   can_edit_staff: false
   can_edit_tasks: false
@@ -18,7 +18,7 @@ user:
   can_show_person_details_verbose: false
 
 editor:
-  role_name: Editor
+  role_name: 2
   can_edit_news: true
   can_edit_staff: false
   can_edit_tasks: false
@@ -26,7 +26,7 @@ editor:
   can_show_person_details_verbose: false
 
 project_manager:
-  role_name: Project manager
+  role_name: 1
   can_edit_news: false
   can_edit_staff: false
   can_edit_tasks: true
@@ -34,7 +34,7 @@ project_manager:
   can_show_person_details_verbose: false
 
 human_resources_representative:
-  role_name: Human resources representative
+  role_name: 0
   can_edit_news: false
   can_edit_staff: true
   can_edit_tasks: false
