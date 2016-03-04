@@ -66,19 +66,19 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    correct_role? "Admin"
+    self.role.role_name == :admin.to_s
   end
 
   def editor?
-    correct_role? "Redaktör"
+    correct_role? :editor
   end
 
   def human_resources?
-    correct_role? "Personalansvarig"
+    correct_role? :human_resources
   end
 
   def project_manager?
-    correct_role? "Projektledare"
+    correct_role? :project_manager
   end
 
   # Kollar en authentication token mot hashen i databasen
