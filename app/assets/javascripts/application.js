@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require tinymce
 //= require bootstrap-sprockets
+//= require chartkick
 //= require_tree .
 
 $(document).ready(function() {
