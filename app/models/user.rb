@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.role.role_name == :admin.to_s
+    correct_role? :admin
   end
 
   def editor?
@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
   end
 
   private
-    def correct_role?(role_name)
-      self.role.role_name == role_name
+    def correct_role?(role_name_id)
+      self.role.role_name_id == role_name_id.to_s
     end
 end
