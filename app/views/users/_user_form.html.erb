@@ -44,7 +44,7 @@
     <h3>Användar-rättigheter</h3>
     <div class="form-group userInfo">
       <%= f.label :role, "Välj roll" %><br />
-      <%= f.collection_radio_buttons :role_id, Role.all, :id, :role_name, checked: Role.find_by_role_name("Användare").id do |thing| %>
+      <%= f.collection_radio_buttons :role_id, Role.all, :id, :role_name_id, checked: Role.find_by_role_name_id(4).id do |thing| %>
         <div>
          <%= thing.radio_button %>
          <%= thing.label %>

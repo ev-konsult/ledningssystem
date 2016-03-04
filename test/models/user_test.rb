@@ -138,4 +138,10 @@ class UserTest < ActiveSupport::TestCase
     user_search_result = User.search("Nope")
     assert user_search_result.empty?
   end
+
+  test "user role methods" do
+    @user.role = roles(:admin)
+    assert @user.admin?
+
+  end
 end
