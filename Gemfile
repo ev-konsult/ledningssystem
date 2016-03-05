@@ -45,6 +45,9 @@ gem "paperclip", "~> 4.3"
 # Piecharts etc
 gem 'chartkick'
 
+# For grouping the charts by day
+gem 'groupdate'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
