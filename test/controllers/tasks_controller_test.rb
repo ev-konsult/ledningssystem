@@ -3,9 +3,6 @@ require 'test_helper'
 class TasksControllerTest < ActionController::TestCase
 
   def setup
-    # Sätter current user till admin
-
-
     @task = tasks(:one)
     @user = users(:two)
 
