@@ -19,12 +19,12 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test "should not be valid with too short title" do
-    @task.title = "no"
+    @task.title = "a" * 3
     assert_not @task.valid?
   end
 
   test "should not be valid with too long title" do
-    @task.title = "no" * 200
+    @task.title = "no" * 256
     assert_not @task.valid?
   end
 
@@ -34,7 +34,7 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test "should not be valid with too short description" do
-    @task.description = "no"
+    @task.description = "a" * 19
     assert_not @task.valid?
   end
 

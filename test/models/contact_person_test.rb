@@ -32,9 +32,7 @@ class ContactPersonTest < ActiveSupport::TestCase
 
   # Test av namnlängd
   test "namelength" do
-    @contact_person.full_name = "detta borde vara mer än hundra tecken,
-                  vilket alldeles för långt namn för den här applikationen!
-                  wow, alldeles för många tecken. Går inte att registrera sig"
+    @contact_person.full_name = "a" * 101
     assert_not @contact_person.valid?
   end
 
