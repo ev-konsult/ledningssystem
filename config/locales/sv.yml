@@ -9,6 +9,11 @@ sv:
       in_progress:  Påbörjad
       done: Färdig
       cancelled: Avbruten
+    priority:
+      low: Låg
+      high: Hög
+      medium: Medium
+      critical: Kritisk
   activerecord:
     attributes:
       role:
