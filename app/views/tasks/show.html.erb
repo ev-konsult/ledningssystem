@@ -6,7 +6,7 @@
 <p>Deadline: <%= @task.end.strftime("%D") %></p>
 
 Status: <p><%= I18n.t :"task.status.#{@task.status}" %></p>
-Prioritet: <div data-toggle="tooltip" title="Priority!" class='priority-box <%= @task.priority %>'></div>
+Prioritet: <p><%= I18n.t :"task.priority.#{@task.priority}" %></p>
 
 <h4>Ansvariga för uppgiften</h4>
 
