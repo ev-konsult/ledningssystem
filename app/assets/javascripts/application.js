@@ -21,6 +21,24 @@
 $(document).ready(function() {
 
   /**
+  * Gives task list dynamic href and ip
+  */
+ var phrases = [];
+ var count = 0;
+
+  $('.user-task-list li').each(function(){
+      $(this).find('#toggle').each(function(){
+        $(this).attr("href", "#task" + count);
+        
+      });
+      $(this).find('ul').each(function(){
+          $(this).attr("id", "task" + count);
+      });
+      count++;
+  });
+
+
+  /**
   * Change the greeting message dependent on time
   */
   var day = new Date().getHours();

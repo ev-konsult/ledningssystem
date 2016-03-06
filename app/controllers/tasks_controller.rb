@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.paginate(:page => params[:page], :per_page => 3)
+    @tasks = Task.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

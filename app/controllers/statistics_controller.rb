@@ -7,6 +7,13 @@ class StatisticsController < ApplicationController
       "Avbruten".to_sym => 0
     }
 
+    @priority = {
+      "Låg".to_sym => 0,
+      "Medel".to_sym => 0,
+      "Hög".to_sym => 0,
+      "Kritisk".to_sym => 0
+    }
+
     Task.all.each do |task|
       case task.status.to_sym
       when :not_started
@@ -17,6 +24,19 @@ class StatisticsController < ApplicationController
         @tasks["Påbörjad".to_sym] += 1
       when :cancelled
         @tasks["Avbruten".to_sym] += 1
+      end
+    end
+
+    Task.all.each do |task|
+      case task.priorities.to_sym
+      when :low
+        @priority["Låg".to_sym] += 1
+      when :medium
+        @priority["Medel".to_sym] += 1
+      when :high
+        @priority["Hög".to_sym] += 1
+      when :critical
+        @priority["Kritisk".to_sym] += 1
       end
     end
   end
