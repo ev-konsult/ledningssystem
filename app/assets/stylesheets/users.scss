@@ -5,16 +5,19 @@
 @import "partials/_variables";
 
 #user-tool {
+    display: block;
+    width: 100%;
     background-color: $lightest-gray;
     border: 1px solid $lighter-gray;
 
     section {
         background-color: $white;
-        &.user-tool-header {
+        width: 100%;
+        display: inline-block;
+        &#user-tool-header {
             background-color: transparent;
             border-bottom: 1px solid $lighter-gray;
             margin: 0px !important;
-            display: inline-block;
             width: 100%;
             line-height: 52px;
             height: 55px;
@@ -26,19 +29,20 @@
             }
         }
         &#tool-action {
-            display: inline-block;
-            width: 100%;
-
-            #tool-add-user {
+            display: table;
+            border-bottom: 1px solid $lighter-gray;
+            #toggle-user-form {
+                display: table-cell;
                 line-height: 66px;
                 float: left;
-
+                cursor: pointer;
                 a {
-                    //padding: 18px;
+                    padding-right: 18px;
                 }
                 .text-link {
                     float: left;
                     font-size: 16px;
+                    color: $cool-blue;
                 }
                 #plus-sign {
                     float: left;
@@ -46,10 +50,12 @@
                     padding: 0px 7px 0px 18px !important;
                     color: $cool-blue !important;
                     font-size: 28px;
+                    clear: both;
                 }
             }
             #tool-search {
-                padding: 7px;
+                display: table-cell;
+                padding: 7px 18px 7px 7px;
                 float: right;
                 p {
                     display: inline-block;
@@ -78,8 +84,53 @@
                 }
             }
         }
+        #user-form {
+          display: inline-block;
+          background-color: blue;
+          padding: 0px !important;
+          margin: 0px !important;
+          width: 100%;
+        }
         &#tool-user-form {
             background-color: $lightest-gray !important;
+            border-bottom: 1px solid $lighter-gray;
+            display: table;
+            table-layout: fixed;
+            padding: 18px;
+            .input {
+                width: 32%;
+                .form-tip {
+                  font-size: 13px;
+                }
+                .form-control {
+                  border: 1px solid $lighter-gray;
+                }
+                &.input-left {
+                  float: left;
+                }
+                &.input-right {
+                  float: right;
+                }
+                &.input-center {
+                  margin: 0 auto;;
+                }
+            }
+            #form-bottom {
+              display: inline-block;
+              width: 100%;
+              #form-info {
+                float: left;
+              }
+              #form-action {
+                float: right;
+                .btn {
+                  margin-left: 16px;
+                }
+              }
+            }
+        }
+        &#tool-user-list {
+
         }
     }
 }

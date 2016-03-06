@@ -1,17 +1,19 @@
 <!-- Sökformulär, sätter params[:search] -->
 <div id="user-tool">
-  <section class="user-tool-header">
+  <section id="user-tool-header">
     <p>Hantera användare</p>
   </section>
   <section id="tool-action">
-    <span id="tool-add-user">
+    <div data-toggle="collapse" data-target="#user-form" id="toggle-user-form">
     <% if current_user.human_resources? || current_user.admin? %>
-        <%= link_to new_user_path do %>
+        <!-- <%= link_to new_user_path do %> -->
+        
           <span id="plus-sign" class="glyphicon glyphicon-plus-sign"></span>
           <span class="text-link">Lägg till ny användare</span>
-        <% end %>
+        
+        <!-- <% end %> -->
       <% end %>
-    </span>
+    </div>
     <div id="tool-search">
       <p class="tool-search-header">Sök anställda</p>
       <%= form_tag(users_path, :method => "get", remote: true) do %>
@@ -29,7 +31,71 @@
       <% end %>
     </div>
   </section>
-  <section id="tool-user-form">
+
+  <div id="user-form" class="collapse">
+    <section id="tool-user-form">
+    <%= form_tag do %>
+
+      <div class="input input-left">
+        <div class="form-group">
+          <%= label_tag 'user_user_name', '* Användarnamn:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'user_password', '* Lösenord:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'user_password_confirmation', '* Konfirmera lösenord:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="input input-right">
+        <div class="form-group">
+          <%= label_tag 'user_user_email', 'E-post:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'user_phone_number', 'Telefonnummer:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'user_mobile_number', 'Mobilnummer:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="input input-center">
+        <div class="form-group">
+          <%= label_tag 'user_first_name', 'Förnamn:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'user_last_name', 'Efternamn:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'user_ssn', 'Personnummer:', class: 'form-tip' %>
+          <%= text_field_tag 'request', nil, class: 'form-control' %>
+        </div>
+      </div>
+      <div id="form-bottom">
+        <div id="form-info">
+          <p>Obligatoriska fält är markerade med en stjärna *</p>
+        </div>
+        <div id="form-action">
+          <% if current_user.human_resources? || current_user.admin? %>
+            <button class="btn btn-secondary" id="cancel">Avbryt</button>
+            <%= link_to "Lägg till användare", new_user_path, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    </section>
+  </div>
+
+  <section id="tool-user-list">
     <p> test </p>
   </section>
 </div>
