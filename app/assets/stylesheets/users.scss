@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "partials/_variables";
+
 .fire-link {
-  float: right;
+    float: right;
 }
 
 // Information about user rights
@@ -37,17 +39,41 @@
 
 .userInfo label, select{
   float: left;
+}*/
+
+.panel-body {
+    .nav-pills {
+        li {
+            margin: 0px !important;
+            display: inline-block;
+            a {
+                background-color: $lightest-gray;
+                &:focus {
+                  background-color: $purple !important;
+                }
+                &:hover {
+                  color: $purple !important;
+                }
+            }
+            
+            &.active a {
+                background-color: $purple;
+                &:hover {
+                    background-color: $purple !important;
+                    color: $white !important;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 768px) {
-    
     .panel-body {
         .nav-pills {
-
             li {
-                display: inline-block;
+                clear: both;
                 width: 100%;
             }
         }
     }
-}*/
+}
