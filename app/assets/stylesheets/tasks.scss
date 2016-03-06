@@ -4,11 +4,15 @@
 
 @import "partials/_variables";
 
+/**
+* User task list
+*/
 .user-task-list {
 	padding-left: 0px !important;
-	background-color: $lighter-gray;
+	background-color: $lightest-gray;
+	border: 1px solid $lighter-gray;
 	li {
-		margin: 0px 0px 5px 0px !important;
+		margin: 5px 0px 0px 0px !important;
 		border-radius: 0px !important;
 		display: block;
 		section {
@@ -119,6 +123,19 @@
 				}
 			}
 		}
+		&.user-task-header {
+			margin: 0px !important;
+			display: inline-block;
+			width: 100%;
+			line-height: 52px;
+			height: 50px;
+			p {
+				font-size: 20px;
+				font-weight: 500;
+				margin-left: 20px;
+				color: $dark-gray;
+			}
+		}
 	}
 	@media (min-width: 768px) {
 		width: 100% !important;
@@ -135,22 +152,20 @@
 }
 
 
-
-
-
-
-
-/* 
-* ADMIN TASK LIST 
+/**
+* Admin task list
 */
 .admin-task-list {
 	padding-left: 0px !important;
 	display: table;
-	
+	border: 1px solid $lighter-gray;
 	li {
 		display: table-row;
+		width: 100%;
 		border-bottom: 1px solid $gray !important;
 		&.list-head {
+			font-size: 12px;
+			height: 10px !important;
 			background-color: $lighter-gray !important;
 	    	font-weight: bold;
 		}
@@ -158,33 +173,63 @@
 			display: table-cell;
 			padding: 7px;
 			width: auto;
-		}
-		.priority {
-			.priority-box {
-				float: left;
-		    	width: 10px;
-		    	height: 10px;
-		    	border-radius: 50%;
-		    	margin-right: 5px;
-		    	margin-top: 7px;
-			    &.low{
-				    background-color: green;
-				    border: 2px solid darken(green, 10%);
-				}
-				&.medium{
-				    background-color: yellow;
-				    border: 2px solid darken(yellow, 10%);
-				}
-				&.high{
-				    background-color: orange;
-				    border: 2px solid darken(orange, 10%);
-				}
-				&.critical{
-				    background-color: red;
-				    border: 2px solid darken(red, 10%);
+			border-right: 1px solid $white-divider;
+			vertical-align: middle;
+			&.status {
+				table-layout: fixed;
+				max-width: 30px !important;
+			}
+			&.priority {
+
+				table-layout: fixed;
+				min-width: 90px !important;
+				.priority-box {
+					float: left;
+			    	width: 10px;
+			    	height: 10px;
+			    	border-radius: 50%;
+			    	margin-right: 5px;
+			    	margin-top: 7px;
+				    &.low{
+					    background-color: green;
+					    border: 2px solid darken(green, 10%);
+					}
+					&.medium{
+					    background-color: yellow;
+					    border: 2px solid darken(yellow, 10%);
+					}
+					&.high{
+					    background-color: orange;
+					    border: 2px solid darken(orange, 10%);
+					}
+					&.critical{
+					    background-color: red;
+					    border: 2px solid darken(red, 10%);
+					}
 				}
 			}
+			&.time {
+				table-layout: fixed;
+				max-width: 120px !important;
+				section {
+					float: left;
+					display: block;
+					&.value-text {
+						font-size: 12px;
+						min-width: 40px;
+					}
+					&.info-text {
+						font-size: 12px;
+						font-weight: bold;
+					}
+				}
+			}
+			&.users {
+				table-layout: fixed;
+				max-width: 120px !important;
+			}
 		}
+		
 		&:nth-child(odd) {
 		  background-color: $lightest-gray;
 		}
@@ -192,6 +237,20 @@
 		  background-color: $white;
 		}
 	}
+	.admin-task-header {
+			margin: 0px !important;
+			display: inline-block;
+			width: 100%;
+			line-height: 50px;
+			height: 50px;
+			p {
+				font-size: 20px;
+				font-weight: 500;
+				margin-left: 20px;
+				color: $dark-gray;
+			}
+		}
+
 	@media (min-width: 768px) {
 		width: 100% !important;
 		li {

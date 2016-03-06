@@ -1,6 +1,6 @@
-<h3>Mina arbetsuppgifter</h3>
 <%= will_paginate @tasks %>
 <ul class="user-task-list">
+<li class="user-task-header"><p>Mina arbetsuppgifter</p></li>
 <% @tasks.each do |task| %>
   <% task.users.include?(current_user) %>
   	<li data-toggle="tooltip" class="panel panel-primary panel-task <%= task.status %>">
@@ -11,7 +11,7 @@
 	        </span>
   		</section>
   		<section class="task-info">
-  			<span class="priority"><div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div> <span class="value-text">Prioritet:</span> <span class="info-text"><%= task.priority %></span></span>
+  			<span class="priority"><div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div> <span class="value-text">Prioritet:</span> <span class="info-text"><%= I18n.t :"task.priority.#{task.priority}" %></span></span>
   			<span class="time-span"><span class="value-text">Tidsspann:</span> <span class="info-text"><%= task.start.strftime("%D") %> - <%= task.end.strftime("%D") %></span></span>
   		</section>
   		<!-- <span><%= I18n.t :"task.status.#{task.status}" %></span> -->
