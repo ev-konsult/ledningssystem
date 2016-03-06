@@ -14,9 +14,32 @@
 		<span class="priority"><div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div> <section><%= I18n.t :"task.priority.#{task.priority}" %></section></span>
 		<span><%= link_to task.title, task %></span>
 		<span><%= task.start.strftime("%D") %> - <%= task.end.strftime("%D") %></span>
-		<span><%= link_to "Förnamn Efternamn" %></span>
+		<span><a href="#" data-toggle="modal" data-target="#modal-<%= task.id %>">Visa tilldelad personal</a></span>
   	</li>
   <% end %>
 
 <% end %>
 </ul>
+
+<!-- One modal per task, containing the tasks assigned users -->
+<% @tasks.each do |task| %>
+	<div class="modal fade" id="modal-<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><%= task.title %></h4>
+				</div>
+				<div class="modal-body">
+					<% if task.users.any? %>
+						<% task.users.each do |user| %>
+							<%= link_to user.user_name, user %><br/>
+						<% end %>
+					<% else %>
+						<p>Ingen personal har tilldelats denna uppgift</p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
