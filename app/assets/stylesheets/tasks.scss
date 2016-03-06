@@ -158,6 +158,7 @@
 .admin-task-list {
 	padding-left: 0px !important;
 	display: table;
+	background-color: $lightest-gray !important;
 	border: 1px solid $lighter-gray;
 	li {
 		display: table-row;
@@ -238,18 +239,18 @@
 		}
 	}
 	.admin-task-header {
-			margin: 0px !important;
-			display: inline-block;
-			width: 100%;
-			line-height: 50px;
-			height: 50px;
-			p {
-				font-size: 20px;
-				font-weight: 500;
-				margin-left: 20px;
-				color: $dark-gray;
-			}
+		margin: 0px !important;
+		display: inline-block;
+		width: 100%;
+		line-height: 50px;
+		height: 55px;
+		p {
+			font-size: 20px;
+			font-weight: 500;
+			margin-left: 20px;
+			color: $dark-gray;
 		}
+	}
 
 	@media (min-width: 768px) {
 		width: 100% !important;

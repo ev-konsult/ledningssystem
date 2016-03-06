@@ -1,4 +1,40 @@
 <!-- Sökformulär, sätter params[:search] -->
+<div id="user-tool">
+  <section class="user-tool-header">
+    <p>Hantera användare</p>
+  </section>
+  <section id="tool-action">
+    <span id="tool-add-user">
+    <% if current_user.human_resources? || current_user.admin? %>
+        <%= link_to new_user_path do %>
+          <span id="plus-sign" class="glyphicon glyphicon-plus-sign"></span>
+          <span class="text-link">Lägg till ny användare</span>
+        <% end %>
+      <% end %>
+    </span>
+    <div id="tool-search">
+      <p class="tool-search-header">Sök anställda</p>
+      <%= form_tag(users_path, :method => "get", remote: true) do %>
+        <!-- Plockar bort params[:search] om queryn är tom.
+             Ser fult ut med tomma querys i URL'n.. -->
+        <% if params[:search] == "" %>
+          <% params.delete :search %>
+        <% end %>
+
+        <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "user-search-field" %>
+        <!-- Empty paragrah is filled with the search query via JavaScript -->
+        <p id="search-query-placeholder"></p>
+        <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
+        <%= link_to "Rensa sökning", users_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </section>
+  <section id="tool-user-form">
+    <p> test </p>
+  </section>
+</div>
+
+<hr />
 <div id="user-search">
   <p>Sök anställda</p>
   <%= form_tag(users_path, :method => "get", remote: true) do %>
