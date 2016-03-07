@@ -130,12 +130,104 @@
             }
         }
         &#tool-user-list {
+            display: table;
+            #user-list-action {
+                display: table-row;
+                #list-sort {
+                  //background-color: blue;
+                  display: table-cell;
+                  padding: 7px 18px 7px 7px;
+                  float: right;
+                  p {
+                      //display: inline-block;
+                      margin: 0px 0px 0px 0px !important;
+                      font-size: 12px;
+                  }
+                  form {
+                      width: 100% !important;
+                      display: inline-block !important;
+                      select {
+                          float: left;
+                          min-width: 180px;
+                          height: 34px;
+                      }
+                      input {
+                          float: right;
+                          margin-left: 10px;
+                      }
+                  }
+                }
 
+            }
+            #user-list {
+                padding: 0px 18px 0px 18px;
+                .list-group {
+                  background-color: blue;
+                  margin: 0px auto !important;
+                  
+                  width: 100%;
+                  display: table;
+                  border-collapse: collapse;
+                  li {
+                    display: table-row;
+
+                    width: 100%;
+                    &.list-head {
+                      font-size: 12px;
+                      font-weight: bold;
+                      border-top: 1px solid $lightest-gray;
+                      span {
+                        border-right: 0px solid $white-divider;
+                      }
+                    }
+                    span {
+                      display: table-cell;
+                      padding: 7px;
+                      width: auto;
+                      border-right: 1px solid $white-divider;
+                      vertical-align: middle;
+                    }
+                  }
+                  
+                }
+            }
+            #user-list-bottom {
+              padding: 0px 18px 0px 18px;
+              width: 100%;
+
+              text-align: center;
+              vertical-align: middle;
+
+              div {
+                display: inline-block;
+                vertical-align: middle;
+                height: 100%;
+                &#users-count {
+
+                  float: left;
+                  margin-top: 22px;
+                }
+                &#users-per-page {
+        
+                  float: right;
+                  margin-top: 22px;
+                }
+                &#paginate {
+                  margin: 0px auto !important;
+                }
+              }
+            }
         }
     }
 }
 
-
+select {
+    background: $lightest-gray;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 1px solid $lighter-gray;
+}
 
 .fire-link {
     float: right;

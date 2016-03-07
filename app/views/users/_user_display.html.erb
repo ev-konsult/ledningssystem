@@ -1,21 +1,41 @@
-<hr />
-<div id="user-sort">
-  <p>Välj sortering</p>
-  <%= form_tag(params, method: :get, remote: true) do %>
-    <%= select_tag(:sort, options_for_select(['Namn', 'Senast anställd', 'Email'], params[:sort])) %><br /><br />
-    <%= submit_tag "Sortera", class: "btn btn-primary" %>
-  <% end %>
+<div id="user-list-action">
+  <div id="list-sort">
+    
+    <%= form_tag(params, method: :get, remote: true) do %>
+      <p>Välj sortering</p>
+      <%= select_tag(:sort, options_for_select(['Namn', 'Senast anställd', 'Email'], params[:sort])) %>
+      <%= submit_tag "Sortera", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
-
-<%= js_will_paginate @users %>
-
-<hr />
-<ul class="list-group">
-  <% @users.each do |user| %>
-    <!-- Visar inte admin..så att admin inte ger admin sparken -->
-    <% next if user.admin? %>
-    <li class="list-group-item">
-      <%= link_to user.user_name, user %><%= link_to "Ge sparken", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %>
+<div id="user-list">
+  <ul class="list-group">
+    <li class="panel panel-primary panel-user list-head">
+      <span>Efternamn, Förnamn</span>
+      <span>Användarnamn</span>
+      <span>E-post</span>
+      <span></span>
     </li>
-  <% end %>
-</ul>
+    <% @users.each do |user| %>
+      <!-- Visar inte admin..så att admin inte ger admin sparken -->
+      <% next if user.admin? %>
+      <li class="list-group-item">
+        <span>
+          <%= link_to user do %>
+            <%= user.last_name %>, <%= user.first_name %>
+          <% end %>
+        </span>
+        <span><%= user.user_name %></span>
+        <span><%= user.email %></span>
+        <span><%= link_to "Ta bort", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div id="user-list-bottom">
+  <div id="users-count">Antal: <%= @users.count %></div>
+  
+  <div id="users-per-page">Visa per sida: <%= select_tag(:sort, options_for_select(['5', '10', '15', '20', '25'], params[:sort])) %></div>
+  <div id="paginate"><%= js_will_paginate @users %></div>
+  
+</div>
