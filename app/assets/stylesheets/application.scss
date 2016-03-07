@@ -77,9 +77,9 @@
 }
 
 @-webkit-keyframes rotate {
-	0% {
-		-webkit-transform:rotate(0deg);
-	}
+  0% {
+    -webkit-transform:rotate(0deg);
+  }
   100% {
     -webkit-transform:rotate(360deg);
   }
@@ -109,14 +109,14 @@
   .pagination .current {
     font-style: normal;
     font-weight: bold;
-    color: blue; }
+    color: $cool-blue; }
   .pagination a {
     border: 1px solid #dddddd;
-    color: #0063dc;
+    color: $cool-blue;
     text-decoration: none; }
     .pagination a:hover, .pagination a:focus {
-      border-color: #003366;
-      background: #0063dc;
+      border-color: darken($cool-blue, 10%);
+      background: $cool-blue;
       color: white; }
   .pagination .page_info {
     color: #aaaaaa;
