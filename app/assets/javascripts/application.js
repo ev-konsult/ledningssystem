@@ -29,7 +29,7 @@ $(document).ready(function() {
   $('.user-task-list li').each(function(){
       $(this).find('#toggle').each(function(){
         $(this).attr("href", "#task" + count);
-        
+
       });
       $(this).find('ul').each(function(){
           $(this).attr("id", "task" + count);
