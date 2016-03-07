@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def index
     # Determine sort condition
     condition = :full_name if params[:sort].nil?
+    @user = User.new
+    @user.build_contact_person
 
     case params[:sort]
     when "Namn"
@@ -44,12 +46,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = "Du har registrerat en ny anställd!"
       @user.role = Role.find(user_params[:role_id])
+    end
 
-      redirect_to current_user
-    else
-      render 'new'
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
     end
   end
 
