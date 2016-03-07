@@ -5,6 +5,9 @@
   // Clear form after successful create
   $('#new_user').trigger("reset");
 
+  // Clear error messages
+  $('#user-errors').html("");
+  
   // Collapse form
   $('#toggle-user-form').click();
 <% else %>
