@@ -1,0 +1,6 @@
+<% if @user.valid? %>
+  $('.list-group').prepend('<li class="list-group-item"><%= link_to @user.user_name, @user %><%= link_to "Ge sparken", user_path(@user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></li>');
+  $('#user-errors').html("<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Användare tillagd!</div>");
+<% else %>
+  $('#user-errors').html("<%= j(render :partial => 'shared/error_messages', locals: {obj: @user}) %>");
+<% end %>
