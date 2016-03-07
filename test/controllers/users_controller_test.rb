@@ -15,7 +15,8 @@ class UsersControllerTest < ActionController::TestCase
   test "create user" do
     # Asserts that a user can be added
     assert_difference('User.count') do
-      post :create, user: { user_name: "foobar",
+      post :create, user: { id: 4,
+                            user_name: "foobar",
                             first_name: "foobar",
                             last_name: "foobar",
                             password: "foobar",
@@ -29,10 +30,7 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     # Tests the redirect
-    assert_redirected_to current_user
-
-    # Tests the flash messages
-    assert_equal "Du har registrerat en ny anställd!", flash[:success]
+    assert_redirected_to user_path(User.find(4))
   end
 
   # Verifying that the different roles have the correct authentications
