@@ -19,9 +19,9 @@
 </div>
 
 <div class="form-group">
-  <%= f.select :priority, options_for_select(Task.priority_attributes_for_select)%>
+  <%= f.select :priority, Task.priority_attributes_for_select %>
 </div>
 
 <div class="form-group">
-  <%= f.select :status, options_for_select(Task.status_attributes_for_select)%>
+  <%= f.select :status, Task.status_attributes_for_select %>
 </div>

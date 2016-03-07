@@ -13,7 +13,6 @@ class Task < ActiveRecord::Base
   validate  :start_date_cannot_be_in_the_past
   validate  :end_date_cannot_be_before_start_date
 
-
   # Enums
   enum status:   { not_started: 0, in_progress: 1, done: 2, cancelled: 3 }
   enum priority: { low: 0, medium: 1, high: 2, critical: 3 }
