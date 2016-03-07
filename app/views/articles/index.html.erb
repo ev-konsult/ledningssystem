@@ -1,19 +1,48 @@
 <% content_for :title, "Artiklar" %>
 
+<h3>Nyheter</h3>
+
+<!-- Sökformulär, sätter params[:search] -->
+<div id="article-search">
+  <p>Sök nyhet</p>
+  <%= form_tag(articles_path, :method => "get") do %>
+    <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "article-search-field" %>
+    <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
+    <%= link_to "Rensa sökning", articles_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<% if params[:search] && params[:search].length > 0 %>
+ <p>Aktiv sökning: <%= params[:search] %></p>
+<% end %>
+
 <hr />
 
-<ul>
+<%= will_paginate @articles %>
+
+<ul class="article-list">
+  <%= render 'shared/flash_messages' %>
   <% @articles.each do |article| %>
-    <li class="panel panel-primary">
-      <div class="panel-heading">
-        <%= link_to article.title, article_path(article), class: "panel-title" %>
-      </div>
+    <li class="panel panel-primary panel-article">
       <div class="panel-body">
-        <p><%= truncate(strip_tags(article.body)) %></p>
-        <p><%= article.created_at.to_formatted_s(:db) %></p>
+      <div class="tinyimg">
+
+      </div>
+        <h5><%= link_to article.title, article_path(article), class: "panel-title" %></h5>
+        <p class="article-date">Publicerad: <%= article.created_at.to_formatted_s(:db) %></p>
+        <p class="article-text"><%= truncate(strip_tags(article.body), length: 150) %></p>
+
+      </div>
+      <div class="panel-footer">
+        <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to article.user.user_name, article %></span>
+        <!-- <%= link_to article.title, article_path(article), class: "panel-title" %> -->
       </div>
     </li>
   <% end %>
 </ul>
+
+<% if current_user.editor? || current_user.admin? %>
+  <%= link_to "Skapa nyhet", new_article_path, class: "btn btn-primary" %>
+<% end %>
 
 <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>

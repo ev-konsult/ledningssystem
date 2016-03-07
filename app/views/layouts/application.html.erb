@@ -7,37 +7,26 @@
   <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+   <%= yield :charts_js %>
+
   <%= csrf_meta_tags %>
 </head>
-
-
-  <!-- <div class="container"> -->
-  
-
-      <!-- Flashmeddelanden visas här. Flash[:notice], Flash[:success] osv -->
-      <% flash.each do |message_type, message| %>
-        <!-- CSS-klassen blir tex "flash-success" eller "flash-notice" -->
-        <div class="flash-<%= message_type %>">
-          <%= message %>
-        </div>
-      <% end %>
-
       <!-- Utloggningsknapp bara för inloggade användare -->
       <% if logged_in? %>
       <body data-no-turbolink="true" id="loggedin">
         <!-- <div id="wrapper"> -->
           <%= render 'layouts/navigation' %>
-    
-          <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">     
+
+          <div class="col-xs-12 col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
             <div class="row">
               <ol class="breadcrumb">
-                <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                <li><a href="#"><span class = "glyphicon glyphicon-home"></span></a></li>
                 <li class="active">Dashboard</li>
               </ol>
             </div><!--/.row-->
-            
-            <!-- 
+
+            <!--
               HELPER
               * row - Skapar en rad
               * col-lg-xx - Skapar kolumner. xx är en siffra (max 12)
@@ -45,31 +34,11 @@
               * panel panel-primary - skapar boxen
               * panel-heading - skapar headern
               * panel-body - skapar innehållet i boxen
-
-              <div class="row"> Skapar en rad
-                <div class="col-lg-xx"> Skapar kolumner. Kolumner ska vara max 12.
-                  <div class="panel panel-primary">
-                    <div class="panel-heading">
-                      <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Hantera anställda</h3>
-                    </div>
-                    <div class="panel-body">
-                      STUFF!
-                    </div>
-                  </div>
-                </div>
-              </div>
             -->
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <h1>Dashboard <small>Admin workbench</small></h1>
-                    <div class="alert alert-dismissable alert-warning">
-                        <button data-dismiss="alert" class="close" type="button">&times;</button>
-                        Welcome to the admin dashboard! Feel free to review all pages and modify the layout to your needs. 
-                        <br />
-                        This theme uses the <a href="https://www.shieldui.com">ShieldUI</a> JavaScript library for the 
-                        additional data visualization and presentation functionality illustrated here.
-                    </div>
                 </div>
             </div>
             <%= yield %>
@@ -78,18 +47,18 @@
             <%= debug(params) if Rails.env.development? %>
 
           </div>
-      
+
       </body>
       <% end %>
-      
+
       <% if !logged_in? %>
         <body data-no-turbolink="true" id="login">
           <%= yield %>
 
           <!-- Debuginformation om params tex, syns bara i developer -->
           <%= debug(params) if Rails.env.development? %>
-          
+
         </body>
       <% end %>
-      
+
 </html>

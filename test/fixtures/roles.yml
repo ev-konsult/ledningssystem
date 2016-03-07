@@ -1,0 +1,42 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+admin:
+  role_name_id: 3
+  can_edit_news: true
+  can_edit_staff: true
+  can_edit_tasks: true
+  can_edit_documents: true
+  can_show_person_details_verbose: true
+
+
+user:
+  role_name_id: 4
+  can_edit_news: false
+  can_edit_staff: false
+  can_edit_tasks: false
+  can_edit_documents: false
+  can_show_person_details_verbose: false
+
+editor:
+  role_name_id: 2
+  can_edit_news: true
+  can_edit_staff: false
+  can_edit_tasks: false
+  can_edit_documents: false
+  can_show_person_details_verbose: false
+
+project_manager:
+  role_name_id: 1
+  can_edit_news: false
+  can_edit_staff: false
+  can_edit_tasks: true
+  can_edit_documents: false
+  can_show_person_details_verbose: false
+
+human_resources_representative:
+  role_name_id: 0
+  can_edit_news: false
+  can_edit_staff: true
+  can_edit_tasks: false
+  can_edit_documents: false
+  can_show_person_details_verbose: true

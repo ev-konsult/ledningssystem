@@ -7,9 +7,9 @@ class ContactPersonTest < ActiveSupport::TestCase
   end
 
   # Test av email requirement
-  test "emailrequired" do
+  test "emailnotrequired" do
     @contact_person.email = ""
-    assert_not @contact_person.valid?
+    assert @contact_person.valid?
   end
 
   # Test av email fel format
@@ -25,23 +25,21 @@ class ContactPersonTest < ActiveSupport::TestCase
   end
 
   # Test av namn requirement
-  test "namerequired" do
+  test "namenotrequired" do
     @contact_person.full_name = ""
-    assert_not @contact_person.valid?
+    assert @contact_person.valid?
   end
 
   # Test av namnlängd
   test "namelength" do
-    @contact_person.full_name = "detta borde vara mer än hundra tecken,
-                  vilket alldeles för långt namn för den här applikationen!
-                  wow, alldeles för många tecken. Går inte att registrera sig"
+    @contact_person.full_name = "a" * 101
     assert_not @contact_person.valid?
   end
 
   # Test av tomt telefonnummer
-  test "phonerequired" do
+  test "phonenotrequired" do
     @contact_person.phone_number = ""
-    assert_not @contact_person.valid?
+    assert @contact_person.valid?
   end
 
   # Test av rätt formaterat telefonnummer

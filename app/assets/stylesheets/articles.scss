@@ -1,3 +1,57 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "partials/_variables";
+
+.article-list {
+	padding-left: 0px !important;
+}
+
+
+.panel-article {
+	border-radius: 0px !important;
+	.panel-footer {
+		display: block !important;
+		background-color: $lightest-gray;
+		border-top: 1px solid $cream-white;
+		border-bottom: none;
+		border-radius: 0px !important;
+		padding: 0 !important;
+		height:  25px !important;
+		line-height: 22px !important;		
+		text-align: right;
+		span {
+			margin-right: 12px;
+			color: $gray;
+			font-size: 12px !important;
+		}
+		a {
+			margin-left: 5px;
+			color: $purple;
+		}
+	}
+	.panel-body {
+		h5 a {
+			font-size: 24px !important;
+			color: $purple;
+		}
+		h5 {
+			font-size: 32px !important;
+			color: $dark-gray;
+		}
+		p {
+			font-size: 16px;
+		}
+		.article-date {
+			font-size: 12px;
+		}
+		@media (min-width: 768px) {
+    		padding-left: 30px;
+    		padding-right: 30px;
+    
+        }
+    }
+}
+
+

@@ -1,6 +1,28 @@
 sv:
+  will_paginate:
+    previous_label: '<'
+    next_label: '>'
+    page_gap: '...'
+  task:
+    status:
+      not_started:   Inte påbörjad
+      in_progress:  Påbörjad
+      done: Färdig
+      cancelled: Avbruten
+    priority:
+      low: Låg
+      high: Hög
+      medium: Medium
+      critical: Kritisk
   activerecord:
     attributes:
+      role:
+        role_name_ids:
+          human_resources: Personal-ansvarig
+          project_manager: Projektledare
+          editor: Redaktör
+          admin: Administratör
+          user: Vanlig användare
       user:
         user_name: Användarnamn
         password: Lösenord
@@ -19,6 +41,11 @@ sv:
           high: Hög
           medium: Medium
           critical: Kritisk
+        status:
+          not_started: Inte påbörjad
+          in_progress: Påbörjad
+          done: Färdig
+          cancelled: Avbruten
         title: Titel
         description: Beskrivning
         start: Startdatum

@@ -19,42 +19,47 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "firstnamerequired" do
+  test "firstnamenotrequired" do
     @user.first_name = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
-  test "lastnamerequired" do
+  test "lastnamenotrequired" do
     @user.last_name = ""
+    assert @user.valid?
+  end
+
+  test "usernamelength" do
+    @user.user_name = "a" * 101
     assert_not @user.valid?
   end
 
-  # Test av namnlängd
-  test "usernamelength" do
-    @user.user_name = "detta borde vara mer än hundra tecken,
-                  vilket alldeles för långt namn för den här applikationen!
-                  wow, alldeles för många tecken. Går inte att registrera sig"
-    assert_not @user.valid?
+  test "usernametooshort" do
+    @user.user_name = "a" * 3
   end
 
   test "firstnamelength" do
-    @user.first_name = "detta borde vara mer än hundra tecken,
-                  vilket alldeles för långt namn för den här applikationen!
-                  wow, alldeles för många tecken. Går inte att registrera sig"
+    @user.first_name = "a" * 101
     assert_not @user.valid?
+  end
+
+  test "firstnametooshort" do
+    @user.first_name = "a" * 3
   end
 
   test "lastnamelength" do
-    @user.last_name = "detta borde vara mer än hundra tecken,
-                  vilket alldeles för långt namn för den här applikationen!
-                  wow, alldeles för många tecken. Går inte att registrera sig"
+    @user.last_name = "a" * 101
     assert_not @user.valid?
   end
 
+  test "lastnametooshort" do
+    @user.last_name = "a" * 3
+  end
+
   # Test av email requirement
-  test "emailrequired" do
+  test "emailnotrequired" do
     @user.email = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   # Test av email fel format
@@ -70,9 +75,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # Test av ssn requirement
-  test "ssnrequired" do
+  test "ssnnotrequired" do
     @user.ssn = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   # Test av ssn fel format
@@ -88,9 +93,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # Test av tomt telefonnummer
-  test "phonerequired" do
+  test "phonenotrequired" do
     @user.phone_number = ""
-    assert_not @user.valid?
+    assert @user.valid?
   end
 
   # Test av rätt formaterat telefonnummer
@@ -114,9 +119,26 @@ class UserTest < ActiveSupport::TestCase
 
   # Testar att minimumlängden för lösenord fungerar
   test "minimumpassword" do
-    @user.password = "kek"
-    @user.password_confirmation = "kek"
+    @user.password = "a" * 5
+    @user.password_confirmation = "a" * 5
     assert_not @user.valid?
+  end
+
+  test "passwordtoolong" do
+    @user.password = "a" * 101
+    @user.password_confirmation = "a" * 101
+    assert_not @user.valid?
+  end
+
+  test "password must match password confirmation" do
+    @user.password = "a" * 7
+    @user.password_confirmation = "b" * 7
+    assert_not @user.valid?
+  end
+
+  test "valid password matching password confirmation makes user valid" do
+    @user.password = "a" * 7
+    @user.password_confirmation = "a" * 7
   end
 
   # Testar att lösenordet verkligen hashas med bcrypt när användaren sparas
@@ -137,5 +159,19 @@ class UserTest < ActiveSupport::TestCase
     # Det finns inga användare med "Nope" i namnet. Ska returnera tom AR-relation
     user_search_result = User.search("Nope")
     assert user_search_result.empty?
+  end
+
+  test "user role methods" do
+    @user.role = roles(:admin)
+    assert @user.admin?
+
+    @user.role = roles(:editor)
+    assert @user.editor?
+
+    @user.role = roles(:project_manager)
+    assert @user.project_manager?
+
+    @user.role = roles(:human_resources_representative)
+    assert @user.human_resources?
   end
 end

@@ -1,0 +1,66 @@
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar collapse sidebar-collapse user-sidebar"> <!-- before bugtest: class="col-sm-3 col-lg-2 sidebar" -->
+    <form role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+
+    <ul class="nav menu">
+        <li class="active"><a href="#"><span class = "glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+        <li class="parent profile-sidebar">
+
+            <%= link_to current_user do %>
+            <div class="sidebar-profile">
+                <div class="profile-circle-sidebar">
+                    <%= current_user.first_name[0] %><%= current_user.last_name[0] %>
+                </div>
+                <div class="profile-link">
+                    <span class="greeting"></span>
+                    <span class="username"><%= current_user.first_name %> <%= current_user.last_name %></span>
+                </div>
+        
+                <span data-toggle="collapse" href="#sub-item-1">
+                    <span id="caret" class="glyphicon glyphicon-chevron-down"></span>
+                </span>
+            </div>
+            <% end %>
+            <ul class="children collapse in" id="sub-item-1">
+                <li>
+                    <%= link_to tasks_path do %>
+                      <span class = "glyphicon glyphicon-list-alt"></span> Arbetsuppgifter
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to articles_path do %>
+                      <span class = "glyphicon glyphicon-bullhorn"></span> Nyheter
+                    <% end %>
+                </li>
+                <li>
+                    <a class="user-link" href="#">
+                        <span class = "glyphicon glyphicon-scale"></span> Tidsrapport
+                    </a>
+                </li>
+                <li>
+                    <a class="user-link" href="#">
+                        <span class = "glyphicon glyphicon-calendar"></span> Kalender
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-header"> Verksamheten</li>
+        <li><a href="#"><span class = "glyphicon glyphicon-star"></span> Nyheter</a></li>
+        <li><a href="#"><span class = "glyphicon glyphicon-road"></span> Målsättning</a></li>
+        <li><a href="#"><span class = "glyphicon glyphicon-signal"></span> Processer</a></li>
+        <li><a href="#"><span class = "glyphicon glyphicon-book"></span> Lagar &amp; Regler</a></li>
+        <li><a href="#"><span class = "glyphicon glyphicon-heart"></span> Arbetsmiljö</a></li>
+        <li><a href="#"><span class = "glyphicon glyphicon-tree-conifer"></span> Hållbarhet</a></li>
+        <li class="sidebar-header"> Dokument</li>
+        <li><a href="#"><span class = "glyphicon glyphicon-folder-open"></span> Styrdokument</a></li>
+        <li><a href="#"><span class = "glyphicon glyphicon-folder-open"></span> Redovisande dokument</a></li>
+        <li><a href="#"><span class = "glyphicon glyphicon-folder-open"></span> Blanketter</a></li>
+    </ul>
+
+    <div class="attribution">
+        Template by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">Medialoot</a>
+    </div>
+</div><!--/.sidebar-->

@@ -13,42 +13,125 @@
  *= require_tree .
  *= require_self
  */
-    @import "bootstrap";
     @import "bootstrap-sprockets";
+    @import "bootstrap";
+    @import "partials/_variables";
     @import "partials/_lumino_template";
+    @import "partials/_user";
     @import "partials/_base";
     @import "partials/_layout";
-    @import "partials/_variables";
-    
+    @import "partials/_header";
 
-/* Changes style of the body when logged in */
-#loggedin {
-    background-color: $cream-white !important;
-    background-image: none;
+.sidebar-header {
+    padding: 7px;
+    font-size: 12px;
+    color: #888;
+    border-bottom: 1px solid #F111;
+    border-top: 1px solid #F111;
+    background-color: #333;
 }
 
-.user-menu {
-	margin-top: 7px !important;
+.nav-tabs {
+    height: 36px;
+    background: #95A5A6;
+    width: 380px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
 }
 
-.navbar-brand {
-	margin-top: -2px !important;
+.panel {
+    box-shadow: 0px 0px 1px $light-gray !important;
 }
 
-.profile-circle {
-	float: left;
-	border-radius: 50%;
-    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
-    width: 32px;
-    height: 32px;
-    padding: 6px;
-    background: $dark-purple;
-    color: #FFF;
-    text-align: center;
+.panel-heading {
+    line-height: 40px !important;
+    height: 40px !important;
 }
 
-.profile-header-name {
-	padding-left: 7px;
-	line-height: 32px;
-	float: right;
+.panel-title {
+    text-align: middle;
 }
+
+#sidebar-collapse{
+    background: #34495E;
+}
+
+.text-settings-nav-tabs{
+    height: 36px;
+    color: black;
+}
+
+.panel-body {
+    background: $white;
+    border: 0px solid $light-gray;
+}
+
+
+/**
+* Makes initials spin :D
+*/
+.profile-circle:hover {
+  -webkit-animation: rotate 1s;
+}
+
+@-webkit-keyframes rotate {
+	0% {
+		-webkit-transform:rotate(0deg);
+	}
+  100% {
+    -webkit-transform:rotate(360deg);
+  }
+}
+
+.status-box{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+
+}
+
+#user-search-field {
+  max-width: 200px;
+}
+
+/* Fancy pagination CSS from http://mislav.uniqpath.com/will_paginate/ with some modification */
+// $cool-blue
+.pagination {
+  text-align: center;
+  padding: 0.3em;
+  cursor: default; }
+  .pagination a, .pagination span, .pagination em {
+    padding: 0.2em 0.5em; }
+  .pagination .disabled {
+    color: #aaaaaa; }
+  .pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: $cool-blue; }
+  .pagination a {
+    border: 1px solid #dddddd;
+    color: $cool-blue;
+    text-decoration: none; }
+    .pagination a:hover, .pagination a:focus {
+      border-color: darken($cool-blue, 10%);
+      background: $cool-blue;
+      color: white; }
+  .pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em; }
+  .pagination .previous_page, .pagination .next_page {
+    border-width: 2px; }
+  .pagination .previous_page {
+    margin-right: 1em; }
+  .pagination .next_page {
+    margin-left: 1em; }
+
+    .previous_page.disabled {
+      font-size:1em;
+    }
+
+    .next_page.disabled {
+      font-size:1em;
+    }

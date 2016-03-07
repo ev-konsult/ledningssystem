@@ -4,10 +4,11 @@
 <section class="login-form">
 
 <%= form_for(:session, url: login_path, html: {role: "login"}) do |f| %>
-
           <%= image_tag("logo.png", :class => "login-logo") %>
 
           <hr>
+
+          <%= render 'shared/flash_messages' %>
 
           <div class="form-group">
             <%= f.label :user_name, "Användarnamn" %>

@@ -1,0 +1,153 @@
+/*
+*   This file contains specific styling for the top header
+*/
+
+@import "partials/_variables";
+
+.profile-circle {
+    float: left;
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    background: $dark-purple;
+    color: #FFF;
+    text-align: center;
+}
+.profile-header-name {
+    padding-left: 7px;
+    line-height: 32px;
+    float: right;
+}
+#caret {
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+/* Toggle menu button */
+.navbar-toggle {
+    float: left;
+    color: $purple;
+    font-size: 14px;
+    font-weight: normal !important;
+    line-height: 14px;
+    border: 0px;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    height: 50px;
+    padding: 0px 15px 0px 15px !important;
+    margin: 0px !important;
+        -webkit-box-shadow: 
+            inset 0px -5px 0px -0px $purple;
+        -moz-box-shadow: 
+            inset 0px -5px 0px -0px $purple;
+        -o-box-shadow: 
+            inset 0px -5px 0px -0px $purple;
+        box-shadow: 
+            inset 0px -5px 0px -0px $purple;
+    div {
+        float: left;
+        .icon-bar {
+            width: 20px;
+            height: 2px;
+            background-color: $purple !important;
+        }
+    }
+    .navbar-toggle-text {
+        margin-left: 5px;
+        float: right;
+    }
+
+    &:hover {
+        color: lighten($purple, 15) !important;
+        font-weight: normal !important;
+        background-color: transparent !important;
+            -webkit-box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+            -moz-box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+            -o-box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+            box-shadow: 
+                inset 0px -5px 0px -0px lighten($purple, 15);
+        .icon-bar {
+            background-color: lighten($purple, 15) !important;
+        }
+    }
+}
+
+.navbar-toggle[aria-expanded="false"] {
+    .icon-bar {
+        background-color: $dark-purple !important;
+    }
+    
+    &:hover {
+        color: $purple !important;
+        font-weight: normal !important;
+        background-color: transparent !important;
+        .icon-bar {
+            background-color: $purple !important;
+        }
+    }
+}
+
+.navbar-toggle[aria-expanded="true"] {
+    color: $cream-white !important;
+    background-color: $dark-purple !important;
+
+    .icon-bar {
+        background-color: $cream-white !important;
+    }
+} /* End: Toggle menu button */
+
+.user-menu {
+	margin-top: 7px !important;
+}
+.navbar-brand {
+	margin-top: -2px !important;
+}
+
+/**
+* Makes initials spin :D
+*/
+.user-menu:hover {
+    .profile-circle {
+      -webkit-animation: rotate 1s;
+    }
+        @-webkit-keyframes rotate {
+        0% {
+            -webkit-transform:rotate(0deg);
+        }
+      100% {
+        -webkit-transform:rotate(360deg);
+      }
+    }  
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 14px;
+    }
+    .user-menu {
+        .dropdown-menu {
+            position: fixed;    
+            top: 49px;
+            margin: 0px !important;
+            padding: 0px !important;
+            border-radius: 0px !important;
+            width: 100%;
+            font-size: 16px;
+            span {
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+            a {
+                padding: 12px;
+            }
+            li {
+                border-bottom: 1px solid $lighter-gray;
+            }
+        }
+    }
+}

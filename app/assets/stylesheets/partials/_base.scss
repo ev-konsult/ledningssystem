@@ -1,6 +1,7 @@
 /* 
 *	This file contains all reset styles used for all the pages in the application
 */
+@import "partials/_variables";
 
 @CHARSET "UTF-8";
 
@@ -14,6 +15,8 @@
 
 html, body {
 	min-height: 100% !important;
+	font-family: 'Lato', serif;
+	-webkit-font-smoothing: antialiased;
 }
 
 ul {

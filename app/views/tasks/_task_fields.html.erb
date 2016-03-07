@@ -1,0 +1,27 @@
+<div class="form-group">
+  <%= f.label :title, "Titel" %>
+  <%= f.text_field :title, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description, "Beskrivning" %>
+  <%= f.text_field :description, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :start, "Startdatum" %>
+  <%= f.date_field :start, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :end, "Deadline" %>
+  <%= f.date_field :end, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.select :priority, Task.priority_attributes_for_select %>
+</div>
+
+<div class="form-group">
+  <%= f.select :status, Task.status_attributes_for_select %>
+</div>

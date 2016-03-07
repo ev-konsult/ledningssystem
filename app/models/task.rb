@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  has_and_belongs_to_many :users, :uniq => true
 
   validates :start,             presence: true
   validates :end,               presence: true
@@ -13,17 +13,19 @@ class Task < ActiveRecord::Base
   validate  :start_date_cannot_be_in_the_past
   validate  :end_date_cannot_be_before_start_date
 
-
   # Enums
   enum status:   { not_started: 0, in_progress: 1, done: 2, cancelled: 3 }
   enum priority: { low: 0, medium: 1, high: 2, critical: 3 }
 
-  # Maps the keys of the priority-enum hash to its swedish counterpart
-  # check config/locales/en.yml
-  # TODO: Maybe own file for swedish translation?
   def self.priority_attributes_for_select
     priorities.map do |priority, _|
       [I18n.t("activerecord.attributes.#{model_name.i18n_key}.priorities.#{priority}"), priority]
+    end
+  end
+
+  def self.status_attributes_for_select
+    statuses.map do |status, _|
+      [I18n.t("activerecord.attributes.#{model_name.i18n_key}.status.#{status}"), status]
     end
   end
 

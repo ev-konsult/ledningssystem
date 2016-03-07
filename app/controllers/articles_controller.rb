@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :fetch_article, only: [:show, :destroy, :edit, :update]
   before_action :check_if_logged_in, only: [:create, :destroy, :update, :edit, :new]
+  before_action :check_privilege, only: [:new, :create, :destroy]
 
   def show
 
@@ -10,6 +11,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      current_user.articles << @article
       flash[:success] = "Artikel sparades!"
       redirect_to current_user
     else
@@ -42,7 +44,11 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    if params[:search]
+      @articles = Article.paginate(:page => params[:page], :per_page => 3).search(params[:search])
+    else
+      @articles = Article.paginate(:page => params[:page], :per_page => 3)
+    end
   end
 
   private
@@ -55,7 +61,8 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
 
-    def check_if_logged_in
-      redirect_to root_path unless logged_in?
+    def check_privilege
+      redirect_to current_user unless current_user.admin? ||
+                                      current_user.editor?
     end
 end

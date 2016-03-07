@@ -1,0 +1,15 @@
+<p>Sök användare att tilldela uppgiften:</p>
+<input type="text" id="user-assign-value" placeholder="Sökning.."/>
+<input type="submit" value="Sök" id="user-assign-search" class="btn btn-primary"/>
+
+<div id="user-checkboxes">
+  <!-- Values are checked for users already assigned to the task -->
+  <% User.all.each do |user| %>
+    <p class="user-checkbox-area">
+      <span class="user-info"><%= user.full_name %></span>
+      <%= check_box_tag 'user_ids[]', user.id, @task.users.include?(user), class: "user-checkbox" %>
+    </p>
+  <% end %>
+</div>
+
+<hr />

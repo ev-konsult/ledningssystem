@@ -2,6 +2,301 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "partials/_variables";
+
+#user-tool {
+    display: block;
+    width: 100%;
+    background-color: $lightest-gray;
+    border: 1px solid $lighter-gray;
+
+    section {
+        background-color: $white;
+        width: 100%;
+        display: inline-block;
+        &#user-tool-header {
+            background-color: transparent;
+            border-bottom: 1px solid $lighter-gray;
+            margin: 0px !important;
+            width: 100%;
+            line-height: 52px;
+            height: 55px;
+            p {
+                font-size: 20px;
+                font-weight: 500;
+                margin-left: 20px;
+                color: $dark-gray;
+            }
+        }
+        &#tool-action {
+            display: table;
+            border-bottom: 1px solid $lighter-gray;
+            #toggle-user-form {
+                display: table-cell;
+                line-height: 66px;
+                float: left;
+                cursor: pointer;
+                a {
+                    padding-right: 18px;
+                }
+                .text-link {
+                    float: left;
+                    font-size: 16px;
+                    color: $cool-blue;
+                }
+                #plus-sign {
+                    float: left;
+                    margin: 20px 0px 0px 0px !important;
+                    padding: 0px 7px 0px 18px !important;
+                    color: $cool-blue !important;
+                    font-size: 28px;
+                    clear: both;
+                }
+            }
+            #tool-search {
+                display: table-cell;
+                padding: 7px 18px 7px 7px;
+                float: right;
+                p {
+                    display: inline-block;
+                    margin: 0px 0px 0px 0px !important;
+                    font-size: 12px;
+                }
+                form {
+                  width: 100% !important;
+                  display: inline-block !important;
+                  button, a {
+                      display: block !important;
+                      float: right;
+                  }
+                  a {
+                      margin-left: -30px;
+                      margin-right: 10px;
+                  }
+                  input {
+                      float: left;
+                      max-width: 200px !important;
+                      padding: 0px 10px 0px 10px !important;
+                      margin: 0px 0px 0px 0px !important;
+                      background-color: $lightest-gray;
+                      border: 1px solid $lighter-gray;
+                  }
+                }
+            }
+        }
+        #user-form {
+          display: inline-block;
+          background-color: blue;
+          padding: 0px !important;
+          margin: 0px !important;
+          width: 100%;
+        }
+        &#tool-user-form {
+            background-color: $lightest-gray !important;
+            border-bottom: 1px solid $lighter-gray;
+            display: table;
+            table-layout: fixed;
+            padding: 18px;
+            .input {
+                width: 32%;
+                .form-tip {
+                  font-size: 13px;
+                }
+                .form-control {
+                  border: 1px solid $lighter-gray;
+                }
+                &.input-left {
+                  float: left;
+                }
+                &.input-right {
+                  float: right;
+                }
+                &.input-center {
+                  margin: 0 auto;;
+                }
+            }
+            #form-bottom {
+              display: inline-block;
+              width: 100%;
+              #form-info {
+                float: left;
+              }
+              #form-action {
+                float: right;
+                .btn {
+                  margin-left: 16px;
+                }
+              }
+            }
+        }
+        &#tool-user-list {
+            display: table;
+            #user-list-action {
+                display: table-row;
+                #list-sort {
+                  //background-color: blue;
+                  display: table-cell;
+                  padding: 7px 18px 7px 7px;
+                  float: right;
+                  p {
+                      //display: inline-block;
+                      margin: 0px 0px 0px 0px !important;
+                      font-size: 12px;
+                  }
+                  form {
+                      width: 100% !important;
+                      display: inline-block !important;
+                      select {
+                          float: left;
+                          min-width: 180px;
+                          height: 34px;
+                      }
+                      input {
+                          float: right;
+                          margin-left: 10px;
+                      }
+                  }
+                }
+
+            }
+            #user-list {
+                padding: 0px 18px 0px 18px;
+                .list-group {
+                  background-color: blue;
+                  margin: 0px auto !important;
+                  
+                  width: 100%;
+                  display: table;
+                  border-collapse: collapse;
+                  li {
+                    display: table-row;
+
+                    width: 100%;
+                    &.list-head {
+                      font-size: 12px;
+                      font-weight: bold;
+                      border-top: 1px solid $lightest-gray;
+                      span {
+                        border-right: 0px solid $white-divider;
+                      }
+                    }
+                    span {
+                      display: table-cell;
+                      padding: 7px;
+                      width: auto;
+                      border-right: 1px solid $white-divider;
+                      vertical-align: middle;
+                    }
+                  }
+                  
+                }
+            }
+            #user-list-bottom {
+              padding: 0px 18px 0px 18px;
+              width: 100%;
+
+              text-align: center;
+              vertical-align: middle;
+
+              div {
+                display: inline-block;
+                vertical-align: middle;
+                height: 100%;
+                &#users-count {
+
+                  float: left;
+                  margin-top: 22px;
+                }
+                &#users-per-page {
+        
+                  float: right;
+                  margin-top: 22px;
+                }
+                &#paginate {
+                  margin: 0px auto !important;
+                }
+              }
+            }
+        }
+    }
+}
+
+select {
+    background: $lightest-gray;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 1px solid $lighter-gray;
+}
+
 .fire-link {
-  float: right;
+    float: right;
+}
+
+// Information about user rights
+/*.user-info-tooltip{
+  background-image: image-url('information.jpg');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+}
+.user-info-tooltip .tooltiptext {
+  visibility: hidden;
+  width: 360px;
+  background-color: rgba(47, 47,47,0.88);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  left: 25px;
+  z-index: 1;
+}
+.user-info-tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.userInfo label, select{
+  float: left;
+}*/
+
+.panel-body {
+    .nav-pills {
+        li {
+            margin: 0px !important;
+            display: inline-block;
+            a {
+                background-color: $lightest-gray;
+                &:focus {
+                  background-color: $purple !important;
+                }
+                &:hover {
+                  color: $purple !important;
+                }
+            }
+            
+            &.active a {
+                background-color: $purple;
+                &:hover {
+                    background-color: $purple !important;
+                    color: $white !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .panel-body {
+        .nav-pills {
+            li {
+                clear: both;
+                width: 100%;
+            }
+        }
+    }
 }

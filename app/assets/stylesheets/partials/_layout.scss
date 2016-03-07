@@ -14,19 +14,20 @@ Lumino Admin Bootstrap Template
 Version 1.0
 */
 
+/* Changes style of the body when logged in */
+#loggedin {
+    background-color: $cream-white !important;
+    background-image: none;
+}
 
 .navbar {
   -webkit-box-shadow: 
-    0px 1px 2px #888888, 
     inset 0px -5px 0px -0px $purple;
   -moz-box-shadow: 
-    0px 1px 2px #888888, 
     inset 0px -5px 0px -0px $purple;
   -o-box-shadow: 
-    0px 1px 2px #888888, 
     inset 0px -5px 0px -0px $purple;
   box-shadow: 
-    0px 1px 2px #888888, 
     inset 0px -5px 0px -0px $purple;
   background-color: $white;
   border: 0px !important;

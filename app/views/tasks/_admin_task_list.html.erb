@@ -1,0 +1,49 @@
+<%= will_paginate @tasks %>
+<ul class="admin-task-list">
+	<div class="admin-task-header"><p>Uppgifter</p></div>
+	<li class="panel panel-primary panel-task list-head">
+		<span>Status</span>
+		<span>Prioritet</span>
+		<span>Uppgift</span>
+		<span>Tidspann</span>
+		<span>Tilldelad</span>
+	</li>
+<% @tasks.each do |task| %>
+  <% if current_user.admin? || task.users.include?(current_user) %>
+  	<li class="panel panel-primary panel-task">
+  		<span class="status"><%= I18n.t :"task.status.#{task.status}" %></span>
+		<span class="priority"><div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div> <section><%= I18n.t :"task.priority.#{task.priority}" %></section></span>
+		<span class="title"><%= link_to task.title, task %></span>
+		<span class="time">
+			<section class="value-text">Start:</section> <section class="info-text"><%= task.start.strftime("%D") %></section> </br>
+			<section class="value-text">Slut:</section><section class="info-text"><%= task.end.strftime("%D") %></section>
+		</span>
+		<span class="users"><a href="#" data-toggle="modal" data-target="#modal-<%= task.id %>">Visa tilldelad personal</a></span>
+  	</li>
+  <% end %>
+
+<% end %>
+</ul>
+
+<!-- One modal per task, containing the tasks assigned users -->
+<% @tasks.each do |task| %>
+	<div class="modal fade" id="modal-<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><%= task.title %></h4>
+				</div>
+				<div class="modal-body">
+					<% if task.users.any? %>
+						<% task.users.each do |user| %>
+							<%= link_to user.user_name, user %><br/>
+						<% end %>
+					<% else %>
+						<p>Ingen personal har tilldelats denna uppgift</p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

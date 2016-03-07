@@ -1,5 +1,8 @@
 class EducationsController < ApplicationController
+  before_action :check_if_logged_in, only: [:create, :destroy, :update, :edit, :new]
   before_action :fetch_user, only: [:create, :destroy]
+  before_action :check_if_admin, only: [:new, :create, :destroy]
+
   def create
     @education = @user.educations.create(education_params)
 

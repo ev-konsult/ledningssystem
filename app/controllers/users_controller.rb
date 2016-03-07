@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :check_if_admin, only: [:new, :create, :destroy, :index]
-  before_action :authorize_login, only: [:show, :index, :create, :destroy]
+  before_action :check_privilege, only: [:new, :create, :destroy, :index]
+  before_action :check_if_logged_in, only: [:show, :index, :create, :destroy, :new]
 
   def new
     @user = User.new
@@ -8,11 +8,23 @@ class UsersController < ApplicationController
   end
 
   def index
-    # Sidindelade användare, 5 användare per sida
+    # Determine sort condition
+    condition = :full_name if params[:sort].nil?
+
+    case params[:sort]
+    when "Namn"
+      condition = :user_name
+    when "Senast anställd"
+      condition = :created_at
+    when "Email"
+      condition = :email
+    end
+
+    # Paginated users. Change ":per_page" value to get more/less users per page
     if params[:search]
-      @users = User.paginate(:page => params[:page], :per_page => 5).search(params[:search])
+      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 8).search(params[:search])
     else
-      @users = User.paginate(:page => params[:page], :per_page => 5)
+      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 8)
     end
 
     respond_to do |format|
@@ -33,12 +45,35 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "Du har registrerat en ny anställd!"
+      @user.role = Role.find(user_params[:role_id])
 
-      # Redirect till current user istället för den nya användaren,
-      # eftersom det bara är admin som kan skapa profiler
       redirect_to current_user
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      flash[:success] = "Ditt konto uppdaterades!"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  # Redirects to login or current user depending on if you're logged in
+  def user_root
+    if logged_in?
+      redirect_to current_user
+    else
+      redirect_to login_path
     end
   end
 
@@ -49,20 +84,15 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email,
+    params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email, :role_id,
                                  contact_person_attributes: [:id, :full_name, :email, :phone_number])
-                                 # ^ Nästlade attribut för contact_person
+                                 # ^ Nested attributes for contact_person
   end
 
-  # Skickar tillbaka ickeadmins till deras profiler eller loginsidan
-  # Bra att köra innan saker som bara admin ska få göra
-  def check_if_admin
-    unless logged_in?
-      redirect_to login_path
-    else
-      unless current_user.admin?
-        redirect_to current_user
-      end
-    end
+  def check_privilege
+    redirect_to current_user unless current_user.admin? ||
+                                    current_user.human_resources?
   end
+
+
 end

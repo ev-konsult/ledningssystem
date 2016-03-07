@@ -15,9 +15,7 @@ class EducationTest < ActiveSupport::TestCase
 
   # Test av namnlängd
   test "namelength" do
-    @education.name = "detta borde vara mer än hundra tecken,
-                  vilket alldeles för långt namn för den här applikationen!
-                  wow, alldeles för många tecken. Går inte att registrera sig"
+    @education.name = "a" * 101
     assert_not @education.valid?
   end
 

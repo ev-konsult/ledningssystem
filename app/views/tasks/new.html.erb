@@ -1,30 +1,11 @@
+<% content_for :title, "Ny uppgift" %>
+
 <%= form_for @task do |f| %>
     <%= render 'shared/error_messages', obj: f.object %>
 
-    <div class="form-group">
-      <%= f.label :title, "Titel" %>
-      <%= f.text_field :title, class: "form-control" %>
-    </div>
+    <%= render 'task_fields', f: f %> <!-- rendame f maybe !-->
+    <%= render 'user_fields', f: f %>
 
-    <div class="form-group">
-      <%= f.label :description, "Beskrivning" %>
-      <%= f.text_field :description, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :start, "Startdatum" %>
-      <%= f.text_field :start, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :end, "Deadline" %>
-      <%= f.text_field :end, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.select :priority, options_for_select(Task.priority_attributes_for_select)%>
-    </div>
-
-    <%= f.submit "Skapa", class: "btn btn-primary" %>
+    <%= f.submit "Skapa uppgift", class: "btn btn-primary", data: { disable_with: "Skapar uppgift.." } %>
     <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
 <% end %>

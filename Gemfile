@@ -39,6 +39,15 @@ gem 'tinymce-rails'
 # Calendar
 gem 'simple_calendar', "~> 2.0"
 
+# File upload
+gem "paperclip", "~> 4.3"
+
+# Piecharts etc
+gem 'chartkick'
+
+# For grouping the charts by day
+gem 'groupdate'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -49,7 +58,7 @@ gem 'simple_calendar', "~> 2.0"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # byebug doesnt play well with Travis.. uncomment if you want to use it
-  # gem 'byebug'
+  gem 'byebug'
 end
 
 # group :production do

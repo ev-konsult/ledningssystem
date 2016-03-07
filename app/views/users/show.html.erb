@@ -5,30 +5,32 @@
         <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Hantera anställda</h3>
       </div>
       <div class="panel-body">
-
+        <%= render 'shared/flash_messages' %>
         <h2><%= @user.user_name %></h2>
         <h4><%= @user.full_name %></h4>
 
         <!-- Om användaren är admin renderas views/users/_admin_dashboard.html.erb -->
         <!-- Formulären ska vara gömda, när admin klickar på t.ex ny utbildning ska en flashig jquery animation komma typ-->
 
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Personuppgifter</a></li>
-          <li role="presentation"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Utbildning</a></li>
-          <li role="presentation"><a href="#contacts" aria-controls="contacts" role="tab" data-toggle="tab">Kontaktperson</a></li>
+        <ul class="nav nav-pills" role="tablist">
+          <li role="presentation" class="active"><a href="#info" aria-controls="info" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Personuppgifter</a></li>
+          <li role="presentation"><a href="#education" aria-controls="education" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Utbildning</a></li>
+          <li role="presentation"><a href="#contacts" aria-controls="contacts" class="text-settings-nav-tabs" role="tab" data-toggle="tab">Kontaktperson</a></li>
         </ul>
 
-        <div class="tab-content">
+
+          <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="info">
             <p>Personnummer: <%= @user.ssn %></p>
             <p>Email: <%= @user.email %></p>
             <p>Telefonnummer: <%= @user.phone_number %></p>
           </div>
 
+
           <div role="tabpanel" class="tab-pane" id="education">
             <div id="education-display"><%= render "education_display" %></div>
 
-            <% if current_user.admin? %>
+            <% if current_user.admin? || current_user == @user %>
               <button id="show-education-form" class="btn btn-default">Lägg till utbildning</button>
               <div id="education-form">
                 <div id="education-errors"></div>
@@ -58,12 +60,18 @@
           </div>
         </div>
 
+
         <% if current_user.admin? %>
           <hr />
 
           <% if @user.admin? %>
             <%= render 'admin_dashboard' %>
           <% end %>
+        <% end %>
+
+        <% if current_user.human_resources? %>
+          <%= link_to "Skapa ny anställd", new_user_path, class: "btn btn-default" %>
+          <%= link_to "Visa anställda", users_path, class: "btn btn-default" %>
         <% end %>
 
       </div>
