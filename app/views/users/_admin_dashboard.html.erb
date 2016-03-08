@@ -4,4 +4,9 @@
   <%= link_to "Visa alla artiklar", articles_path, class: "btn btn-default" %>
   <%= link_to "Lägg till uppgift", new_task_path, class: "btn btn-default" %>
   <%= link_to "Visa uppgifter", tasks_path, class: "btn btn-default" %>
+  <li>
+    <%= link_to statistic_path do %>
+        <span class="glyphicon glyphicon-signal"></span> Statistik
+    <% end %>
+  </li>
 </div>
