@@ -40,7 +40,7 @@
 
 @normal_everyday_guy = User.create(user_name: "Nils", first_name: "Nils", last_name: "Mattsson",
             password: "password", password_confirmation: "password",
-             email: "nils@gmail.com", ssn: "910506-1357", phone_number: "0701334999", contact_person: @admin_contact, role: @role,
+             email: "nils@gmail.com", ssn: "910506-1358", phone_number: "0701334999", contact_person: @admin_contact, role: @role,
              contact_person: ContactPerson.create(full_name: Faker::Name.name, phone_number: Faker::PhoneNumber.phone_number,
                                                     email: "contact@gmail.com"))
 
