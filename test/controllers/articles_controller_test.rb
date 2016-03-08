@@ -15,7 +15,7 @@ class ArticlesControllerTest < ActionController::TestCase
     end
 
     assert_equal "Artikel sparades!", flash[:success]
-    assert_redirected_to @user
+    assert_redirected_to articles_path
   end
 
   test "successful edit" do
