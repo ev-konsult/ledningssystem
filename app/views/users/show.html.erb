@@ -63,7 +63,7 @@
 
         <% if current_user.admin? %>
           <hr />
-
+          <%= link_to "Ändra anställd", edit_user_path(@user) %>
           <% if @user.admin? %>
             <%= render 'admin_dashboard' %>
           <% end %>
