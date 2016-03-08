@@ -6,7 +6,11 @@
     </form>
 
     <ul class="nav menu">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+        <li>
+          <%= link_to current_user do %>
+              <span class="glyphicon glyphicon-home"></span> Dashboard
+          <% end %>
+        </li>
         <li class="sidebar-header"> Hantera</li>
         <li>
           <%= link_to users_path do %>
@@ -28,8 +32,6 @@
               <span class="glyphicon glyphicon-signal"></span> Statistik
           <% end %>
         </li>
-        <hr>
-        <li><a href="#"><span class="glyphicon glyphicon-new-window"></span> Visa applikation</a></li>
     </ul>
 
     <div class="attribution">

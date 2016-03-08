@@ -9,5 +9,5 @@
     <%= render 'user_fields', f: f %>
     </div>
     <%= f.submit "Spara", class: "btn btn-primary" %>
-    <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
+    <%= link_to "Avbryt", task_path(@task), class: "btn btn-primary" %>
 <% end %>
