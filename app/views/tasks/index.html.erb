@@ -9,5 +9,3 @@
 <% if current_user.project_manager? || current_user.admin? %>
   <%= link_to "Skapa uppgift", new_task_path, class: "btn btn-primary" %>
 <% end %>
-
-<%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>

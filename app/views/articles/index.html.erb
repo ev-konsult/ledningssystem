@@ -44,5 +44,3 @@
 <% if current_user.editor? || current_user.admin? %>
   <%= link_to "Skapa nyhet", new_article_path, class: "btn btn-primary" %>
 <% end %>
-
-<%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
