@@ -26,9 +26,33 @@
 		<!-- Another user show -->
 		<% else %>
 			<li class="">Användare</li>
-		    <li class="active"><%= @user.first_name %><%= @user.last_name %></li>
+		    <li class="active"><%= @user.first_name %> <%= @user.last_name %></li>
 		    <li class="back">
 				<%= link_to users_path, class: "text-link" do%>
+					<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+				<% end %>
+			</li>
+		<% end %>
+
+	<!-- Users edit -->
+	<% elsif current_page?(user_path(@user) + '/edit') %>
+
+		<!-- Current user edit -->
+		<% if current_user.id == @user.id %>
+			<li class="active">Profilinställningar</li>
+		    <li class="back">
+				<%= link_to @user, class: "text-link" do%>
+					<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+				<% end %>
+			</li>
+			
+		<!-- Another user edit -->
+		<% else %>
+			<li class="">Användare</li>
+		    <li class=""><%= @user.first_name %> <%= @user.last_name %></li>
+		    <li class="active">Editor</li>
+		    <li class="back">
+				<%= link_to @user, class: "text-link" do%>
 					<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
 				<% end %>
 			</li>
