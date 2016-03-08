@@ -37,7 +37,7 @@
 				<div class="modal-body">
 					<% if task.users.any? %>
 						<% task.users.each do |user| %>
-							<%= link_to user.user_name, user %><br/>
+							<%= link_to "#{user.first_name + ' ' + user.last_name}", user %><br/>
 						<% end %>
 					<% else %>
 						<p>Ingen personal har tilldelats denna uppgift</p>
