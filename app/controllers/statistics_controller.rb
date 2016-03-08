@@ -28,7 +28,7 @@ class StatisticsController < ApplicationController
     end
 
     Task.all.each do |task|
-      case task.priorities.to_sym
+      case task.priority.to_sym
       when :low
         @priority["Låg".to_sym] += 1
       when :medium
