@@ -33,7 +33,7 @@ Dessa konton kan användas för att logga in på den publicerade applikationen:
 | Användarnamn | Lösenord |
 |----:|:-------|
 | Admin | adminpassword |
-| Demo | password |
+| Nils | password |
   
 Adminkontot har rättigheter till att göra allt i applikationen
 
