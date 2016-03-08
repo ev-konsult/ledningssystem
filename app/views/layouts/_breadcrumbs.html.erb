@@ -1,0 +1,132 @@
+<!-- Home -->
+<li><%= link_to current_user, class: "glyphicon glyphicon-home" do %><% end %></li>
+
+<% unless @user.nil? %>
+	<!-- Users -->
+	<% if current_page?('/users') %>
+	    <li class="active">Användare</li>
+	    <li class="back">
+			<%= link_to root_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Users show -->
+	<% elsif current_page?(user_path(@user)) %>
+
+		<!-- Current user show -->
+		<% if current_user.id == @user.id %>
+			<li class="active">Profilsida</li>
+		    <li class="back">
+				<%= link_to root_path, class: "text-link" do%>
+					<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+				<% end %>
+			</li>
+			
+		<!-- Another user show -->
+		<% else %>
+			<li class="">Användare</li>
+		    <li class="active"><%= @user.first_name %><%= @user.last_name %></li>
+		    <li class="back">
+				<%= link_to users_path, class: "text-link" do%>
+					<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+				<% end %>
+			</li>
+		<% end %>
+	<% end %>
+<% else %>
+
+	<!-- Tasks -->
+	<% if current_page?('/tasks') %>
+	    <li class="active">Uppgifter</li>
+	    <li class="back">
+			<%= link_to root_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Tasks new -->
+	<% elsif current_page?(controller: 'tasks', action: 'new') %>
+		<li class="">Uppgifter</li>
+		<li class="active">Ny uppgift</li>
+		<li class="back">
+			<%= link_to tasks_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Statistics -->
+	<% elsif current_page?('/statistics') %>
+	    <li class="active">Statistik</li>
+	    <li class="back">
+			<%= link_to root_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Articles -->
+	<% elsif current_page?('/articles') %>
+		<li class="active">Nyheter</li>
+		<li class="back">
+			<%= link_to root_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Articles new -->
+	<% elsif current_page?(controller: 'articles', action: 'new') %>
+		<li class="">Nyheter</li>
+		<li class="active">Ny artikel</li>
+		<li class="back">
+			<%= link_to articles_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+	
+	<!-- Articles show -->
+	<% elsif current_page?(controller: 'articles', action: 'show') %>
+		<li class="">Nyheter</li>
+		<li class="active"><%= @article.title %></li>
+		<li class="back">
+			<%= link_to articles_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Articles edit -->
+	<% elsif current_page?(controller: 'articles', action: 'edit') %>
+		<li class="">Nyheter</li>
+		<li class=""><%= @article.title %></li>
+		<li class="active">Editor</li>
+		<li class="back">
+			<%= link_to @article, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Tasks show -->
+	<% elsif current_page?(controller: 'tasks', action: 'show') %>
+		<li class="">Uppgifter</li>
+		<li class="active"><%= @task.title %></li>
+		<li class="back">
+			<%= link_to tasks_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<!-- Tasks show -->
+	<% elsif current_page?(controller: 'tasks', action: 'edit') %>
+		<li class="">Uppgifter</li>
+		<li class=""><%= @task.title %></li>
+		<li class="active">Editor</li>
+		<li class="back">
+			<%= link_to tasks_path, class: "text-link" do%>
+				<span id="caret" class="glyphicon glyphicon-menu-left">Tillbaka</span>
+			<% end %>
+		</li>
+
+	<% end %>
+<% end %>
+
+
+
