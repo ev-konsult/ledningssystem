@@ -4,6 +4,7 @@
 @manager = Role.create(description: "Äger rättigheter till att hantera uppgifter.", role_name_id: :project_manager, can_edit_tasks: true)
 @editorz = Role.create(description: "Äger rättigheter till nyheter.", role_name_id: :editor, can_edit_news: true)
 @admin_role = Role.create(description: "Äger rättigheter till hela systemet", role_name_id: :admin, can_edit_news: true, can_edit_tasks: true, can_edit_staff: true, can_edit_documents: true, can_show_person_details_verbose: true)
+@role = Role.create(description: "Äger inga rättigheter", role_name_id: :user)
 
 @admin = User.create(user_name: "Admin", first_name: "Lasse", last_name: "Karlsson",
             password: "adminpassword", password_confirmation: "adminpassword",
@@ -37,7 +38,13 @@
 
 @project_leader.educations << Education.create(graduation: DateTime.now, school: Faker::University.name, name: Faker::Commerce.department)
 
-@role = Role.create(description: "Äger inga rättigheter", role_name_id: :user)
+@normal_everyday_guy = User.create(user_name: "Nils", first_name: "Nils", last_name: "Mattsson",
+            password: "password", password_confirmation: "password",
+             email: "nils@gmail.com", ssn: "910506-1357", phone_number: "0701334999", contact_person: @admin_contact, role: @role,
+             contact_person: ContactPerson.create(full_name: Faker::Name.name, phone_number: Faker::PhoneNumber.phone_number,
+                                                    email: "contact@gmail.com"))
+
+@normal_everyday_guy.educations << Education.create(graduation: DateTime.now, school: Faker::University.name, name: Faker::Commerce.department)
 
 # Skapar användare med Faker, varje användare har en kontaktperson
 99.times do |n|
