@@ -7,5 +7,5 @@
     <%= render 'user_fields', f: f %>
 
     <%= f.submit "Skapa uppgift", class: "btn btn-primary", data: { disable_with: "Skapar uppgift.." } %>
-    <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
+    <%= link_to "Avbryt", tasks_path, class: "btn btn-primary" %>
 <% end %>

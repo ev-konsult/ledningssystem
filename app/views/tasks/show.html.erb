@@ -17,7 +17,7 @@ Prioritet: <p><%= I18n.t :"task.priority.#{@task.priority}" %></p>
 </ul>
 
 <% if current_user.admin? %>
-  <%= link_to "Ändra uppgift", edit_task_path(@task) %>
+  <%= link_to "Ändra uppgift", edit_task_path(@task), class: "btn btn-primary" %>
 <% end %>
 
 

@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
     if @article.save
       current_user.articles << @article
       flash[:success] = "Artikel sparades!"
-      redirect_to current_user
+      redirect_to articles_path
     else
       flash.now[:danger] = "Artikel kunde inte sparas!"
       render 'new'

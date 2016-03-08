@@ -11,5 +11,5 @@
     <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120 %>
 
     <%= f.submit "Skapa nyhet", class: "btn btn-primary", data: { disable_with: "Skapar nyhet.." } %>
-    <%= link_to "Tillbaka", root_path, class: "btn btn-primary" %>
+    <%= link_to "Avbryt", articles_path, class: "btn btn-primary" %>
 <% end %>
