@@ -1,6 +1,6 @@
 <div id="user-list-action">
   <div id="list-sort">
-    
+
     <%= form_tag(params, method: :get, remote: true) do %>
       <p>Välj sortering</p>
       <%= select_tag(:sort, options_for_select(['Namn', 'Senast anställd', 'Email'], params[:sort])) %>
@@ -10,7 +10,7 @@
 </div>
 <div id="user-list">
   <ul class="list-group">
-    <li class="panel panel-primary panel-user list-head">
+    <li class="panel panel-primary panel-user list-head" id="user-list-header">
       <span>Efternamn, Förnamn</span>
       <span>Användarnamn</span>
       <span>E-post</span>
@@ -34,8 +34,8 @@
 </div>
 <div id="user-list-bottom">
   <div id="users-count">Antal: <%= @users.count %></div>
-  
+
   <div id="users-per-page">Visa per sida: <%= select_tag(:sort, options_for_select(['5', '10', '15', '20', '25'], params[:sort])) %></div>
   <div id="paginate"><%= js_will_paginate @users %></div>
-  
+
 </div>
