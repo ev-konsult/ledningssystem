@@ -4,10 +4,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
   <title>IntraEV <%= yield :title %></title>
-  <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
    <%= yield :charts_js %>
 
   <%= csrf_meta_tags %>
