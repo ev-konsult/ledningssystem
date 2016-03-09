@@ -25,7 +25,10 @@
             <%= user.last_name %>, <%= user.first_name %>
           <% end %>
         </span>
-        <span><%= user.user_name %></span>
+        <span>
+          <%= link_to user do %>
+            <%= user.user_name %></span>
+          <% end %>
         <span><%= user.email %></span>
         <span><%= link_to "Ta bort", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></span>
       </li>
