@@ -13,6 +13,15 @@ class UsersController < ApplicationController
     # Determine sort condition
     condition = :full_name if params[:sort].nil?
     sort_order = :asc if params[:sort_order].nil?
+    # paging_size = 5 if params[:paging_size].nil?
+
+    if params[:paging_size].nil?
+      paging_size = 5
+    else
+      paging_size = params[:paging_size]
+    end
+
+
 
     @user = User.new
     @user.build_contact_person
@@ -30,6 +39,8 @@ class UsersController < ApplicationController
       condition = :created_at
     end
 
+
+
     if params[:sort_order] == "Stigande"
       sort_order = :asc
     else
@@ -39,9 +50,11 @@ class UsersController < ApplicationController
     # Paginated users. Change ":per_page" value to get more/less users per page
     if params[:search]
       # User.order instead of search for sort-order (asc and desc)
-      @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => 8).search(params[:search])
+      @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => paging_size).search(params[:search])
     else
-      @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => 8)
+      10.times { puts "hehehe" }
+      10.times { puts paging_size }
+      @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => paging_size)
     end
 
     respond_to do |format|
