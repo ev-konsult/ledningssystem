@@ -61,4 +61,10 @@ module SessionsHelper
     redirect_to root_path unless logged_in?
   end
 
+  def get_user_name_from_session
+    user_name = session[:user_name]
+    session[:user_name] = ""
+    user_name
+  end
+
 end
