@@ -12,14 +12,13 @@
     </div>
     <% end %>
     <div id="tool-search">
-      <p class="tool-search-header">Sök anställda</p>
       <%= form_tag(users_path, :method => "get", remote: true) do %>
         <!-- Removes search query from params if search query is empyu -->
         <% if params[:search] == "" %>
           <% params.delete :search %>
         <% end %>
 
-        <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "user-search-field", placeholder: "Sök anställda" %>
+        <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "user-search-field", placeholder: "Sök användare" %>
         <!-- Empty paragrah is filled with the search query via JavaScript -->
         <p id="search-query-placeholder"></p>
         <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
