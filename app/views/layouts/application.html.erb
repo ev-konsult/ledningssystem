@@ -19,17 +19,12 @@
           <%= render 'layouts/navigation' %>
 
           <div class="col-xs-12 col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-            <div class="row">
+            <div id="page-top" class="row">
               <ol class="breadcrumb">
                 <%= render 'layouts/breadcrumbs' %>
               </ol>
             </div>
 
-            <div class="row">
-                <div class="col-xs-12 col-lg-12">
-                    <h1>Dashboard <small>Admin workbench</small></h1>
-                </div>
-            </div>
             <%= yield %>
 
             <!-- Debug info, only shown in development (not on heroku) -->
