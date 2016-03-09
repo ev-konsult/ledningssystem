@@ -4,6 +4,7 @@
     <%= form_tag(params, method: :get, remote: true) do %>
       <p>Välj sortering</p>
       <%= select_tag(:sort, options_for_select(['Namn', 'Senast anställd', 'Email'], params[:sort])) %>
+      <%= select_tag(:sort_order, options_for_select(['Stigande', 'Fallande'], params[:sort_order])) %>
       <%= submit_tag "Sortera", class: "btn btn-primary" %>
     <% end %>
   </div>
