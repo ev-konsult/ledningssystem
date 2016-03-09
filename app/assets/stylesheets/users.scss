@@ -90,7 +90,22 @@
             border-bottom: 1px solid $lighter-gray;
             display: table;
             table-layout: fixed;
-            padding: 18px;
+            padding: 10px 18px 10px 18px;
+            .form-block {
+              .form-title {
+                h4 {
+                  display: inline-block;
+                  margin-bottom: 20px !important;
+                }
+              }
+              &.top {
+
+              }
+              &.bottom {
+                padding-top: 10px;
+                border-top: 1px solid lighten($lighter-gray, 5%);
+              }
+            }
             .input {
                 width: 32%;
                 .form-tip {
@@ -107,6 +122,27 @@
                 }
                 &.input-center {
                   margin: 0 auto;;
+                }
+                &.input-radios {
+                  width: 40% !important;
+                  border: 1px solid $light-gray;
+                  border-radius: 4px;
+                  background-color: $lighter-gray;
+                  padding: 5px 0px 5px 30px !important;
+                  margin-top: 20px;
+                  float: right;
+                  .userInfo {
+                    div {
+                      max-width: 170px;
+                      input {
+                        margin-right: 7px;
+                      }
+                      .glyphicon {
+                        font-size: 16px;
+                        float: right;
+                      }
+                    }
+                  }
                 }
             }
             #form-bottom {
@@ -288,6 +324,9 @@
                     .form-tip {
                       font-size: 12px;
                     }
+                }
+                #form-bottom {
+                  margin-top: 10px;
                 }
             } /* End: add new user form */
 
