@@ -142,8 +142,14 @@
                       display: inline-block !important;
                       select {
                           float: left;
-                          min-width: 180px;
                           height: 34px;
+                          &#sort {
+                            min-width: 180px;
+                            margin-right: 10px;
+                          }
+                          &#sort_order {
+                            width: 100px;
+                          }
                       }
                       input {
                           float: right;
@@ -290,6 +296,22 @@
                 #user-list-action {
                     #list-sort {
                       padding: 7px 18px 7px 7px;
+                      display: block;
+                      width: 100%;
+                        form {
+                            #sort {
+                              max-width: 160px;
+                              width: auto !important;
+                              min-width: 140px !important;
+                              margin-right: 10px;
+                            }
+                            #sort_order {
+                              width: auto !important;
+                            }
+                            input {
+                              float: left;
+                            }
+                        }
                     }
                 }
                 #user-list {
