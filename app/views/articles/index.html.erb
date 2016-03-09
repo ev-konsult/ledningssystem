@@ -33,10 +33,12 @@
         <p class="article-text"><%= truncate(strip_tags(article.body), length: 150) %></p>
 
       </div>
-      <div class="panel-footer">
-        <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to article.user.user_name, article %></span>
-        <!-- <%= link_to article.title, article_path(article), class: "panel-title" %> -->
-      </div>
+      <% unless article.user.nil? %>
+        <div class="panel-footer">
+          <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to article.user.user_name, article %></span>
+          <!-- <%= link_to article.title, article_path(article), class: "panel-title" %> -->
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>

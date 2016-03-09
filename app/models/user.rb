@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_SSN_REGEX = /\A[0-9]{6}-[0-9]{4}/i
   attr_accessor :remember_token
-  has_and_belongs_to_many :tasks
-  has_many :articles
-  has_many :educations
-  has_one :contact_person
+  has_and_belongs_to_many :tasks, dependent: :nullify
+  has_many :articles, dependent: :nullify
+  has_many :educations, dependent: :destroy
+  has_one :contact_person, dependent: :destroy
   belongs_to :role
 
   accepts_nested_attributes_for :contact_person
