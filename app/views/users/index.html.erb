@@ -1,5 +1,5 @@
 <%= render 'shared/flash_messages' %>
-<!-- Sökformulär, sätter params[:search] -->
+<!-- Search form, sets params[:search] -->
 <div id="user-tool">
   <section id="user-tool-header">
     <p>Hantera användare</p>
@@ -14,8 +14,7 @@
     <div id="tool-search">
       <p class="tool-search-header">Sök anställda</p>
       <%= form_tag(users_path, :method => "get", remote: true) do %>
-        <!-- Plockar bort params[:search] om queryn är tom.
-             Ser fult ut med tomma querys i URL'n.. -->
+        <!-- Removes search query from params if search query is empyu -->
         <% if params[:search] == "" %>
           <% params.delete :search %>
         <% end %>
@@ -138,4 +137,3 @@
   </section>
 </div>
 <div id="success-create-user"></div>
-

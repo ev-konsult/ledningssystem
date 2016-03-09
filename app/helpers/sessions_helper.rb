@@ -1,24 +1,24 @@
 module SessionsHelper
-  # Sätter användarparameterns id i sessionen
+  # Sets user id in session, effectively logging in the user
   def log_in(user)
     session[:user_id] = user.id
   end
 
-  # Rensar session ur persistent lagring
+  # Clear user from cookies
   def forget(user)
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
 
-  # Loggar ut en användare helt (session, cookie, @current_user)
+  # Clear user from both session and cookies
   def log_out
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
   end
 
-  # Hämtar inloggad användare från session eller cookie
+  # Retrieved logged in user from either session or cookies
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
@@ -35,7 +35,7 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  # Skapar persistent lagring av en session
+  # Creates persistent login for user (cookies)
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id
@@ -46,8 +46,7 @@ module SessionsHelper
     current_user.admin?
   end
 
-  # Skickar tillbaka ickeadmins till deras profiler eller loginsidan
-  # Bra att köra innan saker som bara admin ska få göra
+  # Sends non-admins to their profile pages
   def check_if_admin
     unless logged_in?
       redirect_to login_path

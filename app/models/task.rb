@@ -17,6 +17,7 @@ class Task < ActiveRecord::Base
   enum status:   { not_started: 0, in_progress: 1, done: 2, cancelled: 3 }
   enum priority: { low: 0, medium: 1, high: 2, critical: 3 }
 
+  # Translating enum values to prepare them for dropdown menus
   def self.priority_attributes_for_select
     priorities.map do |priority, _|
       [I18n.t("activerecord.attributes.#{model_name.i18n_key}.priorities.#{priority}"), priority]
@@ -30,6 +31,8 @@ class Task < ActiveRecord::Base
   end
 
   private
+    # Custom validation for dates. The strings should maybe be in some
+    # language file in /locales but we ran out of time
     def start_date_cannot_be_in_the_past
       errors.add(:start, " måste vara ett framtida datum") if
         !self.start.blank? and self.start.past?

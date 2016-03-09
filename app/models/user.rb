@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_save { self.full_name = "#{self.first_name} #{self.last_name}" }
 
-  # Detta scope används för fuzzy search (behöver inte vara exakta sökningar)
+  # Fuzzy search for user name, last name and first name
   scope :search, -> (query) { where "lower(user_name) like ? or lower(last_name) like ? or lower(first_name) like ?",
                                   "%#{query.downcase}%", "%#{query.downcase}%", "%#{query.downcase}%" }
   scope :sort, -> (condition) { order("#{condition} desc") }
@@ -49,18 +49,18 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
-  # "Kommer ihåg" en användare
+  # "Remembers" a user instance
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
-  # "Glömmer en användare"
+  # "Forgets" a user instance
   def forget
     update_attribute(:remember_digest, nil)
   end
 
-  # Returnerar hashvärdet av strängparametern
+  # Return hash value of param string
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
     correct_role? :project_manager
   end
 
-  # Kollar en authentication token mot hashen i databasen
+  # Checks a remember token
   def authenticated?(remember_token)
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)

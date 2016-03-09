@@ -19,8 +19,11 @@ class TasksController < ApplicationController
     @user_ids = params[:user_ids]
 
     if @task.save
+      # If there are user id's in the params, attach these to the task
       unless @user_ids.nil?
         @user_ids.each do |id|
+          # There is always one blank ID for some reason. We haven't
+          # figured out why, so skip that ID with the following line.
           next if id.blank?
           user = User.find(id)
 
@@ -44,12 +47,12 @@ class TasksController < ApplicationController
         @task.users.delete(user)
       end
 
+      # Reassign users
       unless @user_ids.nil?
         @user_ids.each do |id|
           next if id.blank?
           user = User.find(id)
 
-          # No duplication of users
           @task.users << user
         end
       end

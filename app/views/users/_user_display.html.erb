@@ -18,7 +18,7 @@
       <span class="useraction"></span>
     </li>
     <% @users.each do |user| %>
-      <!-- Visar inte admin..så att admin inte ger admin sparken -->
+      <!-- Doesn't show admin. So that admin doesn't fire admin -->
       <% next if user.admin? %>
       <li class="list-group-item">
         <span class="fullname">

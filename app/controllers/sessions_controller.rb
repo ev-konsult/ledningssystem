@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  # Authenticates user, if user exists
+  # Remembers session if :remember_me is passed as param
   def create
     user = User.find_by(user_name: params[:session][:user_name])
     if user && user.authenticate(params[:session][:password])
