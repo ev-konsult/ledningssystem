@@ -1,4 +1,6 @@
 class StatisticsController < ApplicationController
+  before_action :check_if_logged_in, only: [:index, :show]
+
   # Prepares view data for the statistics in views/statistics/index.html.erb
   # The symbols from the Task and Priority enums are replaced with swedish
   # translations
