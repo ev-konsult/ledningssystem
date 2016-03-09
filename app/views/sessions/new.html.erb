@@ -11,8 +11,8 @@
           <%= render 'shared/flash_messages' %>
 
           <div class="form-group">
-            <%= f.label :user_name, "Användarnamn" %>
-            <%= f.text_field :user_name, class: "form-control", id: "username" %>
+            <%= f.label(:user_name, "Användarnamn") %>
+            <%= f.text_field :user_name, class: "form-control", id: "username", value: get_user_name_from_session %>
           </div>
 
           <div class="form-group">
