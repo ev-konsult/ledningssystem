@@ -5,6 +5,7 @@
       <p>Välj sortering</p>
       <%= select_tag(:sort, options_for_select(['Namn', 'Senast anställd', 'Email'], params[:sort])) %>
       <%= select_tag(:sort_order, options_for_select(['Stigande', 'Fallande'], params[:sort_order])) %>
+
       <%= submit_tag "Sortera", class: "btn btn-primary" %>
     <% end %>
   </div>
@@ -42,7 +43,10 @@
 <div id="user-list-bottom">
   <div id="users-count">Antal: <%= @users.count %></div>
 
-  <div id="users-per-page">Visa per sida: <%= select_tag(:sort, options_for_select(['5', '10', '15', '20', '25'], params[:sort])) %></div>
+  <%= form_tag(params, method: :get, remote: true) do %>
+    <div id="users-per-page">Visa per sida: <%= select_tag(:paging_size, options_for_select(['5', '10', '15', '20', '25'], params[:paging_size])) %> <%= submit_tag "Verkställ", class: "btn btn-primary" %> </div>
+
+  <% end %>
   <div id="paginate">
     <div class="wide"><%= js_will_paginate @users, inner_window: 5, outer_window: 0 %></div>
     <div class="responsive"><%= js_will_paginate @users, inner_window: 1, outer_window: 0 %></div>
