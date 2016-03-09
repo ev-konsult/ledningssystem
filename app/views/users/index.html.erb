@@ -29,106 +29,109 @@
 
   <div id="user-form" class="collapse">
     <section id="tool-user-form">
-    <div id="user-errors"></div>
-    <%= form_for(@user, remote: true) do |f| %>
+      <div id="user-errors"></div>
+      <div class="form-block top">
+        <span class="form-title"><h4>Information om användare</h4></span>
+        <%= form_for(@user, remote: true) do |f| %>
 
-      <div class="input input-left">
-        <div class="form-group">
-          <%= f.label :user_name, "* Användarnamn", class: 'form-tip' %>
-          <%= f.text_field :user_name, class: "form-control" %>
-        </div>
+          <div class="input input-left">
+            <div class="form-group">
+              <%= f.label :user_name, "* Användarnamn", class: 'form-tip' %>
+              <%= f.text_field :user_name, class: "form-control" %>
+            </div>
 
-        <div class="form-group">
-          <%= f.label :password, "* Lösenord", class: 'form-tip' %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
+            <div class="form-group">
+              <%= f.label :password, "* Lösenord", class: 'form-tip' %>
+              <%= f.password_field :password, class: "form-control" %>
+            </div>
 
-        <div class="form-group">
-          <%= f.label :password_confirmation, "* Konfirmera lösenord", class: 'form-tip' %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="input input-right">
-        <div class="form-group">
-          <%= f.label :email, "Email", class: 'form-tip' %>
-          <%= f.email_field :email, class: "form-control", placeholder: "ex. namn@exempel.se" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :phone_number, "Telefonnummer", class: 'form-tip' %>
-          <%= f.text_field :phone_number, class: "form-control", placeholder: "ex. 0701234567" %>
-        </div>
-      </div>
-
-      <div class="input input-center">
-        <div class="form-group">
-          <%= f.label :first_name, "Förnamn", class: 'form-tip' %>
-          <%= f.text_field :first_name, class: "form-control", placeholder: "ex. Mats" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :last_name, "Efternamn", class: 'form-tip' %>
-          <%= f.text_field :last_name, class: "form-control", placeholder: "ex. Carlsson" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :ssn, "Personnummer", class: 'form-tip' %>
-          <%= f.text_field :ssn, class: "form-control", placeholder: "YYMMDD-XXXX" %>
-        </div>
-      </div>
-
-      <!-- Kontaktperson -->
-      <h3>Närmaste kontaktperson</h3>
-
-      <%= f.fields_for :contact_person do |ff| %>
-        <div class="input input-left">
-          <div class="form-group">
-            <%= ff.label :full_name, "Namn", class: 'form-tip' %>
-            <%= ff.text_field :full_name, class: "form-control" %>
+            <div class="form-group">
+              <%= f.label :password_confirmation, "* Konfirmera lösenord", class: 'form-tip' %>
+              <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= ff.label :phone_number, "Telefonnummer", class: 'form-tip' %>
-            <%= ff.text_field :phone_number, class: "form-control" %>
+          <div class="input input-right">
+            <div class="form-group">
+              <%= f.label :email, "Email", class: 'form-tip' %>
+              <%= f.email_field :email, class: "form-control", placeholder: "ex. namn@exempel.se" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :phone_number, "Telefonnummer", class: 'form-tip' %>
+              <%= f.text_field :phone_number, class: "form-control", placeholder: "ex. 0701234567" %>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= ff.label :email, "Email", class: 'form-tip' %>
-            <%= ff.text_field :email, class: "form-control" %>
+          <div class="input input-center">
+            <div class="form-group">
+              <%= f.label :first_name, "Förnamn", class: 'form-tip' %>
+              <%= f.text_field :first_name, class: "form-control", placeholder: "ex. Mats" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :last_name, "Efternamn", class: 'form-tip' %>
+              <%= f.text_field :last_name, class: "form-control", placeholder: "ex. Carlsson" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :ssn, "Personnummer", class: 'form-tip' %>
+              <%= f.text_field :ssn, class: "form-control", placeholder: "YYMMDD-XXXX" %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anhörig -->
+        <div class="form-block bottom">
+          <%= f.fields_for :contact_person do |ff| %>
+            <div class="input input-left">
+              <span class="form-title"><h4>Närmast anhörig</h4></span>
+              <div class="form-group">
+                <%= ff.label :full_name, "Namn", class: 'form-tip' %>
+                <%= ff.text_field :full_name, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= ff.label :phone_number, "Telefonnummer", class: 'form-tip' %>
+                <%= ff.text_field :phone_number, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= ff.label :email, "Email", class: 'form-tip' %>
+                <%= ff.text_field :email, class: "form-control" %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="input input-radios">
+            <span class="form-title"><h4>Användarrättigheter</h4></span>
+            <div class="form-group userInfo">
+              <%= f.label :role, "Välj roll", class: 'form-tip' %>
+              <%= f.collection_radio_buttons :role_id, Role.all, :id, :role_name_id, checked: Role.find_by_role_name_id(4).id do |form_builder| %>
+                <div>
+                 <%= form_builder.radio_button %>
+                 <!--<%= form_builder.label %> -->
+                 <!-- Cant get the translation to work for form_builder.label, so we take the
+                      text, translate it to its counterpart and throw it inside a label-tag -->
+                 <label><%= I18n.t form_builder.text, scope: [:activerecord, :attributes, :role, :role_name_ids]  %></label>
+                  <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="<%= form_builder.object.description %>"></span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div id="form-bottom">
+          <div id="form-info">
+            <p>Obligatoriska fält är markerade med en stjärna *</p>
+          </div>
+          <div id="form-action">
+            <% if current_user.human_resources? || current_user.admin? %>
+              <button class="btn btn-secondary" onclick="$('#toggle-user-form').click();return false;" id="cancel" data-target="#user-form">Avbryt</button>
+              <%= f.submit "Spara användare", class: "btn btn-primary", data: { disable_with: "Skapar användare.." } %>
+            <% end %>
           </div>
         </div>
       <% end %>
-
-      <div class="input input-center">
-        <h3>Användarrättigheter</h3>
-        <div class="form-group userInfo">
-          <%= f.label :role, "Välj roll" %><br />
-          <%= f.collection_radio_buttons :role_id, Role.all, :id, :role_name_id, checked: Role.find_by_role_name_id(4).id do |form_builder| %>
-            <div>
-             <%= form_builder.radio_button %>
-             <!--<%= form_builder.label %> -->
-             <!-- Cant get the translation to work for form_builder.label, so we take the
-                  text, translate it to its counterpart and throw it inside a label-tag -->
-             <label><%= I18n.t form_builder.text, scope: [:activerecord, :attributes, :role, :role_name_ids]  %></label>
-              <span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="<%= form_builder.object.description %>"></span>
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-      <div id="form-bottom">
-        <div id="form-info">
-          <p>Obligatoriska fält är markerade med en stjärna *</p>
-        </div>
-        <div id="form-action">
-          <% if current_user.human_resources? || current_user.admin? %>
-            <button class="btn btn-secondary" onclick="$('#toggle-user-form').click();return false;" id="cancel" data-target="#user-form">Avbryt</button>
-            <%= f.submit "Spara användare", class: "btn btn-primary", data: { disable_with: "Skapar användare.." } %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
     </section>
   </div>
   <section id="user_display">
