@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def index
     # Determine sort condition
     condition = :full_name if params[:sort].nil?
+    sort_order = :asc if params[:sort_order].nil?
+
     @user = User.new
     @user.build_contact_person
 
@@ -24,11 +26,18 @@ class UsersController < ApplicationController
       condition = :email
     end
 
+    if params[:sort_order] == "Stigande"
+      sort_order = :asc
+    else
+      sort_order = :desc
+    end
+
     # Paginated users. Change ":per_page" value to get more/less users per page
     if params[:search]
-      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 10).search(params[:search])
+      # User.order instead of search for sort-order (asc and desc)
+      @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => 8).search(params[:search])
     else
-      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 10)
+      @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => 8)
     end
 
     respond_to do |format|
