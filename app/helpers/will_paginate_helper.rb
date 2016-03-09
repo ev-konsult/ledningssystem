@@ -1,3 +1,6 @@
+# Overwrites some will_paginate functionality to allow AJAX rendering
+# Thanks to Pierre Pretorius at StackOverflow
+# http://stackoverflow.com/a/13975336
 module WillPaginateHelper
   class WillPaginateJSLinkRenderer < WillPaginate::ActionView::LinkRenderer
     def prepare(collection, options, template)

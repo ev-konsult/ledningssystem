@@ -8,7 +8,7 @@ class EducationsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @user }
-      format.js
+      format.js # educations/create.js.erb
     end
   end
 

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
+    # This creates the form fields for the nested attributes (contact person)
     @user.build_contact_person
   end
 
