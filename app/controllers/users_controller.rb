@@ -26,9 +26,9 @@ class UsersController < ApplicationController
 
     # Paginated users. Change ":per_page" value to get more/less users per page
     if params[:search]
-      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 8).search(params[:search])
+      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 10).search(params[:search])
     else
-      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 8)
+      @users = User.sort(condition).paginate(:page => params[:page], :per_page => 10)
     end
 
     respond_to do |format|
