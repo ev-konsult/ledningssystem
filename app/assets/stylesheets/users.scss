@@ -404,17 +404,17 @@ select {
             a {
                 background-color: $lightest-gray;
                 &:focus {
-                  background-color: $purple !important;
+                  background-color: $cool-blue !important;
                 }
                 &:hover {
-                  color: $purple !important;
+                  color: $cool-blue !important;
                 }
             }
             
             &.active a {
-                background-color: $purple;
+                background-color: $cool-blue;
                 &:hover {
-                    background-color: $purple !important;
+                    background-color: $cool-blue !important;
                     color: $white !important;
                 }
             }
