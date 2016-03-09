@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      flash[:success] = "Ditt konto uppdaterades!"
+      flash[:success] = "Användaren uppdaterades"
       redirect_to @user
     else
       render 'edit'
