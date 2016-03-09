@@ -1,8 +1,10 @@
 class Task < ActiveRecord::Base
+  VALID_DATE_REGEX = /(\d{4})-(\d{2})-(\d{2})/i
+
   has_and_belongs_to_many :users, :uniq => true
 
-  validates :start,             presence: true
-  validates :end,               presence: true
+  validates :start,             presence: true, format: { with: VALID_DATE_REGEX }
+  validates :end,               presence: true, format: { with: VALID_DATE_REGEX }
   validates :status,            presence: true
   validates :priority,          presence: true
   validates :title,             presence: true,

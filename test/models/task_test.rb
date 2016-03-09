@@ -5,14 +5,6 @@ class TaskTest < ActiveSupport::TestCase
     @task = tasks(:one)
   end
 
-  test "should not be valid without start-date" do
-    @task.start = Date.new
-    # ^ We can't use nil or empty for this, becasue it will give an error
-    # when validating "end_date_cannot_be_before_start_date". Can't compare
-    # nil with DateTime. Date.new gives the start of unix time stamp instead
-    assert_not @task.valid?
-  end
-
   test "should not be valid without title" do
     @task.title = ""
     assert_not @task.valid?
@@ -52,4 +44,30 @@ class TaskTest < ActiveSupport::TestCase
     @task.end = 3.days.ago
     assert_not @task.valid?
   end
+
+  test "should not be valid with invalid date for start" do
+
+    @task.start = Date.new
+    # ^ We can't use nil or empty for this, becasue it will give an error
+    # when validating "end_date_cannot_be_before_start_date". Can't compare
+    # nil with DateTime. Date.new gives the start of unix time stamp instead
+    assert_not @task.valid?
+
+    @task.end = "2015-02-23"
+    assert_not @task.valid?
+
+
+  end
+
+  test "should not be valid with invalid date for end" do
+    @task.end = "Hejsan Hoppasn Invalid Date"
+    assert_not @task.valid?
+
+    @task.end = "2222123323"
+    assert_not @task.valid?
+
+  end
+
+
+
 end

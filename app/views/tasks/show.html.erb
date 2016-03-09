@@ -2,8 +2,8 @@
 
 <h2><%= @task.title %></h2>
 <p><%= @task.description %></p>
-<p>Start: <%= @task.start.strftime("%D") %></p>
-<p>Deadline: <%= @task.end.strftime("%D") %></p>
+<p>Start: <%= @task.start.strftime("%d-%m-%Y") %></p>
+<p>Deadline: <%= @task.end.strftime("%d-%m-%Y") %></p>
 
 Status: <p><%= I18n.t :"task.status.#{@task.status}" %></p>
 Prioritet: <p><%= I18n.t :"task.priority.#{@task.priority}" %></p>

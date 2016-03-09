@@ -12,7 +12,7 @@
   		</section>
   		<section class="task-info">
   			<span class="priority"><div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div> <span class="value-text">Prioritet:</span> <span class="info-text"><%= I18n.t :"task.priority.#{task.priority}" %></span></span>
-  			<span class="time-span"><span class="value-text">Tidsspann:</span> <span class="info-text"><%= task.start.strftime("%D") %> - <%= task.end.strftime("%D") %></span></span>
+  			<span class="time-span"><span class="value-text">Tidsspann:</span> <span class="info-text"><%= task.start.strftime("%d-%m-%Y") %> - <%= task.end.strftime("%d-%m-%Y") %></span></span>
   		</section>
   		<!-- <span><%= I18n.t :"task.status.#{task.status}" %></span> -->
 		<!-- <span><%= link_to "Förnamn Efternamn" %></span> -->
@@ -34,6 +34,6 @@
 		</ul>
   	</li>
   <% end %>
- 
+
 
 </ul>
