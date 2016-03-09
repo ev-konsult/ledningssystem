@@ -64,7 +64,6 @@ module SessionsHelper
   def get_user_name_from_session
     user_name = session[:user_name]
     session[:user_name] = ""
-    100.times { puts user_name}
     user_name
   end
 
