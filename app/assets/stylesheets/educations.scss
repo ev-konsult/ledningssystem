@@ -39,23 +39,28 @@
 				&.form-label {
 					text-align: right;
 				}
+			}
+			&.form-input {
 				input {
 					margin-top: 10px;
 					margin-left: 15px;
 					min-width: 200px;
 					border-radius: 4px;
 					background: $lightest-gray;
-			    padding: 5px;
-			    font-size: 16px;
-			    line-height: 1;
-			    border: 1px solid $lighter-gray;
+				    padding: 5px;
+				    font-size: 16px;
+				    line-height: 1;
+				    border: 1px solid $lighter-gray;
 				}
 			}
 			&.form-action {
-				display: block;
+				border-collapse: collapse;
 				text-align: right;
 				input {
 					margin-left: 10px;
+				}
+				input, button {
+					margin-top: 15px;
 				}
 			}
 		}

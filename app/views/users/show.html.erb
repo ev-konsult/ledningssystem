@@ -36,21 +36,24 @@
                 <div id="education-errors"></div>
                 <ul id="education-list-form">
                     <%= form_for [@user, @user.educations.build], remote: true do |f| %>
-                    <li>
+                    <li class="form-input">
                         <span class="form-label"><%= f.label :name %></span>
                         <span class="form-input"><%= f.text_field :name %></span>
                     </li>
-                    <li>
+                    <li class="form-input">
                         <span class="form-label"><%= f.label :school %></span>
                         <span class="form-input"><%= f.text_field :school %></span>
                     </li>
-                    <li>
+                    <li class="form-input">
                         <span class="form-label"><%= f.label :graduation %></span>
                         <span class="form-input"><%= f.date_field :graduation %></span>
                     </li>
                     <li class="form-action">
-                      <button type="button" id="hide-education-form" class="btn btn-secondary">Avbryt</button>
-                      <%= f.submit "Konfirmera", class: "btn btn-primary" %>
+                      <span class="form-label"></span>
+                      <span class="form-input">
+                        <button type="button" id="hide-education-form" class="btn btn-secondary">Avbryt</button>
+                        <%= f.submit "Konfirmera", class: "btn btn-primary" %>
+                      </span>
                     </li>
                     <% end %>
                 </ul>
