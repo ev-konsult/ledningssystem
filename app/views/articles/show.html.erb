@@ -11,7 +11,9 @@
        <%= link_to "Ändra", edit_article_path(@article) %>
      <% end %>
    </div>
-   <div class="panel-footer">
-        <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to @article.user.user_name, @article.user %></span>
-    </div>
+   <% unless @article.user.nil? %>
+       <div class="panel-footer">
+            <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to @article.user.user_name, @article.user %></span>
+        </div>
+      <% end %>
  </div>
