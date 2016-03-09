@@ -32,3 +32,35 @@ Version 1.0
   background-color: $white;
   border: 0px !important;
 }
+
+@media (max-width: 768px) {
+  .main {
+    padding: 0px 5px 0px 5px !important;
+  }
+  .breadcrumb {
+    margin: 0px 5px 0px 5px !important;
+    .back {
+      
+      margin-top: 7px;
+      background-color: $white;
+      border: 1px solid $lighter-gray;
+      width: 100%;
+      float: left;
+      a {
+        display: block;
+        padding: 9px;
+        width: 100% !important;
+      }
+      span {
+        font-size: 12px !important;
+        font-weight: 600;
+        &::before {
+          margin-right: 5px;
+        }
+      }
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
