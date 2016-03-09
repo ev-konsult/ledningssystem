@@ -18,12 +18,16 @@ class UsersController < ApplicationController
     @user.build_contact_person
 
     case params[:sort]
-    when "Namn"
+    when "Användarnamn"
       condition = :user_name
-    when "Senast anställd"
-      condition = :created_at
-    when "Email"
+    when "Förnamn"
+      condition = :first_name
+    when "Efternamn"
+      condition = :last_name
+    when "E-post"
       condition = :email
+    when "Registrerad"
+      condition = :created_at
     end
 
     if params[:sort_order] == "Stigande"
