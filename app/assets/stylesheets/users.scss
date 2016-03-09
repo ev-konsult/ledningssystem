@@ -217,6 +217,12 @@
                 }
                 &#paginate {
                   margin: 0px auto !important;
+                  .wide {
+                    display: block;
+                  }
+                  .responsive {
+                    display: none;
+                  }
                 }
               }
             }
@@ -314,7 +320,7 @@
                     }
                 }
                 #user-list-bottom {
-                  padding: 0px 18px 0px 18px;
+                  padding: 0px 7px 0px 7px;
                   width: 100%;
 
                   text-align: center;
@@ -330,12 +336,18 @@
                       margin-top: 22px;
                     }
                     &#users-per-page {
-            
                       float: right;
                       margin-top: 22px;
                     }
                     &#paginate {
+                      width: 100%;
                       margin: 0px auto !important;
+                      .wide {
+                        display: none;
+                      }
+                      .responsive {
+                        display: block;
+                      }
                     }
                   }
                 }

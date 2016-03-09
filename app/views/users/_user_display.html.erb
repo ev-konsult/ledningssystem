@@ -42,6 +42,8 @@
   <div id="users-count">Antal: <%= @users.count %></div>
 
   <div id="users-per-page">Visa per sida: <%= select_tag(:sort, options_for_select(['5', '10', '15', '20', '25'], params[:sort])) %></div>
-  <div id="paginate"><%= js_will_paginate @users %></div>
-
+  <div id="paginate">
+    <div class="wide"><%= js_will_paginate @users, inner_window: 5, outer_window: 0 %></div>
+    <div class="responsive"><%= js_will_paginate @users, inner_window: 1, outer_window: 0 %></div>
+  </div>
 </div>
