@@ -2,7 +2,63 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Hide the add education form until show button is clicked */
-#education-form {
-  display: none;
+@import "partials/_variables";
+
+#show-education-form {
+	padding: 12px 0px 12px 0px;
+	border-top: 1px solid $lightest-gray;
+	width: 100%;
+	color: $cool-blue;
+	font-size: 14px;
+	cursor: pointer;
+	display: inline-block;
+	#plus-sign {
+		font-size: 22px !important;
+	}
+	.text-link {
+		display: inline-block;
+  		vertical-align: middle;
+		margin-bottom: 10px;
+	}
 }
+
+#education-form {
+	border-top: 1px solid $lightest-gray;
+  	display: none; /* Hide the add education form until show button is clicked */
+	ul {
+		width: 100%;
+		display: table;
+		li {
+			margin-top: 17px !important;
+			display: table-row;
+			border-collapse: collapse;
+			width: 100%;
+			span {
+				display: table-cell;
+				border-collapse: collapse;
+				&.form-label {
+					text-align: right;
+				}
+				input {
+					margin-top: 10px;
+					margin-left: 15px;
+					min-width: 200px;
+					border-radius: 4px;
+					background: $lightest-gray;
+			    padding: 5px;
+			    font-size: 16px;
+			    line-height: 1;
+			    border: 1px solid $lighter-gray;
+				}
+			}
+			&.form-action {
+				display: block;
+				text-align: right;
+				input {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+}
+

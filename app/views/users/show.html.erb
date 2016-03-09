@@ -28,22 +28,32 @@
             <div id="education-display"><%= render "education_display" %></div>
 
             <% if current_user.admin? || current_user == @user %>
-              <button id="show-education-form" class="btn btn-default">Lägg till utbildning</button>
+              <div id="show-education-form">
+                  <span id="plus-sign" class="glyphicon glyphicon-plus-sign"></span>
+                  <span class="text-link">Lägg till utbildning</span>
+              </div>
               <div id="education-form">
                 <div id="education-errors"></div>
-                <%= form_for [@user, @user.educations.build], remote: true do |f| %>
-                  <%= f.label :name %>
-                  <%= f.text_field :name %> <br /> <!-- remove br and style it !-->
-
-                  <%= f.label :school %>
-                  <%= f.text_field :school %><br /><!-- remove br and style it !-->
-
-                  <%= f.label :graduation %>
-                  <%= f.date_field :graduation %><br /><!-- remove br and style it !-->
-
-                  <%= f.submit "Konfirmera", class: "btn btn-primary" %>
-                  <button type="button" id="hide-education-form" class="btn btn-danger">Avbryt</button>
-                <% end %>
+                <ul id="education-list-form">
+                    <%= form_for [@user, @user.educations.build], remote: true do |f| %>
+                    <li>
+                        <span class="form-label"><%= f.label :name %></span>
+                        <span class="form-input"><%= f.text_field :name %></span>
+                    </li>
+                    <li>
+                        <span class="form-label"><%= f.label :school %></span>
+                        <span class="form-input"><%= f.text_field :school %></span>
+                    </li>
+                    <li>
+                        <span class="form-label"><%= f.label :graduation %></span>
+                        <span class="form-input"><%= f.date_field :graduation %></span>
+                    </li>
+                    <li class="form-action">
+                      <button type="button" id="hide-education-form" class="btn btn-secondary">Avbryt</button>
+                      <%= f.submit "Konfirmera", class: "btn btn-primary" %>
+                    </li>
+                    <% end %>
+                </ul>
               </div>
             <% end %>
           </div>
