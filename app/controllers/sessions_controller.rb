@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash.now[:danger] = 'Felaktig inloggingsinformation!'
+      session[:user_name] = params[:session][:user_name]
+
       render 'new'
     end
   end
@@ -25,4 +27,6 @@ class SessionsController < ApplicationController
       redirect_to current_user
     end
   end
+
+
 end
