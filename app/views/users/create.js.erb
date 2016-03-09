@@ -1,5 +1,5 @@
 <% if @user.valid? %>
-  $('<li class="list-group-item"><span><%= link_to @user do %><%= @user.last_name %>, <%= @user.first_name %><% end %></span><span><%= @user.user_name %></span><span><%= @user.email %></span><span><%= link_to "Ta bort", user_path(@user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></span></li>').insertAfter('#user-list-header');
+  $('<li class="list-group-item"><span><%= link_to @user do %><%= @user.last_name %>, <%= @user.first_name %><% end %></span><span><%= link_to @user.user_name, @user %></span><span><%= @user.email %></span><span><%= link_to "Ta bort", user_path(@user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></span></li>').insertAfter('#user-list-header');
   $('#success-create-user').html("<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Användare tillagd!</div>");
 
   // Clear form after successful create
