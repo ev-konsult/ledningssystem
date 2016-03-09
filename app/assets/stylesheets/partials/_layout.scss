@@ -33,14 +33,25 @@ Version 1.0
   border: 0px !important;
 }
 
+#page-top {
+  margin-bottom: 20px;
+}
+
+/* Responsive view for breadcrumbs */
 @media (max-width: 768px) {
   .main {
     padding: 0px 5px 0px 5px !important;
+    #page-top {
+      margin-bottom: 50px;
+    }
   }
   .breadcrumb {
+    position: relative;
     margin: 0px 5px 0px 5px !important;
     .back {
-      
+      position: absolute;
+      left: 0px;
+      top: 30px;
       margin-top: 7px;
       background-color: $white;
       border: 1px solid $lighter-gray;
