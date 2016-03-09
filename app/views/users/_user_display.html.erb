@@ -11,26 +11,29 @@
 <div id="user-list">
   <ul class="list-group">
     <li class="panel panel-primary panel-user list-head" id="user-list-header">
-      <span>Efternamn, Förnamn</span>
-      <span>Användarnamn</span>
-      <span>E-post</span>
-      <span></span>
+      <span class="fullname wide">Efternamn, Förnamn</span>
+      <span class="fullname responsive">Efternamn, Förnamn / E-post</span>
+      <span class="username">Användarnamn</span>
+      <span class="email">E-post</span>
+      <span class="useraction"></span>
     </li>
     <% @users.each do |user| %>
       <!-- Visar inte admin..så att admin inte ger admin sparken -->
       <% next if user.admin? %>
       <li class="list-group-item">
-        <span>
+        <span class="fullname">
           <%= link_to user do %>
             <%= user.last_name %>, <%= user.first_name %>
           <% end %>
+          <div class="responsive-email"><%= user.email %></div>
         </span>
-        <span>
+        <span class="username">
           <%= link_to user do %>
-            <%= user.user_name %></span>
+            <%= user.user_name %>
           <% end %>
-        <span><%= user.email %></span>
-        <span><%= link_to "Ta bort", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></span>
+        </span>
+        <span class="email"><%= user.email %></span>
+        <span class="useraction"><%= link_to "Ta bort", user_path(user), method: :delete, data: { confirm: "Vill du verkligen sparka den här personen?"}, class: "fire-link" %></span>
       </li>
     <% end %>
   </ul>
