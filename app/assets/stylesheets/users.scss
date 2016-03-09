@@ -162,7 +162,6 @@
             #user-list {
                 padding: 0px 18px 0px 18px;
                 .list-group {
-                  background-color: blue;
                   margin: 0px auto !important;
                   
                   width: 100%;
@@ -188,7 +187,6 @@
                       vertical-align: middle;
                     }
                   }
-                  
                 }
             }
             #user-list-bottom {
@@ -219,6 +217,59 @@
             }
         }
     }
+    @media (max-width: 768px) {
+        section {
+            &#tool-action {
+                position: relative;
+                #toggle-user-form {
+                    background-color: blue;
+                    float: right;
+                    position: absolute;
+                    top: 50px;
+                    .text-link {
+                        font-size: 14px;
+                      }
+                      #plus-sign {
+                        float: left;
+                        margin: 20px 0px 0px 0px !important;
+                        padding: 0px 7px 0px 18px !important;
+                        color: $cool-blue !important;
+                        font-size: 24px;
+                        clear: both;
+                      }
+                }
+                #tool-search {
+                    display: table-row;
+                    padding: 7px 18px 7px 18px;
+                    float: left;
+                    p {
+                        display: none;
+                    }
+                    form {
+                      button, a {
+                          margin-left: 5px;
+                          float: left;
+                      }
+                      a {
+                          margin-right: 0px;
+                      }
+                      input {
+                          float: left;
+                          max-width: 150px !important;
+                          padding: 0px 10px 0px 10px !important;
+                          margin: 0px 0px 0px 0px !important;
+                          background-color: $lightest-gray;
+                          border: 1px solid $lighter-gray;
+                      }
+                    }
+                }
+            }
+            &#tool-search {
+
+            }
+        }
+      
+    } /* End @media max-width */
 }
 
 select {

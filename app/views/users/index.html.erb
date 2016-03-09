@@ -20,7 +20,7 @@
           <% params.delete :search %>
         <% end %>
 
-        <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "user-search-field" %>
+        <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "user-search-field", placeholder: "Sök anställda" %>
         <!-- Empty paragrah is filled with the search query via JavaScript -->
         <p id="search-query-placeholder"></p>
         <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
