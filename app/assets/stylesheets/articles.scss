@@ -10,8 +10,8 @@
     width: 100%;
     line-height: 52px;
     height: 55px;
-	 border: 1px solid $lighter-gray;
-	 border-bottom: 0px !important;
+	border: 1px solid $lighter-gray;
+	border-bottom: 0px !important;
     p {
         font-size: 20px;
         font-weight: 500;
@@ -19,6 +19,44 @@
         color: $dark-gray;
     }
 }
+
+#article-action {
+	margin: 0px auto !important;
+	display: inline-block;
+	width: 100%;
+	padding: 18px;
+	border: 1px solid $lighter-gray;
+	border-bottom: 0px;
+	text-align: right;
+	#article-search {
+	    display: inline-block;
+	    p {
+	        display: none;
+	    }
+	    form {
+	      button, a {
+	          margin-left: 5px;
+	          float: left;
+	      }
+	      a {
+	          margin-right: 0px;
+	      }
+	      input {
+	          float: left;
+	          max-width: 150px !important;
+	          padding: 0px 10px 0px 10px !important;
+	          margin: 0px 0px 0px 0px !important;
+	          background-color: $lightest-gray;
+	          border: 1px solid $lighter-gray;
+	      }
+	    }
+	}
+	@media (max-width: 768px) {
+		text-align: center;
+    }
+}
+
+
 
 #article-content {
 	background-color: $lightest-gray;
