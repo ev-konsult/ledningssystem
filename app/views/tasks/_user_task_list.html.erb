@@ -3,7 +3,7 @@
   <div class="user-task-header"><p>Mina arbetsuppgifter</p></div>
   <div class="user-task-sort">
     <div id="list-sort">
-      <%= form_tag(params, method: :get, remote: true) do %>
+      <%= form_tag(params, method: :get) do %>
           <p>Välj sortering</p>
           <%= select_tag(:sort, options_for_select(['Prioritet', 'Status'], params[:sort])) %>
           <%= select_tag(:sort_order, options_for_select(['Stigande', 'Fallande'], params[:sort_order])) %>
