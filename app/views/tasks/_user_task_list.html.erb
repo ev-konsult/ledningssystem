@@ -1,6 +1,4 @@
-<%= will_paginate @tasks %>
 <div id="list-sort">
-
   <%= form_tag(params, method: :get, remote: true) do %>
       <p>Välj sortering</p>
       <%= select_tag(:sort, options_for_select(['Prioritet', 'Status'], params[:sort])) %>

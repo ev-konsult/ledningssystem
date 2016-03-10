@@ -6,6 +6,13 @@
     <%= render 'tasks/user_task_list' %>
 <% end %>
 
-<% if current_user.project_manager? || current_user.admin? %>
-  <%= link_to "Skapa uppgift", new_task_path, class: "btn btn-primary" %>
-<% end %>
+<section id="task-bottom">
+  <%= will_paginate @tasks %>
+  <div class="new-task-div">
+    <% if current_user.project_manager? || current_user.admin? %>
+  		<%= link_to "Skapa uppgift", new_task_path, class: "btn btn-primary" %>
+	<% end %>
+  </div>
+</section>
+
+

@@ -8,6 +8,7 @@
 * User task list
 */
 .user-task-list {
+	margin-bottom: 20px;
 	padding-left: 0px !important;
 	background-color: $lightest-gray;
 	border: 1px solid $lighter-gray;
@@ -159,6 +160,7 @@
 #admin-task-content {
 	background-color: $lightest-gray;
 	border: 1px solid $lighter-gray;
+	margin-bottom: 20px;
 }
 
 #admin-task-header {
@@ -374,4 +376,23 @@
 			}
 		}
     }
+}
+
+#task-bottom {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	.pagination {
+		margin: 0px auto !important;
+		margin-top: 7px !important;
+		padding: 0px !important;
+		@media (max-width: 768px) {
+			display: inline-block;
+			width: 100%;
+			margin-bottom: 20px !important;
+		}
+	}
+	.new-task-div {
+		float: right;
+	}
 }
