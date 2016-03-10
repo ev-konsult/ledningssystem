@@ -20,28 +20,63 @@
 
 <%= will_paginate @articles %>
 
-<ul class="article-list">
-  <%= render 'shared/flash_messages' %>
-  <% @articles.each do |article| %>
-    <li class="panel panel-primary panel-article">
-      <div class="panel-body">
-      <div class="tinyimg">
+<section id="article-header" class="<%= current_user.user_name %>">
+  <p>Nyheter</p>
+</section>
+<section id="article-content" class="<%= current_user.user_name %>">
+  <ul class="article-list" id="<%= current_user.user_name %>">
+    <%= render 'shared/flash_messages' %>
+    
+      <% if current_user.admin? %>
+        <li class="panel panel-primary panel-article list-head">
+          <span class="published">Publicerad</span>
+          <span class="title">Rubrik</span>
+          <span class="truncate">Ingress</span>
+          <span class="editor">Redaktör</span>
+        </li>
+        <% @articles.each do |article| %>
+          <li class="panel panel-primary panel-article">
+            <span class="published">
+              <%= article.created_at.to_formatted_s(:db) %>
+              <section class="responsive">
+                <% unless article.user.nil? %>
+                  av <%= link_to article.user.user_name, article %>
+                <% end %>
+              </section>
+            </span>
+            <span class="title"><%= link_to article.title, article_path(article), class: "panel-title" %></span>
+            <span class="truncate"><%= truncate(strip_tags(article.body), length: 50) %></span>
+            <span class="editor">
+              <% unless article.user.nil? %>
+                <section class="wide"><%= link_to article.user.user_name, article %></section>
+              <% end %>
+            </span>
+          </li>
+        <% end %>
+      <% else %>
+        <% @articles.each do |article| %>
+          <li class="panel panel-primary panel-article">
+            <div class="panel-body">
+            <div class="tinyimg">
 
-      </div>
-        <h5><%= link_to article.title, article_path(article), class: "panel-title" %></h5>
-        <p class="article-date">Publicerad: <%= article.created_at.to_formatted_s(:db) %></p>
-        <p class="article-text"><%= truncate(strip_tags(article.body), length: 150) %></p>
+            </div>
+              <h5><%= link_to article.title, article_path(article), class: "panel-title" %></h5>
+              <p class="article-date">Publicerad: <%= article.created_at.to_formatted_s(:db) %></p>
+              <p class="article-text"><%= truncate(strip_tags(article.body), length: 150) %></p>
 
-      </div>
-      <% unless article.user.nil? %>
-        <div class="panel-footer">
-          <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to article.user.user_name, article %></span>
-          <!-- <%= link_to article.title, article_path(article), class: "panel-title" %> -->
-        </div>
+            </div>
+            <% unless article.user.nil? %>
+              <div class="panel-footer">
+                <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to article.user.user_name, article %></span>
+                <!-- <%= link_to article.title, article_path(article), class: "panel-title" %> -->
+              </div>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    
+  </ul>
+</section>
 
 <% if current_user.editor? || current_user.admin? %>
   <%= link_to "Skapa nyhet", new_article_path, class: "btn btn-primary" %>
