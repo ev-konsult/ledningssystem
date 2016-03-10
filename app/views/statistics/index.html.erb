@@ -5,6 +5,8 @@
 <h3>Försäljningsmål </h3>
 <%= pie_chart [["Sålt", 185_000], ["Kvar till mål", 500_000]] %>
 
-<h3>Tasks </h3>
+<h3>Uppgifter</h3>
+<%= pie_chart @tasks, library: {colors: ['blue', 'orange', 'green', 'red']}  %>
 
-<%= pie_chart @tasks %>
+<h3>Prioriteringar </h3>
+<%= column_chart @priority %>
