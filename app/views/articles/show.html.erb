@@ -1,10 +1,12 @@
-<hr />
 <%= render 'shared/flash_messages' %>
-<div class="panel panel-primary panel-article">
+<section id="article-header" class="<%= current_user.user_name %>">
+  <p></p>
+</section>
+<div class="panel panel-primary panel-article-show">
    <div class="panel-body">
       <h5><%= @article.title %></h5>
-        <p class="article-date">Publicerad: <%= @article.created_at.to_formatted_s(:db) %></p>
-        <p class="article-text"><%= @article.body.html_safe %></p>
+      <p class="article-date">Publicerad: <%= @article.created_at.to_formatted_s(:db) %></p>
+      <p class="article-text"><%= @article.body.html_safe %></p>
      <% if current_user.admin? %>
        <%= link_to "Ta bort", article_path(@article), method: :delete,
                                                       data: { confirm: "Vill du verkligen ta bort artikeln?"}  %>
@@ -13,7 +15,7 @@
    </div>
    <% unless @article.user.nil? %>
        <div class="panel-footer">
-            <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to @article.user.user_name, @article.user %></span>
+            <span class="editor"><span id="caret" class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to @article.user.user_name, @article.user %></span>
         </div>
       <% end %>
  </div>

@@ -62,7 +62,7 @@
             </div>
             <% unless article.user.nil? %>
               <div class="panel-footer">
-                <span><span class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to article.user.user_name, article %></span>
+                <span class="editor"><span id="caret" class = "glyphicon glyphicon-pencil"></span>Skrivet av: <%= link_to article.user.user_name, article %></span>
                 <!-- <%= link_to article.title, article_path(article), class: "panel-title" %> -->
               </div>
             <% end %>
