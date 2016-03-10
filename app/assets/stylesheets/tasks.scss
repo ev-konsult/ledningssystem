@@ -68,16 +68,16 @@
 		}
 
 		&.not_started{
-		    border-left: 6px solid $gray;
+		    border-left: 6px solid $cool-blue;
 		}
 		&.done{
 		    border-left: 6px solid green;
 		}
 		&.in_progress{
-		    border-left: 6px solid blue;
+		    border-left: 6px solid orange;
 		}
 		&.cancelled{
-		    border-left: 6px solid orange;
+		    border-left: 6px solid red;
 		}
 		ul {
 			padding: 3px;
@@ -155,33 +155,51 @@
 /**
 * Admin task list
 */
+
+#admin-task-content {
+	background-color: $lightest-gray;
+	border: 1px solid $lighter-gray;
+}
+
+#admin-task-header {
+        background-color: $lightest-gray;
+        margin: 0px !important;
+        width: 100%;
+        line-height: 52px;
+        height: 55px;
+   	 	border: 1px solid $lighter-gray;
+        p {
+            font-size: 20px;
+            font-weight: 500;
+            margin-left: 20px;
+            color: $dark-gray;
+        }
+    }
+
 .admin-task-list {
 	padding-left: 0px !important;
 	display: table;
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
 	background-color: $lightest-gray !important;
-	border: 1px solid $lighter-gray;
+	border: 1px solid $lighter-gray !important;
 	li {
 		display: table-row;
 		width: 100%;
-		border-bottom: 1px solid $gray !important;
-		&.list-head {
-			font-size: 12px;
-			height: 10px !important;
-			background-color: $lighter-gray !important;
-	    	font-weight: bold;
-		}
+		border-bottom: 1px solid $lighter-gray !important;
 		span {
 			display: table-cell;
 			padding: 7px;
 			width: auto;
-			border-right: 1px solid $white-divider;
 			vertical-align: middle;
 			&.status {
 				table-layout: fixed;
 				max-width: 30px !important;
+				border-right: 1px solid $white-divider;
 			}
 			&.priority {
-
+				border-right: 1px solid $white-divider;
 				table-layout: fixed;
 				min-width: 90px !important;
 				.priority-box {
@@ -209,7 +227,11 @@
 					}
 				}
 			}
+			&.task {
+				border-right: 1px solid $white-divider;
+			}
 			&.time {
+				border-right: 1px solid $white-divider;
 				table-layout: fixed;
 				max-width: 120px !important;
 				section {
@@ -228,6 +250,7 @@
 			&.users {
 				table-layout: fixed;
 				max-width: 120px !important;
+				border-right: 1px solid $lighter-gray;
 			}
 		}
 		
@@ -237,18 +260,24 @@
 		&:nth-child(even) {
 		  background-color: $white;
 		}
-	}
-	.admin-task-header {
-		margin: 0px !important;
-		display: inline-block;
-		width: 100%;
-		line-height: 50px;
-		height: 55px;
-		p {
-			font-size: 20px;
-			font-weight: 500;
-			margin-left: 20px;
-			color: $dark-gray;
+		&.list-head {
+			font-size: 12px;
+			height: 10px !important;
+			background-color: $lighter-gray !important;
+	    	font-weight: bold;
+	    	border-left: 6px solid $lighter-gray !important;
+		}
+		&.not_started{
+		    border-left: 6px solid $cool-blue !important;
+		}
+		&.done{
+		    border-left: 6px solid green !important;
+		}
+		&.in_progress{
+		    border-left: 6px solid orange !important;
+		}
+		&.cancelled{
+		    border-left: 6px solid red !important;
 		}
 	}
 
@@ -261,5 +290,88 @@
     }
     @media (max-width: 768px) {
 		width: auto !important;
+		li {
+			border-collapse: collapse;
+			border-collapse: separate;
+			table-layout: fixed;
+			span {
+				display: table-cell;
+				table-layout: fixed;
+				padding: 5px;
+				border-right: 1px solid $white-divider;
+				vertical-align: middle;
+				.wide {
+					display: none;
+				}
+				&.status {
+					display: none;
+					padding: 0px !important;
+					table-layout: fixed;
+					max-width: 6px !important;
+					
+				}
+				&.priority {
+					table-layout: fixed;
+					min-width: 10px !important;
+					margin: 0px auto;
+					section {
+						display: none;
+					}
+					.priority-box {
+						margin: 0px auto !important;
+				    	width: 15px;
+				    	height: 15px;
+				    	float: none;
+					    &.low{
+						    background-color: green;
+						    border: 2px solid darken(green, 10%);
+						}
+						&.medium{
+						    background-color: yellow;
+						    border: 2px solid darken(yellow, 10%);
+						}
+						&.high{
+						    background-color: orange;
+						    border: 2px solid darken(orange, 10%);
+						}
+						&.critical{
+						    background-color: red;
+						    border: 2px solid darken(red, 10%);
+						}
+					}
+				}
+				&.title {
+					table-layout: fixed;
+					max-width: 230px !important;
+				}
+				&.time {
+					table-layout: fixed;
+					max-width: 120px !important;
+					section {
+						float: left;
+						display: block;
+						&.value-text {
+							font-size: 12px;
+							min-width: 40px;
+						}
+						&.info-text {
+							font-size: 12px;
+							font-weight: bold;
+						}
+					}
+				}
+				&.users {
+					table-layout: fixed;
+					max-width: 120px !important;
+				}
+			}
+			
+			&:nth-child(odd) {
+			  background-color: $lightest-gray;
+			}
+			&:nth-child(even) {
+			  background-color: $white;
+			}
+		}
     }
 }
