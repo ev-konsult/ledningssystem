@@ -1,5 +1,6 @@
 class AddRoleEnumToRoleAndRemoveRoleNameColumn < ActiveRecord::Migration
   def change
-    change_column :roles, :role_name, :integer
+    remove_column :roles, :role_name
+    add_column :roles, :role_name_id, :integer
   end
 end
