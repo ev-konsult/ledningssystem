@@ -1,7 +1,5 @@
 <% content_for :title, "Artiklar" %>
 
-<%= will_paginate @articles %>
-
 <section id="article-header" class="<%= current_user.user_name %>">
   <p>Nyheter</p>
 </section>
@@ -75,6 +73,11 @@
   </ul>
 </section>
 
-<% if current_user.editor? || current_user.admin? %>
-  <%= link_to "Skapa nyhet", new_article_path, class: "btn btn-primary" %>
-<% end %>
+<section id="article-bottom">
+  <%= will_paginate @articles %>
+  <div class="new-article-div">
+    <% if current_user.editor? || current_user.admin? %>
+      <%= link_to "Skapa nyhet", new_article_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</section>
