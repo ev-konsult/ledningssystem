@@ -162,19 +162,19 @@
 }
 
 #admin-task-header {
-        background-color: $lightest-gray;
-        margin: 0px !important;
-        width: 100%;
-        line-height: 52px;
-        height: 55px;
-   	 	border: 1px solid $lighter-gray;
-        p {
-            font-size: 20px;
-            font-weight: 500;
-            margin-left: 20px;
-            color: $dark-gray;
-        }
+    background-color: $lightest-gray;
+    margin: 0px !important;
+    width: 100%;
+    line-height: 52px;
+    height: 55px;
+	 	border: 1px solid $lighter-gray;
+    p {
+        font-size: 20px;
+        font-weight: 500;
+        margin-left: 20px;
+        color: $dark-gray;
     }
+}
 
 .admin-task-list {
 	padding-left: 0px !important;
