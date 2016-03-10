@@ -37,12 +37,24 @@ Version 1.0
   margin-bottom: 20px;
 }
 
+.breadcrumb {
+  .back {
+    a {
+      padding: 10px;
+      font-size: 25px !important;
+      #caret {
+        margin-right: 7px;
+      }
+    }
+  }
+}
+
 /* Responsive view for breadcrumbs */
 @media (max-width: 768px) {
   .main {
     padding: 0px 5px 0px 5px !important;
     #page-top {
-      margin-bottom: 50px;
+      margin-bottom: 55px;
     }
   }
   .breadcrumb {
@@ -59,7 +71,7 @@ Version 1.0
       float: left;
       a {
         display: block;
-        padding: 9px;
+        padding: 12px;
         width: 100% !important;
       }
       span {
