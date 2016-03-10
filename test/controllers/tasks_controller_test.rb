@@ -45,7 +45,7 @@ class TasksControllerTest < ActionController::TestCase
                                       end: DateTime.new(2017, 5, 6) },
                               user_ids: [users(:one).id, users(:two)]
     assert_equal "Uppgiften uppdaterades!", flash[:success]
-    assert_redirected_to @task
+    assert_redirected_to tasks_path
 
     @task.reload
     assert_equal title, @task.title

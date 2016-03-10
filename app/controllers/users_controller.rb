@@ -52,8 +52,6 @@ class UsersController < ApplicationController
       # User.order instead of search for sort-order (asc and desc)
       @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => paging_size).search(params[:search])
     else
-      10.times { puts "hehehe" }
-      10.times { puts paging_size }
       @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => paging_size)
     end
 

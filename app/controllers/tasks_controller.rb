@@ -22,9 +22,6 @@ class TasksController < ApplicationController
       sort_order = :desc
     end
 
-    10.times { puts condition}
-    10.times { puts sort_order}
-
     @tasks = Task.order(condition => sort_order).paginate(:page => params[:page], :per_page => 10)
   end
 
