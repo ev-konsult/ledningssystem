@@ -38,7 +38,6 @@
 			    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 			    width: 40px;
 			    height: 40px;
-			    padding: 8px;
 			    margin-right: 15px;
 			    margin-top: -2px;
 			    background: $dark-purple;
@@ -46,6 +45,7 @@
 			    color: #FFF;
 			    text-align: center;
 			    box-shadow: 0px 0px 2px $charcoal;
+			    padding: 8px 4px 0 4px;
 			}
 			.profile-link {
 				float: left;

@@ -10,10 +10,11 @@
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */
     width: 32px;
     height: 32px;
-    padding: 6px;
-    background: $dark-purple;
-    color: #FFF;
+    padding: 6px 4px 0 4px;
     text-align: center;
+    background: $dark-purple;
+    color: $white;
+
 }
 .profile-header-name {
     padding-left: 7px;
