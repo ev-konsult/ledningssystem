@@ -1,27 +1,24 @@
 <% content_for :title, "Artiklar" %>
 
-<h3>Nyheter</h3>
-
-<!-- Search form, sets params[:search] -->
-<div id="article-search">
-  <p>Sök nyhet</p>
-  <%= form_tag(articles_path, :method => "get") do %>
-    <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "article-search-field" %>
-    <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
-    <%= link_to "Rensa sökning", articles_path, class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<% if params[:search] && params[:search].length > 0 %>
- <p>Aktiv sökning: <%= params[:search] %></p>
-<% end %>
-
-<hr />
-
 <%= will_paginate @articles %>
 
 <section id="article-header" class="<%= current_user.user_name %>">
   <p>Nyheter</p>
+</section>
+<!-- Search form, sets params[:search] -->
+<section id="article-action">
+  <div id="article-search">
+    <p>Sök nyhet</p>
+    <%= form_tag(articles_path, :method => "get") do %>
+      <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "article-search-field", placeholder: "Sök nyheter" %>
+      <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
+      <%= link_to "Rensa sökning", articles_path, class: "btn btn-primary" %>
+    <% end %>
+
+    <% if params[:search] && params[:search].length > 0 %>
+     <p>Aktiv sökning: <%= params[:search] %></p>
+    <% end %>
+  </div>
 </section>
 <section id="article-content" class="<%= current_user.user_name %>">
   <ul class="article-list" id="<%= current_user.user_name %>">

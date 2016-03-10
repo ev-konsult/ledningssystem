@@ -55,28 +55,28 @@
             }
             #tool-search {
                 display: table-row;
-                    padding: 18px !important;
-                    float: right;
-                    p {
-                        display: none;
-                    }
-                    form {
-                      button, a {
-                          margin-left: 5px;
-                          float: left;
-                      }
-                      a {
-                          margin-right: 0px;
-                      }
-                      input {
-                          float: left;
-                          max-width: 150px !important;
-                          padding: 0px 10px 0px 10px !important;
-                          margin: 0px 0px 0px 0px !important;
-                          background-color: $lightest-gray;
-                          border: 1px solid $lighter-gray;
-                      }
-                    }
+                padding: 18px !important;
+                float: right;
+                p {
+                    display: none;
+                }
+                form {
+                  button, a {
+                      margin-left: 5px;
+                      float: left;
+                  }
+                  a {
+                      margin-right: 0px;
+                  }
+                  input {
+                      float: left;
+                      max-width: 150px !important;
+                      padding: 0px 10px 0px 10px !important;
+                      margin: 0px 0px 0px 0px !important;
+                      background-color: $lightest-gray;
+                      border: 1px solid $lighter-gray;
+                  }
+                }
             }
         }
         #user-form {
