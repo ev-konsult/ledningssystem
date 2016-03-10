@@ -1,4 +1,14 @@
 <%= will_paginate @tasks %>
+<div id="list-sort">
+
+  <%= form_tag(params, method: :get, remote: true) do %>
+      <p>Välj sortering</p>
+      <%= select_tag(:sort, options_for_select(['Prioritet', 'Status'], params[:sort])) %>
+      <%= select_tag(:sort_order, options_for_select(['Stigande', 'Fallande'], params[:sort_order])) %>
+
+      <%= submit_tag "Sortera", class: "btn btn-primary" %>
+  <% end %>
+</div>
 <ul class="user-task-list">
 <li class="user-task-header"><p>Mina arbetsuppgifter</p></li>
 <% @tasks.each do |task| %>
@@ -29,7 +39,16 @@
                 </section>
 			</li>
 			<li class="task-action">
-				<%= link_to "Påbörja", tasks_path, class: "btn btn-primary" %>
+        <% case task.status
+        when :not_started.to_s%>
+          <%= link_to "Påbörjad", task_path(task, "task[status]" => :in_progress), method: :put %>
+          <%= link_to "Avbryt", task_path(task, "task[status]" => :cancelled), method: :put %>
+        <% when :in_progress.to_s %>
+            <%= link_to "Klar", task_path(task, "task[status]" => :done), method: :put %>
+            <%= link_to "Avbryt", task_path(task, "task[status]" => :cancelled), method: :put %>
+        <% when :done.to_s, :cancelled.to_s %>
+            <p>Denna uppgift är avslutad</p>
+        <% end %>
 			</li>
 		</ul>
   	</li>

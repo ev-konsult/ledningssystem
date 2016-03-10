@@ -7,7 +7,25 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.paginate(:page => params[:page], :per_page => 10)
+    condition = :priority if params[:sort].nil?
+    sort_order = :asc if params[:sort_order].nil?
+
+    if params[:sort] == "Status"
+      condition = :status
+    else
+      condition = :status
+    end
+
+    if params[:sort_order] == "Stigande"
+      sort_order = :asc
+    else
+      sort_order = :desc
+    end
+
+    10.times { puts condition}
+    10.times { puts sort_order}
+
+    @tasks = Task.order(condition => sort_order).paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
@@ -58,7 +76,11 @@ class TasksController < ApplicationController
       end
 
       flash[:success] = "Uppgiften uppdaterades!"
-      redirect_to @task
+      redirect_to tasks_path
+    elsif @task.update_attributes params[:status]
+      @task.status = params[:status]
+      @task.save
+      render 'index'
     else
       render 'edit'
     end
