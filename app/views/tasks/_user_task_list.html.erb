@@ -37,8 +37,10 @@
 	                </div>
 	                <div class="task-desc">
 	                	<p class="sender">Avs. Malin Ekström</p>
+                    <div id="task-done">
 	                	<p><%= task.description %></p>
-	                </div>
+	                 </div>
+                  </div>
                 </section>
 			</li>
 			<li class="task-action">
@@ -50,7 +52,7 @@
             <%= link_to "Klar", task_path(task, "task[status]" => :done), method: :put %>
             <%= link_to "Avbryt", task_path(task, "task[status]" => :cancelled), method: :put %>
         <% when :done.to_s, :cancelled.to_s %>
-            <p>Denna uppgift är avslutad</p>
+            <p id="task-done">Denna uppgift är avslutad</p>
         <% end %>
 			</li>
 		</ul>
