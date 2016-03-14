@@ -2,6 +2,12 @@ require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
 
+  ARTICLE_SAVED_FLASH       = "Artikel sparades"
+  ARTICLE_SAVE_FAILED_FLASH = "Artikel kunde inte sparas!"
+  ARTICLE_REMOVED_FLASH     = "Artikeln togs bort!"
+  ARTICLE_UPDATED_FLASH     = "Artikeln uppdaterades!"
+  ARTICLE_UPDATE_FAIL_FLASH = "Artikeln kunde inte uppdateras!"
+
   def setup
     @article = articles(:one)
     @user = users(:one)
@@ -23,7 +29,7 @@ class ArticlesControllerTest < ActionController::TestCase
     body = "Hel ny body bara för detta testet. Lorem ipsum thjena"
 
     patch :update, id: @article, article: { title: title, body: body }
-    assert_equal "Artikeln uppdaterades!", flash[:success]
+    assert_equal ARTICLE_UPDATED_FLASH, flash[:success]
     assert_redirected_to @article
 
     @article.reload
@@ -36,7 +42,7 @@ class ArticlesControllerTest < ActionController::TestCase
     body = "så kort"
 
     patch :update, id: @article, article: { title: title, body: body }
-    assert_equal "Artikeln kunde inte uppdateras!", flash.now[:danger]
+    assert_equal ARTICLE_UPDATE_FAIL_FLASH, flash.now[:danger]
     assert_template 'edit'
 
     @article.reload
@@ -50,7 +56,7 @@ class ArticlesControllerTest < ActionController::TestCase
                                body: "" }
     end
 
-    assert_equal "Artikel kunde inte sparas!", flash.now[:danger]
+    assert_equal ARTICLE_SAVE_FAILED_FLASH, flash.now[:danger]
     assert_template 'new'
   end
 
@@ -59,6 +65,6 @@ class ArticlesControllerTest < ActionController::TestCase
       delete :destroy, id: @article.id
     end
 
-    assert_equal "Artikeln togs bort!", flash[:success]
+    assert_equal ARTICLE_REMOVED_FLASH, flash[:success]
   end
 end

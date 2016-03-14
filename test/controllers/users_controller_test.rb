@@ -3,6 +3,8 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   include SessionsHelper
 
+  USER_WAS_REMOVED  = " är borttagen från systemet"
+
   # Testfixture
   def setup
     @user = users(:two)
@@ -88,7 +90,7 @@ class UsersControllerTest < ActionController::TestCase
       delete :destroy, id: @user.id
     end
 
-    assert_equal "Du gav personen sparken, bra jobbat!", flash[:success]
+    assert_equal @user.first_name + USER_WAS_REMOVED, flash[:success]
   end
 
   test "non admins should not be able to destroy users" do

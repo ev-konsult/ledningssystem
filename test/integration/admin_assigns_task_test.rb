@@ -4,6 +4,9 @@ class AdminAssignsTaskTest < ActionDispatch::IntegrationTest
   # Testing this sequence:
   # Admin logs in -> creates task with assigned users ->  changes assigned users
   # -> marks task as completed
+
+  TASK_CREATED = "Uppgiften skapades!"
+
   test "admin creates task, assigns users to it and marks it as complete" do
     # Admin logs in
     https!
@@ -27,7 +30,7 @@ class AdminAssignsTaskTest < ActionDispatch::IntegrationTest
                                         description: "Efter kontorsfesten är köket väldigt smutsigt. Praktikanterna måste städa bort alla ölburkar och skrubba väggarna." },
                                 user_ids: [users(:one).id, users(:two).id]
     assert_equal "/tasks/#{id}", path
-    assert_equal 'Uppgiften skapades!', flash[:success]
+    assert_equal TASK_CREATED, flash[:success]
 
     # Admin views the created article
     get "/tasks/#{id}"
@@ -37,12 +40,12 @@ class AdminAssignsTaskTest < ActionDispatch::IntegrationTest
     patch_via_redirect "/tasks/#{id}", task: { description: "Efter kontorsfesten är köket väldigt smutsigt. Praktikanterna måste städa bort alla ölburkar och skrubba väggarna." },
                                        user_ids: [users(:three).id]
 
-    assert_equal 'Uppgiften uppdaterades!', flash[:success]
+    assert_equal TASK_CREATED, flash[:success]
 
     # Admin marks it as complete
     patch_via_redirect "/tasks/#{id}", task: { status: :done },
                                        user_ids: [users(:three).id]
 
-    assert_equal 'Uppgiften uppdaterades!', flash[:success]
+    assert_equal TASK_CREATED, flash[:success]
   end
 end

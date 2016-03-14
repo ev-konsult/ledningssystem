@@ -51,7 +51,7 @@ class TasksController < ApplicationController
           @task.users << User.find(id)
         end
       end
-      flash[:success] =
+      flash[:success] = TASK_CREATED
       redirect_to @task
     else
       render 'new'

@@ -3,6 +3,12 @@ require 'test_helper'
 class AdminArticleTest < ActionDispatch::IntegrationTest
   # Testing a sequence of admin logging and and fiddling with an article
 
+  ARTICLE_SAVED_FLASH       = "Artikel sparades!"
+  ARTICLE_SAVE_FAILED_FLASH = "Artikel kunde inte sparas!"
+  ARTICLE_REMOVED_FLASH     = "Artikeln togs bort!"
+  ARTICLE_UPDATED_FLASH     = "Artikeln uppdaterades!"
+  ARTICLE_UPDATE_FAIL_FLASH = "Artikeln kunde inte uppdateras!"
+
   def setup
     @user = users(:one)
     @user.role = roles(:user)
@@ -24,7 +30,7 @@ class AdminArticleTest < ActionDispatch::IntegrationTest
 
     post_via_redirect "/articles", article: { id: 2, title: "Artikel skapad av admin", body: "Nån sorts artikel idk hej hej tjoho", user: @user }
     assert_equal "/articles", path
-    assert_equal 'Artikel sparades!', flash[:success]
+    assert_equal ARTICLE_SAVED_FLASH, flash[:success]
 
     # Admin views the created article
     get "/articles/2"
@@ -33,12 +39,12 @@ class AdminArticleTest < ActionDispatch::IntegrationTest
     # Admin edits the created article
     put_via_redirect "/articles/2", article: { title: "Titeln ändrades av admin", body: "Nån sorts artikel idk hej hej tjoho" }
     assert_equal '/articles/2', path
-    assert_equal 'Artikeln uppdaterades!', flash[:success]
+    assert_equal ARTICLE_UPDATED_FLASH, flash[:success]
 
     # Admin removes the article
     delete_via_redirect "/articles/2"
     assert_equal '/articles', path
-    assert_equal 'Artikeln togs bort!', flash[:success]
+    assert_equal ARTICLE_REMOVED_FLASH, flash[:success]
 
     # Admin logs out
     delete logout_path

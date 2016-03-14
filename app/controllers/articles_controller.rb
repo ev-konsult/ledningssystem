@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # Controller that handles everything about the articles.
   # Creates, updates, destroys & reads.
 
-  ARTICLE_SAVED_FLASH       = "Artikel sparades"
+  ARTICLE_SAVED_FLASH       = "Artikel sparades!"
   ARTICLE_SAVE_FAILED_FLASH = "Artikel kunde inte sparas!"
   ARTICLE_REMOVED_FLASH     = "Artikeln togs bort!"
   ARTICLE_UPDATED_FLASH     = "Artikeln uppdaterades!"
