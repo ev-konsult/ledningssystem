@@ -1,6 +1,17 @@
 class UsersController < ApplicationController
+  # Controller that handles everything about the users.
+  # Creates, updates, destroys & reads.
   before_action :check_privilege, only: [:new, :create, :destroy, :index]
   before_action :check_if_logged_in, only: [:show, :index, :create, :destroy, :new]
+
+  USER_NAME        = "Användarnamn"
+  FIRST_NAME       = "Förnamn"
+  LAST_NAME        = "Efternamn"
+  EMAIL            = "E-post"
+  REGISTERED       = "Registrerad"
+  RISING           = "Stigande"
+  USER_WAS_REMOVED  = " är borttagen från systemet"
+  USER_WAS_UPDATED = "Användaren uppdaterades"
 
   def new
     @user = User.new
@@ -27,21 +38,21 @@ class UsersController < ApplicationController
     @user.build_contact_person
 
     case params[:sort]
-    when "Användarnamn"
+    when USERNAME
       condition = :user_name
-    when "Förnamn"
+    when FIRST_NAME
       condition = :first_name
-    when "Efternamn"
+    when LAST_NAME
       condition = :last_name
-    when "E-post"
+    when EMAIL
       condition = :email
-    when "Registrerad"
+    when REGISTERED
       condition = :created_at
     end
 
 
 
-    if params[:sort_order] == "Stigande"
+    if params[:sort_order] == RISING
       sort_order = :asc
     else
       sort_order = :desc
@@ -54,7 +65,7 @@ class UsersController < ApplicationController
     else
       @users = User.order(condition => sort_order).paginate(:page => params[:page], :per_page => paging_size)
     end
-
+    # Responds to js because of ajax.
     respond_to do |format|
       format.js # index.js.erb
       format.html # intex.html.erb
@@ -64,7 +75,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:success] = "Du gav personen sparken, bra jobbat!"
+    flash[:success] = @user.first_name + USER_WAS_REMOVED
     redirect_to users_path
   end
 
@@ -89,7 +100,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      flash[:success] = "Användaren uppdaterades"
+      flash[:success] = USER_WAS_UPDATED
       redirect_to @user
     else
       render 'edit'
@@ -110,6 +121,7 @@ class UsersController < ApplicationController
   end
 
   private
+  # Strong parameters that whitelists params that is used in this controller.
 
   def user_params
     params.require(:user).permit(:user_name, :first_name, :last_name, :password, :password_confirmation, :phone_number, :ssn, :email, :role_id,
