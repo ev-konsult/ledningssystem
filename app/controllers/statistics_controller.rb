@@ -2,51 +2,55 @@ class StatisticsController < ApplicationController
   before_action :check_if_logged_in, only: [:index, :show]
 
   # Prepares view data for the statistics in views/statistics/index.html.erb
-  # The symbols from the Task and Priority enums are replaced with swedish
-  # translations
+  # The symbols from the Task and Priority enums are replaced with swedish translations
+
+  NOT_STARTED = "Ej påbörjad"
+  STARTED     = "Påbörjad"
+  DONE        = "Klar"
+  CANCELLED   = "Avbryten"
+  LOW         = "Låg"
+  MEDIUM      = "Medel"
+  HIGH        = "Hög"
+  CRITICAL    = "Kritisk"
   def index
     @tasks = {
-      "Ej påbörjad".to_sym => 0,
-      "Påbörjad".to_sym => 0,
-      "Klar".to_sym => 0,
-      "Avbruten".to_sym => 0
+      NOT_STARTED.to_sym => 0,
+      STARTED.to_sym => 0,
+      DONE.to_sym => 0,
+      CANCELLED.to_sym => 0
     }
 
     @priority = {
-      "Låg".to_sym => 0,
-      "Medel".to_sym => 0,
-      "Hög".to_sym => 0,
-      "Kritisk".to_sym => 0
+      LOW.to_sym => 0,
+      MEDIUM.to_sym => 0,
+      HIGH.to_sym => 0,
+      CRITICAL.to_sym => 0
     }
 
     Task.all.each do |task|
       case task.status.to_sym
       when :not_started
-        @tasks["Ej påbörjad".to_sym] += 1
+        @tasks[NOT_STARTED.to_sym] += 1
       when :done
-        @tasks["Klar".to_sym] += 1
+        @tasks[DONE.to_sym] += 1
       when :in_progress
-        @tasks["Påbörjad".to_sym] += 1
+        @tasks[STARTED.to_sym] += 1
       when :cancelled
-        @tasks["Avbruten".to_sym] += 1
+        @tasks[CANCELLED.to_sym] += 1
       end
     end
 
     Task.all.each do |task|
       case task.priority.to_sym
       when :low
-        @priority["Låg".to_sym] += 1
+        @priority[LOW.to_sym] += 1
       when :medium
-        @priority["Medel".to_sym] += 1
+        @priority[MEDIUM.to_sym] += 1
       when :high
-        @priority["Hög".to_sym] += 1
+        @priority[HIGH.to_sym] += 1
       when :critical
-        @priority["Kritisk".to_sym] += 1
+        @priority[CRITICAL.to_sym] += 1
       end
     end
-  end
-
-
-  def show
   end
 end

@@ -1,6 +1,12 @@
 class TasksController < ApplicationController
+  # Controller that handles everything about the tasks.
+  # Creates, updates, destroys & reads.
   before_action :check_if_logged_in, only: [:create, :destroy, :update, :edit, :new]
   before_action :check_privilege, only: [:new, :create, :destroy]
+
+  STATUS       = "Status"
+  RISING       = "Stigande"
+  TASK_CREATED = "Uppgiften skapades!"
 
   def new
     @task = Task.new
@@ -10,13 +16,13 @@ class TasksController < ApplicationController
     condition = :priority if params[:sort].nil?
     sort_order = :asc if params[:sort_order].nil?
 
-    if params[:sort] == "Status"
+    if params[:sort] == STATUS
       condition = :status
     else
       condition = :status
     end
 
-    if params[:sort_order] == "Stigande"
+    if params[:sort_order] == RISING
       sort_order = :asc
     else
       sort_order = :desc
@@ -45,7 +51,7 @@ class TasksController < ApplicationController
           @task.users << User.find(id)
         end
       end
-      flash[:success] = "Uppgiften skapades!"
+      flash[:success] =
       redirect_to @task
     else
       render 'new'
@@ -72,7 +78,7 @@ class TasksController < ApplicationController
         end
       end
 
-      flash[:success] = "Uppgiften uppdaterades!"
+      flash[:success] = TASK_CREATED
       redirect_to tasks_path
     elsif @task.update_attributes params[:status]
       @task.status = params[:status]
@@ -88,7 +94,7 @@ class TasksController < ApplicationController
   end
 
   private
-
+    # Strong parameters that whitelists params that is used in this controller.
     def task_params
       params.require(:task).permit(:start, :end, :priority, :status, :title, :description)
     end

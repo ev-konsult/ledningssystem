@@ -1,4 +1,5 @@
 class Document < ActiveRecord::Base
+  # Not in use at the moment.
   has_attached_file :file,
           content_type: { content_type: %w(application/pdf application/msword)}
   validates_attachment_content_type :file, content_type: ["application/pdf application/msword"]
