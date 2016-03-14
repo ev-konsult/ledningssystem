@@ -3,9 +3,9 @@ require 'test_helper'
 class EducationsControllerTest < ActionController::TestCase
   def setup
     @user = users(:two)
-    @valid_education = { name: "Webbprogrammerare",
-                         school: "Linnéuniversitetet",
-                         graduation: DateTime.new(2017, 4, 5) }
+    @valid_education =   { name: "Webbprogrammerare",
+                           school: "Linnéuniversitetet",
+                           graduation: DateTime.new(2017, 4, 5) }
 
     @invalid_education = { name: "",
                            school: "",
