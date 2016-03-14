@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user.build_contact_person
 
     case params[:sort]
-    when USERNAME
+    when USER_NAME
       condition = :user_name
     when FIRST_NAME
       condition = :first_name
