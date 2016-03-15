@@ -18,10 +18,10 @@
   <% task.users.include?(current_user) %>
   	<li data-toggle="tooltip" class="panel panel-primary panel-task <%= task.status %>">
   		<section class="task-header">
-  			<span><%= link_to task.title, task %></span>
-	  		<span data-toggle="collapse" href="#test" id="toggle">
-	        	<span id="caret" class="glyphicon glyphicon-chevron-down"></span>
-	        </span>
+        <span data-toggle="collapse" href="#test" id="toggle">
+          <span><%= link_to task.title, task %></span>
+          <span id="caret" class="glyphicon glyphicon-menu-down"></span>
+        </span>
   		</section>
   		<section class="task-info">
   			<span class="priority"><div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div> <span class="value-text">Prioritet:</span> <span class="info-text"><%= I18n.t :"task.priority.#{task.priority}" %></span></span>
@@ -46,7 +46,7 @@
 			<li class="task-action">
         <% case task.status
         when :not_started.to_s%>
-          <%= link_to "Påbörjad", task_path(task, "task[status]" => :in_progress), method: :put %>
+          <%= link_to "Påbörja", task_path(task, "task[status]" => :in_progress), method: :put %>
           <%= link_to "Avbryt", task_path(task, "task[status]" => :cancelled), method: :put %>
         <% when :in_progress.to_s %>
             <%= link_to "Klar", task_path(task, "task[status]" => :done), method: :put %>
