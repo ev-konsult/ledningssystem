@@ -21,8 +21,11 @@
         <%= text_field_tag :search, params[:search], :value => params[:search], maxlength: 100, class: "form-control", id: "user-search-field", placeholder: "Sök användare" %>
         <!-- Empty paragrah is filled with the search query via JavaScript -->
         <p id="search-query-placeholder"></p>
+        <%= link_to users_path, class: "btn btn-primary" do %>
+            <span class="wide">Rensa sökning</span>
+            <span class="responsive">Rensa</span>
+        <% end %>
         <button type="submit" class="btn btn-primary" id="user-search-index">Sök</button>
-        <%= link_to "Rensa sökning", users_path, class: "btn btn-primary" %>
       <% end %>
     </div>
   </section>

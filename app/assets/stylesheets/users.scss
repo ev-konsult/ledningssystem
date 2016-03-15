@@ -67,6 +67,12 @@
                   }
                   a {
                       margin-right: 0px;
+                      .responsive {
+                        display: none;
+                      }
+                      .wide {
+                        display: block;
+                      }
                   }
                   input {
                       float: left;
@@ -291,23 +297,30 @@
                 }
                 #tool-search {
                     display: table-row;
-                    padding: 12px 0px 12px 18px !important;
+                    padding: 12px 18px 12px 18px !important;
                     margin: 0px auto !important;
                     width: 100%;
                     p {
                         display: none;
                     }
                     form {
+
                       button, a {
+                          float: right;
                           margin-left: 5px;
-                          
                       }
                       a {
                           margin-right: 0px;
+                          .responsive {
+                            display: block;
+                          }
+                          .wide {
+                            display: none;
+                          }
                       }
                       input {
-                          
-                          max-width: 150px !important;
+                          font-size: 12px !important;
+                          max-width: 140px !important;
                           padding: 0px 0px 0px 10px !important;
                           margin: 0px 0px 0px 0px !important;
                           background-color: $lightest-gray;
@@ -341,17 +354,20 @@
                       display: block;
                       width: 100%;
                         form {
+                            select {
+                              font-size: 12px !important;
+                            }
                             #sort {
-                              max-width: 160px;
+                              max-width: 110px !important;
                               width: auto !important;
-                              min-width: 140px !important;
+                              min-width: 110px !important;
                               margin-right: 10px;
                             }
                             #sort_order {
                               width: auto !important;
                             }
                             input {
-                              float: left;
+                              float: right;
                             }
                         }
                     }
