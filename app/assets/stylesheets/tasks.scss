@@ -28,13 +28,12 @@
 	margin: 0px auto !important;
 	display: table;
 	width: 100%;
-	padding: 18px;
 	border: 1px solid $lighter-gray;
 	border-bottom: 0px;
 
 	#list-sort {
 	    display: table-cell;
-        //padding: 7px 18px 7px 7px;
+        padding: 7px 18px 7px 7px;
         float: right;
 	    p {
 		  display: block;
@@ -63,24 +62,34 @@
 		}
 	}
 	@media (max-width: 768px) {
-		float: none;
+		width: 100%;
 		margin: 0px !important;
+		#list-sort {
+			float: left;
+			width: 100%;
+			padding: 12px 9px 12px 9px;
+		}
+		
 		form {
 			float: left;
 			width: 100%;
 			select {
+				font-size: 12px !important;
 				float: none;
 				&#sort {
 					float: left;
-			        min-width: 120px !important;
-			        width: auto;
-			        max-width: 150px !important;
+			        max-width: 110px !important;
+	                  width: auto !important;
+	                  min-width: 110px !important;
 			        margin-right: 10px;
 			      }
 			      &#sort_order {
 			      	float: left;
-			        width: 100px;
+			        width: auto !important;
 			      }
+			}
+			input {
+				float: right;
 			}
 		}
 
@@ -98,7 +107,7 @@
 		display: block;
 		section {
 			padding: 10px;
-			
+
 			&.task-header {
 				padding-left: 25px;
 				padding-right: 25px;
@@ -216,6 +225,30 @@
 		width: auto !important;
 		.value-text {
 			display: none;
+		}
+		li {
+			section {
+				
+
+				&.task-header {
+					width: 100%;
+					padding: 18px;
+					vertical-align: top;
+					#toggle {
+						display: block;
+						a {
+							width: 80%;
+							display: inline-block;
+							vertical-align: top;
+						}
+						#caret {
+							float: right;
+							display: inline-block;
+							vertical-align: top;
+						}
+					}
+				}
+			}
 		}
     }
 }
