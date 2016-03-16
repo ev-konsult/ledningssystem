@@ -14,6 +14,12 @@ class ArticlesControllerTest < ActionController::TestCase
     session[:user_id] = @user.id
   end
 
+  test "index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:articles)
+  end
+
   test "make sure valid article is saved" do
     assert_difference("Article.count", 1) do
       post :create, article: { title: @article.title,

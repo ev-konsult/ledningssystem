@@ -32,7 +32,7 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     # Tests the redirect
-    assert_redirected_to user_path(User.find(4))
+    assert_redirected_to user_path(User.find_by_user_name("foobar"))
   end
 
   # Verifying that the different roles have the correct authentications

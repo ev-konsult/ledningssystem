@@ -19,7 +19,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-
   /**
   * Gives task list dynamic href and ip
   */

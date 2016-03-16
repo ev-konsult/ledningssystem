@@ -13,6 +13,8 @@ class UserTest < ActiveSupport::TestCase
     @user.create_contact_person(full_name: "MyName", email: "email@gmail.com", phone_number: "0721111111")
   end
 
+  RISING = "Stigande"
+
   # Test av namn requirement
   test "usernamerequired" do
     @user.user_name = ""
@@ -159,6 +161,25 @@ class UserTest < ActiveSupport::TestCase
     # Det finns inga användare med "Nope" i namnet. Ska returnera tom AR-relation
     user_search_result = User.search("Nope")
     assert user_search_result.empty?
+  end
+
+  # Testing the "sort" scope in the user model
+  test "sorting users" do
+    # Descending order (default)
+    user_sorted_result = User.sort(:user_name)
+    assert user_sorted_result.each_cons(2).all?{ |firstUser, secondUser| firstUser.user_name >= secondUser.user_name }
+
+    user_sorted_result = User.sort(:first_name)
+    assert user_sorted_result.each_cons(2).all?{ |firstUser, secondUser| firstUser.first_name >= secondUser.first_name }
+
+    user_sorted_result = User.sort(:last_name)
+    assert user_sorted_result.each_cons(2).all?{ |firstUser, secondUser| firstUser.last_name >= secondUser.last_name }
+
+    user_sorted_result = User.sort(:email)
+    assert user_sorted_result.each_cons(2).all?{ |firstUser, secondUser| firstUser.email >= secondUser.email }
+
+    user_sorted_result = User.sort(:created_at)
+    assert user_sorted_result.each_cons(2).all?{ |firstUser, secondUser| firstUser.created_at >= secondUser.created_at }
   end
 
   test "user role methods" do
