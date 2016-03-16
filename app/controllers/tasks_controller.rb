@@ -63,18 +63,20 @@ class TasksController < ApplicationController
     @user_ids = params[:user_ids]
 
     if @task.update_attributes(task_params)
-      # Remove already assigned users
-      @task.users.each do |user|
-        @task.users.delete(user)
-      end
+      unless params[:partial]
+        # Remove already assigned users
+        @task.users.each do |user|
+          @task.users.delete(user)
+        end
 
-      # Reassign users
-      unless @user_ids.nil?
-        @user_ids.each do |id|
-          next if id.blank?
-          user = User.find(id)
+        # Reassign users
+        unless @user_ids.nil?
+          @user_ids.each do |id|
+            next if id.blank?
+            user = User.find(id)
 
-          @task.users << user
+            @task.users << user
+          end
         end
       end
 

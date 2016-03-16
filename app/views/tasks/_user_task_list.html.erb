@@ -14,8 +14,8 @@
   </div>
 <div id="user-task-list">
   <ul class="user-task-list">
-  <% @tasks.each do |task| %>
-  <% task.users.include?(current_user) %>
+  <% current_user.tasks.each do |task| %>
+
   	<li data-toggle="tooltip" class="panel panel-primary panel-task <%= task.status %>">
   		<section class="task-header">
         <span data-toggle="collapse" href="#test" id="toggle">
@@ -46,7 +46,7 @@
 			<li class="task-action">
         <% case task.status
         when :not_started.to_s%>
-          <%= link_to "Påbörja", task_path(task, "task[status]" => :in_progress), method: :put %>
+          <%= link_to "Påbörja", task_path(task, "task[status]" => :in_progress, partial: true), method: :put %>
           <%= link_to "Avbryt", task_path(task, "task[status]" => :cancelled), method: :put %>
         <% when :in_progress.to_s %>
             <%= link_to "Klar", task_path(task, "task[status]" => :done), method: :put %>
