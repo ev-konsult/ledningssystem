@@ -14,8 +14,8 @@
   </div>
 <div id="user-task-list">
   <ul class="user-task-list">
-  <% @tasks.each do |task| %>
-  <% task.users.include?(current_user) %>
+  <% current_user.tasks.each do |task| %>
+
   	<li data-toggle="tooltip" class="panel panel-primary panel-task <%= task.status %>">
   		<section class="task-header">
         <span data-toggle="collapse" href="#test" id="toggle">
