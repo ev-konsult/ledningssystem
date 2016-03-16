@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_action :check_privilege, only: [:new, :create, :destroy]
 
   STATUS       = "Status"
-  RISING       = "Stigande"
+  FALLING      = "Fallande"
   TASK_CREATED = "Uppgiften skapades!"
 
   def new
@@ -13,19 +13,19 @@ class TasksController < ApplicationController
   end
 
   def index
-    condition = :priority if params[:sort].nil?
-    sort_order = :asc if params[:sort_order].nil?
+    # condition = :priority if params[:sort].nil?
+    # sort_order = :asc if params[:sort_order].nil?
 
-    if params[:sort] == STATUS
+    if params[:sort] == STATUS || params[:sort].nil?
       condition = :status
     else
-      condition = :status
+      condition = :priority
     end
 
-    if params[:sort_order] == RISING
-      sort_order = :asc
-    else
+    if params[:sort_order] == FALLING || params[:sort_order].nil?
       sort_order = :desc
+    else
+      sort_order = :asc
     end
 
     @tasks = Task.order(condition => sort_order).paginate(:page => params[:page], :per_page => 10)

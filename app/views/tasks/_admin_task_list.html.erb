@@ -1,4 +1,15 @@
 <section id="admin-task-header"><p>Uppgifter</p></section>
+<div class="user-task-sort">
+    <div id="list-sort">
+      <%= form_tag(params, method: :get) do %>
+          <p>Välj sortering</p>
+          <%= select_tag(:sort, options_for_select(['Status', 'Prioritet'], params[:sort])) %>
+          <%= select_tag(:sort_order, options_for_select(['Fallande', 'Stigande'], params[:sort_order])) %>
+
+          <%= submit_tag "Sortera", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
 <section id="admin-task-content">
 	<ul class="admin-task-list">
 		<li class="panel panel-primary panel-task list-head">
@@ -14,7 +25,7 @@
 	  		<span class="status"><section class="wide"><%= I18n.t :"task.status.#{task.status}" %></section></span>
 	  		<span class="title"><%= link_to task.title, task %></span>
 			<span class="priority"><div data-toggle="tooltip" title="Priority!" class='priority-box <%= task.priority %>'></div> <section><%= I18n.t :"task.priority.#{task.priority}" %></section></span>
-			
+
 			<span class="time">
 				<section class="value-text">Start:</section> <section class="info-text"><%= task.start.strftime("%d-%m-%Y")  %></section> </br>
 				<section class="value-text">Slut:</section><section class="info-text"><%= task.end.strftime("%d-%m-%Y") %></section>
