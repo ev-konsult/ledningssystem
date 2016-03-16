@@ -46,7 +46,7 @@
 			<li class="task-action">
         <% case task.status
         when :not_started.to_s%>
-          <%= link_to "Påbörja", task_path(task, "task[status]" => :in_progress), method: :put %>
+          <%= link_to "Påbörja", task_path(task, "task[status]" => :in_progress, partial: true), method: :put %>
           <%= link_to "Avbryt", task_path(task, "task[status]" => :cancelled), method: :put %>
         <% when :in_progress.to_s %>
             <%= link_to "Klar", task_path(task, "task[status]" => :done), method: :put %>
