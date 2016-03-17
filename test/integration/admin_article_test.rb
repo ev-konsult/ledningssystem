@@ -13,6 +13,7 @@ class AdminArticleTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @user.role = roles(:user)
   end
+  
   test "admin logs in adds article edits it and deletes it" do
     # Admin logs in
     https!
