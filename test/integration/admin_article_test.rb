@@ -1,5 +1,3 @@
-require 'test_helper'
-
 class AdminArticleTest < ActionDispatch::IntegrationTest
   # Testing a sequence of admin logging and and fiddling with an article
 
@@ -13,7 +11,7 @@ class AdminArticleTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @user.role = roles(:user)
   end
-  
+
   test "admin logs in adds article edits it and deletes it" do
     # Admin logs in
     https!

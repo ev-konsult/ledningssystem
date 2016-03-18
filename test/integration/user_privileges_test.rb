@@ -15,7 +15,6 @@ class UserPrivilegesTest < ActionDispatch::IntegrationTest
                                   user_ids: [users(:one).id, users(:two)] }
   end
 
-  # Helper method, logs in user as @param Role
   def login_as_role(role)
     @user.role = role
     post_via_redirect "/login", session: { user_name: @user.user_name,
