@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   STATUS       = "Status"
   FALLING      = "Fallande"
   TASK_CREATED = "Uppgiften skapades!"
+  TASK_EDITED = "Uppgiften sparades!"
 
   def new
     @task = Task.new
@@ -80,7 +81,7 @@ class TasksController < ApplicationController
         end
       end
 
-      flash[:success] = TASK_CREATED
+      flash[:success] = TASK_EDITED
       redirect_to tasks_path
     elsif @task.update_attributes params[:status]
       @task.status = params[:status]

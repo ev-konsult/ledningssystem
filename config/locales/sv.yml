@@ -31,6 +31,10 @@ sv:
         full_name: Namn
         ssn: Personnummer
         phone_number: Telefonnummer
+      education:
+        name: Utbildning
+        school: Skola
+        graduation: Examensdatum  
       contact_person:
         full_name: Namn
         phone_number: Telefonnummer

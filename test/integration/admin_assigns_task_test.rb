@@ -6,6 +6,7 @@ class AdminAssignsTaskTest < ActionDispatch::IntegrationTest
   # -> marks task as completed
 
   TASK_CREATED = "Uppgiften skapades!"
+  TASK_EDITED = "Uppgiften sparades!"
 
   test "admin creates task, assigns users to it and marks it as complete" do
     # Admin logs in
@@ -40,12 +41,12 @@ class AdminAssignsTaskTest < ActionDispatch::IntegrationTest
     patch_via_redirect "/tasks/#{id}", task: { description: "Efter kontorsfesten är köket väldigt smutsigt. Praktikanterna måste städa bort alla ölburkar och skrubba väggarna." },
                                        user_ids: [users(:three).id]
 
-    assert_equal TASK_CREATED, flash[:success]
+    assert_equal TASK_EDITED, flash[:success]
 
     # Admin marks it as complete
     patch_via_redirect "/tasks/#{id}", task: { status: :done },
                                        user_ids: [users(:three).id]
 
-    assert_equal TASK_CREATED, flash[:success]
+    assert_equal TASK_EDITED, flash[:success]
   end
 end

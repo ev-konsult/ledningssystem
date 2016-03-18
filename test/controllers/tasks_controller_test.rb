@@ -5,6 +5,7 @@ class TasksControllerTest < ActionController::TestCase
   STATUS       = "Status"
   RISING       = "Stigande"
   TASK_CREATED = "Uppgiften skapades!"
+  TASK_EDITED = "Uppgiften sparades!"
 
   def setup
     @task = tasks(:one)
@@ -48,7 +49,7 @@ class TasksControllerTest < ActionController::TestCase
                                       start: DateTime.new(2017, 4, 5),
                                       end: DateTime.new(2017, 5, 6) },
                               user_ids: [users(:one).id, users(:two)]
-    assert_equal TASK_CREATED, flash[:success]
+    assert_equal TASK_EDITED, flash[:success]
     assert_redirected_to tasks_path
 
     @task.reload
