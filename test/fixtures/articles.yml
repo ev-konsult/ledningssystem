@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: Gratis fikabröd i kafferummet imorgon!
+  title: Gratis fikabröd i tjena hejhopp kafferummet imorgon!
   body: Imorgon bjuder jag, Ellen Nu, på fikabröd eftersom min idiot till chef gav mig sparken.
   user_id: 2
   id: 1
 
 two:
-  title: Titta på min fina katt!
-  body: Hejsan hoppsan hallojsan kolla kolla
+  title: Titta på min fina tjena katt!
+  body: Hejsan hoppsan hallojsan kolla hejhopp kolla
   user_id: 1
   id: 2

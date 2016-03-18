@@ -19,6 +19,46 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:articles)
   end
+  # Test different search combinations to test combinations of
+  # searching in title and body of article
+  test "search index" do
+    # Searching for word present in both articles body
+    get :index, search: "tjena"
+    assert_response :success
+    assert_not_nil assigns(:articles)
+    assert assigns(:articles).count == 2
+
+    # Searching for word present in one articles title and other articles body
+    get :index, search: "hejhopp"
+    assert_response :success
+    assert_not_nil assigns(:articles)
+    assert assigns(:articles).count == 2
+
+    # Searching for word present in first articles title but not at all in
+    # second article
+    get :index, search: "kafferummet"
+    assert_response :success
+    assert_not_nil assigns(:articles)
+    assert assigns(:articles).count == 1
+    assert assigns(:articles).include? articles(:one)
+    assert_not assigns(:articles).include? articles(:two)
+
+    # Searching for word present in second articles body bot not at all in
+    # first article
+    get :index, search: "hallojsan"
+    assert_response :success
+    assert_not_nil assigns(:articles)
+    assert assigns(:articles).count == 1
+    assert assigns(:articles).include? articles(:two)
+    assert_not assigns(:articles).include? articles(:one)
+
+    # Searching for word that is not present in title or body in any fixture
+    # article
+    get :index, search: "igelkott"
+    assert_response :success
+    assert_not_nil assigns(:articles)
+    assert assigns(:articles).empty?
+  end
 
   test "make sure valid article is saved" do
     assert_difference("Article.count", 1) do
