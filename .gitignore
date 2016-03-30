@@ -19,7 +19,5 @@
 .idea/
 
 # Ignore Gemfile.lock since Travis does not like the windows-generated one. Let it build its own.
-Gemfile.lock
-
-
-
+# Heroku needs Gemfile.lock but travis dont
+# Gemfile.lock
