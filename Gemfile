@@ -61,10 +61,10 @@ group :development, :test do
   gem 'byebug'
 end
 
-# group :production do
-  # gem 'pg',             '0.17.1'
-  # gem 'puma',           '2.11.1'
-# end
+group :production do
+  gem 'pg',             '0.17.1'
+  gem 'puma',           '2.11.1'
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
